@@ -14,5 +14,4 @@ public interface DeviceEventProcessor {
      */
     void doDeviceEvent(JSONObject params);
 
-    String getUser();
 }

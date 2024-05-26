@@ -6,9 +6,5 @@ public abstract class DeviceEventAbstractProcessor implements DeviceEventProcess
 
     public abstract String getProcessorType();
 
-    @Override
-    public String getUser() {
-        return "abc";
-    }
 
 }

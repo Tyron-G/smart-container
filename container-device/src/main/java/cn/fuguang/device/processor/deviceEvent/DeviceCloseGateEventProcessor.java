@@ -16,8 +16,4 @@ public class DeviceCloseGateEventProcessor extends DeviceEventAbstractProcessor 
 
     }
 
-    @Override
-    public String getUser() {
-        return "bcd";
-    }
 }
