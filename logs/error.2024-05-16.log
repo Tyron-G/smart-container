@@ -1,0 +1,149 @@
+22:27:54.158 [32m[main][0;39m ERROR [34mo.s.b.d.LoggingFailureAnalysisReporter[0;39m - [report,40] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+A component required a bean of type 'cn.fuguang.api.channel.AliPayFeignService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'cn.fuguang.api.channel.AliPayFeignService' in your configuration.
+
+22:29:33.002 [32m[main][0;39m ERROR [34mo.s.b.d.LoggingFailureAnalysisReporter[0;39m - [report,40] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+A component required a bean of type 'cn.fuguang.api.channel.AliPayFeignService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'cn.fuguang.api.channel.AliPayFeignService' in your configuration.
+
+22:32:21.460 [32m[main][0;39m ERROR [34mo.s.b.d.LoggingFailureAnalysisReporter[0;39m - [report,40] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+A component required a bean of type 'cn.fuguang.api.channel.AliPayFeignService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'cn.fuguang.api.channel.AliPayFeignService' in your configuration.
+
+22:37:25.441 [32m[main][0;39m ERROR [34mo.s.b.d.LoggingFailureAnalysisReporter[0;39m - [report,40] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The bean 'container-channel.FeignClientSpecification' could not be registered. A bean with that name has already been defined and overriding is disabled.
+
+Action:
+
+Consider renaming one of the beans or enabling overriding by setting spring.main.allow-bean-definition-overriding=true
+
+22:39:39.460 [32m[main][0;39m ERROR [34mo.s.b.SpringApplication[0;39m - [reportFailure,821] - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'orderBizImpl': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'cn.fuguang.api.channel.AliPayFeignService': Unexpected exception during bean creation; nested exception is java.lang.IllegalStateException: Method AliPayFeignService#agreementSign(AgreementSignReqDTO) not annotated with HTTP method type (ex. GET, POST)
+Warnings:
+- 
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:332)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292)
+	at cn.fuguang.order.ContainerOrderApplication.main(ContainerOrderApplication.java:16)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'cn.fuguang.api.channel.AliPayFeignService': Unexpected exception during bean creation; nested exception is java.lang.IllegalStateException: Method AliPayFeignService#agreementSign(AgreementSignReqDTO) not annotated with HTTP method type (ex. GET, POST)
+Warnings:
+- 
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.autowireResource(CommonAnnotationBeanPostProcessor.java:544)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.getResource(CommonAnnotationBeanPostProcessor.java:520)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor$ResourceElement.getResourceToInject(CommonAnnotationBeanPostProcessor.java:673)
+	at org.springframework.beans.factory.annotation.InjectionMetadata$InjectedElement.inject(InjectionMetadata.java:228)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:329)
+	... 17 common frames omitted
+Caused by: java.lang.IllegalStateException: Method AliPayFeignService#agreementSign(AgreementSignReqDTO) not annotated with HTTP method type (ex. GET, POST)
+Warnings:
+- 
+	at feign.Util.checkState(Util.java:136)
+	at feign.Contract$BaseContract.parseAndValidateMetadata(Contract.java:115)
+	at org.springframework.cloud.openfeign.support.SpringMvcContract.parseAndValidateMetadata(SpringMvcContract.java:193)
+	at feign.Contract$BaseContract.parseAndValidateMetadata(Contract.java:65)
+	at feign.ReflectiveFeign$ParseHandlersByName.apply(ReflectiveFeign.java:151)
+	at feign.ReflectiveFeign.newInstance(ReflectiveFeign.java:49)
+	at feign.Feign$Builder.target(Feign.java:205)
+	at org.springframework.cloud.openfeign.DefaultTargeter.target(DefaultTargeter.java:30)
+	at org.springframework.cloud.openfeign.FeignClientFactoryBean.loadBalance(FeignClientFactoryBean.java:379)
+	at org.springframework.cloud.openfeign.FeignClientFactoryBean.getTarget(FeignClientFactoryBean.java:427)
+	at org.springframework.cloud.openfeign.FeignClientFactoryBean.getObject(FeignClientFactoryBean.java:402)
+	at org.springframework.cloud.openfeign.FeignClientsRegistrar.lambda$registerFeignClient$0(FeignClientsRegistrar.java:235)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.obtainFromSupplier(AbstractAutowireCapableBeanFactory.java:1249)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1191)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	... 30 common frames omitted
+22:43:22.360 [32m[main][0;39m ERROR [34mo.s.b.d.LoggingFailureAnalysisReporter[0;39m - [report,40] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+A component required a bean of type 'org.apache.rocketmq.spring.core.RocketMQTemplate' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.apache.rocketmq.spring.core.RocketMQTemplate' in your configuration.
+
+22:45:48.248 [32m[main][0;39m ERROR [34mo.s.b.d.LoggingFailureAnalysisReporter[0;39m - [report,40] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+A component required a bean of type 'org.apache.rocketmq.spring.core.RocketMQTemplate' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.apache.rocketmq.spring.core.RocketMQTemplate' in your configuration.
+

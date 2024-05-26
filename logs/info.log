@@ -1,0 +1,400 @@
+23:25:10.792 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [lambda$createClient$0,80] - [RpcClientFactory] create a new rpc client of e1673a27-0b18-4ba3-a636-da82fd16cb09_config-0
+23:25:10.848 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 34 ms to scan 1 urls, producing 3 keys and 6 values 
+23:25:10.881 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 16 ms to scan 1 urls, producing 4 keys and 9 values 
+23:25:10.900 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 15 ms to scan 1 urls, producing 3 keys and 10 values 
+23:25:11.084 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 178 ms to scan 198 urls, producing 0 keys and 0 values 
+23:25:11.097 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 10 ms to scan 1 urls, producing 1 keys and 5 values 
+23:25:11.110 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 10 ms to scan 1 urls, producing 1 keys and 7 values 
+23:25:11.126 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 12 ms to scan 1 urls, producing 2 keys and 8 values 
+23:25:11.223 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 94 ms to scan 198 urls, producing 0 keys and 0 values 
+23:25:11.228 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [e1673a27-0b18-4ba3-a636-da82fd16cb09_config-0] RpcClient init label, labels = {module=config, Vipserver-Tag=null, source=sdk, Amory-Tag=null, Location-Tag=null, taskId=0, AppName=unknown}
+23:25:11.230 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [e1673a27-0b18-4ba3-a636-da82fd16cb09_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$325/1910492961
+23:25:11.231 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [e1673a27-0b18-4ba3-a636-da82fd16cb09_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$326/194402391
+23:25:11.232 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [e1673a27-0b18-4ba3-a636-da82fd16cb09_config-0] Registry connection listener to current client:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$1
+23:25:11.235 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [e1673a27-0b18-4ba3-a636-da82fd16cb09_config-0] RpcClient init, ServerListFactory = com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$2
+23:25:11.252 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [e1673a27-0b18-4ba3-a636-da82fd16cb09_config-0] Try to connect to server on start up, server: {serverIp = '123.249.79.51', server main port = 8848}
+23:25:12.111 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [e1673a27-0b18-4ba3-a636-da82fd16cb09_config-0] Success to connect to server [123.249.79.51:8848] on start up, connectionId = 1715959511955_111.194.79.77_7150
+23:25:12.114 [32m[com.alibaba.nacos.client.remote.worker][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [e1673a27-0b18-4ba3-a636-da82fd16cb09_config-0] Notify connected event to listeners.
+23:25:12.114 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [e1673a27-0b18-4ba3-a636-da82fd16cb09_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+23:25:12.116 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [e1673a27-0b18-4ba3-a636-da82fd16cb09_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$334/1794489296
+23:25:12.223 [32m[main][0;39m INFO  [34mo.s.c.b.c.PropertySourceBootstrapConfiguration[0;39m - [initialize,109] - Located property source: [BootstrapPropertySource {name='bootstrapProperties-container-order-dev.yaml,CONTAINER_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-container-order.yaml,CONTAINER_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-container-order,CONTAINER_GROUP'}]
+23:25:12.265 [32m[main][0;39m INFO  [34mc.f.o.ContainerOrderApplication[0;39m - [logStartupProfileInfo,637] - The following 1 profile is active: "dev"
+23:25:13.689 [32m[main][0;39m INFO  [34mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m - [multipleStoresDetected,262] - Multiple Spring Data modules found, entering strict repository configuration mode
+23:25:13.691 [32m[main][0;39m INFO  [34mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m - [registerRepositoriesIn,132] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+23:25:13.718 [32m[main][0;39m INFO  [34mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m - [registerRepositoriesIn,201] - Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
+23:25:14.037 [32m[main][0;39m INFO  [34mo.s.c.c.s.GenericScope[0;39m - [setSerializationId,283] - BeanFactory id=ac835398-5751-3669-9c6b-6ca53cd23185
+23:25:14.219 [32m[main][0;39m INFO  [34mo.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker[0;39m - [postProcessAfterInitialization,376] - Bean 'cn.fuguang.common.redis.configure.RedisConfig' of type [cn.fuguang.common.redis.configure.RedisConfig$$EnhancerBySpringCGLIB$$1d8f5548] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+23:25:14.650 [32m[main][0;39m INFO  [34mo.s.b.w.e.t.TomcatWebServer[0;39m - [initialize,108] - Tomcat initialized with port(s): 9960 (http)
+23:25:14.664 [32m[main][0;39m INFO  [34mo.a.c.h.Http11NioProtocol[0;39m - [log,173] - Initializing ProtocolHandler ["http-nio-9960"]
+23:25:14.664 [32m[main][0;39m INFO  [34mo.a.c.c.StandardService[0;39m - [log,173] - Starting service [Tomcat]
+23:25:14.665 [32m[main][0;39m INFO  [34mo.a.c.c.StandardEngine[0;39m - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.70]
+23:25:15.059 [32m[main][0;39m INFO  [34mo.a.c.c.C.[.[.[/order][0;39m - [log,173] - Initializing Spring embedded WebApplicationContext
+23:25:15.061 [32m[main][0;39m INFO  [34mo.s.b.w.s.c.ServletWebServerApplicationContext[0;39m - [prepareWebApplicationContext,292] - Root WebApplicationContext: initialization completed in 2768 ms
+23:25:15.227 [32m[main][0;39m INFO  [34mc.a.d.s.b.a.DruidDataSourceAutoConfigure[0;39m - [dataSource,55] - Init DruidDataSource
+23:25:15.439 [32m[main][0;39m INFO  [34mc.a.d.p.DruidDataSource[0;39m - [init,985] - {dataSource-1} inited
+23:25:17.256 [32m[main][0;39m INFO  [34morg.redisson.Version[0;39m - [logVersion,41] - Redisson 3.13.6
+23:25:18.289 [32m[redisson-netty-2-14][0;39m INFO  [34mo.r.c.p.MasterPubSubConnectionPool[0;39m - [lambda$run$0,167] - 1 connections initialized for /117.78.8.197:6379
+23:25:18.615 [32m[redisson-netty-2-17][0;39m INFO  [34mo.r.c.p.MasterConnectionPool[0;39m - [lambda$run$0,167] - 24 connections initialized for /117.78.8.197:6379
+23:25:19.144 [32m[main][0;39m INFO  [34mo.s.c.o.FeignClientFactoryBean[0;39m - [getTarget,418] - For 'container-channel' URL not provided. Will try picking an instance via load-balancing.
+23:25:19.274 [32m[main][0;39m INFO  [34mc.a.d.p.DruidDataSource[0;39m - [close,2105] - {dataSource-1} closing ...
+23:25:19.277 [32m[main][0;39m INFO  [34mc.a.d.p.DruidDataSource[0;39m - [close,2178] - {dataSource-1} closed
+23:25:19.284 [32m[main][0;39m INFO  [34mo.a.c.c.StandardService[0;39m - [log,173] - Stopping service [Tomcat]
+23:25:19.320 [32m[main][0;39m INFO  [34mo.s.b.a.l.ConditionEvaluationReportLoggingListener[0;39m - [logMessage,136] - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+23:29:54.470 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [lambda$createClient$0,80] - [RpcClientFactory] create a new rpc client of dc34e990-0de5-4e3c-96e6-bdcff0d25b59_config-0
+23:29:54.530 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 39 ms to scan 1 urls, producing 3 keys and 6 values 
+23:29:54.563 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 15 ms to scan 1 urls, producing 4 keys and 9 values 
+23:29:54.581 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 14 ms to scan 1 urls, producing 3 keys and 10 values 
+23:29:54.713 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 126 ms to scan 198 urls, producing 0 keys and 0 values 
+23:29:54.727 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 12 ms to scan 1 urls, producing 1 keys and 5 values 
+23:29:54.742 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 11 ms to scan 1 urls, producing 1 keys and 7 values 
+23:29:54.756 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 11 ms to scan 1 urls, producing 2 keys and 8 values 
+23:29:54.887 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 127 ms to scan 198 urls, producing 0 keys and 0 values 
+23:29:54.892 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [dc34e990-0de5-4e3c-96e6-bdcff0d25b59_config-0] RpcClient init label, labels = {module=config, Vipserver-Tag=null, source=sdk, Amory-Tag=null, Location-Tag=null, taskId=0, AppName=unknown}
+23:29:54.897 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [dc34e990-0de5-4e3c-96e6-bdcff0d25b59_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$325/7646139
+23:29:54.897 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [dc34e990-0de5-4e3c-96e6-bdcff0d25b59_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$326/1688526221
+23:29:54.898 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [dc34e990-0de5-4e3c-96e6-bdcff0d25b59_config-0] Registry connection listener to current client:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$1
+23:29:54.899 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [dc34e990-0de5-4e3c-96e6-bdcff0d25b59_config-0] RpcClient init, ServerListFactory = com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$2
+23:29:54.907 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [dc34e990-0de5-4e3c-96e6-bdcff0d25b59_config-0] Try to connect to server on start up, server: {serverIp = '123.249.79.51', server main port = 8848}
+23:29:55.645 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [dc34e990-0de5-4e3c-96e6-bdcff0d25b59_config-0] Success to connect to server [123.249.79.51:8848] on start up, connectionId = 1715959795544_111.194.79.77_6772
+23:29:55.648 [32m[com.alibaba.nacos.client.remote.worker][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [dc34e990-0de5-4e3c-96e6-bdcff0d25b59_config-0] Notify connected event to listeners.
+23:29:55.648 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [dc34e990-0de5-4e3c-96e6-bdcff0d25b59_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+23:29:55.651 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [dc34e990-0de5-4e3c-96e6-bdcff0d25b59_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$334/275609562
+23:29:55.752 [32m[main][0;39m INFO  [34mo.s.c.b.c.PropertySourceBootstrapConfiguration[0;39m - [initialize,109] - Located property source: [BootstrapPropertySource {name='bootstrapProperties-container-order-dev.yaml,CONTAINER_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-container-order.yaml,CONTAINER_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-container-order,CONTAINER_GROUP'}]
+23:29:55.799 [32m[main][0;39m INFO  [34mc.f.o.ContainerOrderApplication[0;39m - [logStartupProfileInfo,637] - The following 1 profile is active: "dev"
+23:29:57.012 [32m[main][0;39m INFO  [34mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m - [multipleStoresDetected,262] - Multiple Spring Data modules found, entering strict repository configuration mode
+23:29:57.015 [32m[main][0;39m INFO  [34mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m - [registerRepositoriesIn,132] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+23:29:57.041 [32m[main][0;39m INFO  [34mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m - [registerRepositoriesIn,201] - Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+23:29:57.352 [32m[main][0;39m INFO  [34mo.s.c.c.s.GenericScope[0;39m - [setSerializationId,283] - BeanFactory id=ac835398-5751-3669-9c6b-6ca53cd23185
+23:29:57.541 [32m[main][0;39m INFO  [34mo.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker[0;39m - [postProcessAfterInitialization,376] - Bean 'cn.fuguang.common.redis.configure.RedisConfig' of type [cn.fuguang.common.redis.configure.RedisConfig$$EnhancerBySpringCGLIB$$306731e8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+23:29:57.864 [32m[main][0;39m INFO  [34mo.s.b.w.e.t.TomcatWebServer[0;39m - [initialize,108] - Tomcat initialized with port(s): 9960 (http)
+23:29:57.876 [32m[main][0;39m INFO  [34mo.a.c.h.Http11NioProtocol[0;39m - [log,173] - Initializing ProtocolHandler ["http-nio-9960"]
+23:29:57.876 [32m[main][0;39m INFO  [34mo.a.c.c.StandardService[0;39m - [log,173] - Starting service [Tomcat]
+23:29:57.877 [32m[main][0;39m INFO  [34mo.a.c.c.StandardEngine[0;39m - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.70]
+23:29:58.054 [32m[main][0;39m INFO  [34mo.a.c.c.C.[.[.[/order][0;39m - [log,173] - Initializing Spring embedded WebApplicationContext
+23:29:58.054 [32m[main][0;39m INFO  [34mo.s.b.w.s.c.ServletWebServerApplicationContext[0;39m - [prepareWebApplicationContext,292] - Root WebApplicationContext: initialization completed in 2225 ms
+23:29:58.173 [32m[main][0;39m INFO  [34mc.a.d.s.b.a.DruidDataSourceAutoConfigure[0;39m - [dataSource,55] - Init DruidDataSource
+23:29:58.291 [32m[main][0;39m INFO  [34mc.a.d.p.DruidDataSource[0;39m - [init,985] - {dataSource-1} inited
+23:29:58.784 [32m[main][0;39m INFO  [34morg.redisson.Version[0;39m - [logVersion,41] - Redisson 3.13.6
+23:29:59.395 [32m[redisson-netty-2-17][0;39m INFO  [34mo.r.c.p.MasterPubSubConnectionPool[0;39m - [lambda$run$0,167] - 1 connections initialized for /117.78.8.197:6379
+23:29:59.741 [32m[redisson-netty-2-17][0;39m INFO  [34mo.r.c.p.MasterConnectionPool[0;39m - [lambda$run$0,167] - 24 connections initialized for /117.78.8.197:6379
+23:30:00.267 [32m[main][0;39m INFO  [34mo.s.c.o.FeignClientFactoryBean[0;39m - [getTarget,418] - For 'container-channel' URL not provided. Will try picking an instance via load-balancing.
+23:30:00.394 [32m[main][0;39m INFO  [34mc.a.d.p.DruidDataSource[0;39m - [close,2105] - {dataSource-1} closing ...
+23:30:00.399 [32m[main][0;39m INFO  [34mc.a.d.p.DruidDataSource[0;39m - [close,2178] - {dataSource-1} closed
+23:30:00.407 [32m[main][0;39m INFO  [34mo.a.c.c.StandardService[0;39m - [log,173] - Stopping service [Tomcat]
+23:30:00.450 [32m[main][0;39m INFO  [34mo.s.b.a.l.ConditionEvaluationReportLoggingListener[0;39m - [logMessage,136] - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+23:30:28.689 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [lambda$createClient$0,80] - [RpcClientFactory] create a new rpc client of 17f1831f-f759-48c2-8331-d8c65add40ed_config-0
+23:30:28.747 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 35 ms to scan 1 urls, producing 3 keys and 6 values 
+23:30:28.778 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 18 ms to scan 1 urls, producing 4 keys and 9 values 
+23:30:28.794 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 12 ms to scan 1 urls, producing 3 keys and 10 values 
+23:30:28.930 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 133 ms to scan 198 urls, producing 0 keys and 0 values 
+23:30:28.943 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 11 ms to scan 1 urls, producing 1 keys and 5 values 
+23:30:28.961 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 12 ms to scan 1 urls, producing 1 keys and 7 values 
+23:30:28.984 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 17 ms to scan 1 urls, producing 2 keys and 8 values 
+23:30:29.095 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 104 ms to scan 198 urls, producing 0 keys and 0 values 
+23:30:29.100 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [17f1831f-f759-48c2-8331-d8c65add40ed_config-0] RpcClient init label, labels = {module=config, Vipserver-Tag=null, source=sdk, Amory-Tag=null, Location-Tag=null, taskId=0, AppName=unknown}
+23:30:29.101 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [17f1831f-f759-48c2-8331-d8c65add40ed_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$325/179441020
+23:30:29.101 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [17f1831f-f759-48c2-8331-d8c65add40ed_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$326/1196404281
+23:30:29.102 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [17f1831f-f759-48c2-8331-d8c65add40ed_config-0] Registry connection listener to current client:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$1
+23:30:29.103 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [17f1831f-f759-48c2-8331-d8c65add40ed_config-0] RpcClient init, ServerListFactory = com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$2
+23:30:29.112 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [17f1831f-f759-48c2-8331-d8c65add40ed_config-0] Try to connect to server on start up, server: {serverIp = '123.249.79.51', server main port = 8848}
+23:30:29.798 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [17f1831f-f759-48c2-8331-d8c65add40ed_config-0] Success to connect to server [123.249.79.51:8848] on start up, connectionId = 1715959829697_111.194.79.77_6300
+23:30:29.802 [32m[com.alibaba.nacos.client.remote.worker][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [17f1831f-f759-48c2-8331-d8c65add40ed_config-0] Notify connected event to listeners.
+23:30:29.802 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [17f1831f-f759-48c2-8331-d8c65add40ed_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+23:30:29.806 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [17f1831f-f759-48c2-8331-d8c65add40ed_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$334/1844372336
+23:30:29.916 [32m[main][0;39m INFO  [34mo.s.c.b.c.PropertySourceBootstrapConfiguration[0;39m - [initialize,109] - Located property source: [BootstrapPropertySource {name='bootstrapProperties-container-order-dev.yaml,CONTAINER_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-container-order.yaml,CONTAINER_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-container-order,CONTAINER_GROUP'}]
+23:30:29.963 [32m[main][0;39m INFO  [34mc.f.o.ContainerOrderApplication[0;39m - [logStartupProfileInfo,637] - The following 1 profile is active: "dev"
+23:30:31.468 [32m[main][0;39m INFO  [34mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m - [multipleStoresDetected,262] - Multiple Spring Data modules found, entering strict repository configuration mode
+23:30:31.472 [32m[main][0;39m INFO  [34mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m - [registerRepositoriesIn,132] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+23:30:31.501 [32m[main][0;39m INFO  [34mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m - [registerRepositoriesIn,201] - Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+23:30:32.287 [32m[main][0;39m INFO  [34mo.s.c.c.s.GenericScope[0;39m - [setSerializationId,283] - BeanFactory id=ac835398-5751-3669-9c6b-6ca53cd23185
+23:30:32.497 [32m[main][0;39m INFO  [34mo.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker[0;39m - [postProcessAfterInitialization,376] - Bean 'cn.fuguang.common.redis.configure.RedisConfig' of type [cn.fuguang.common.redis.configure.RedisConfig$$EnhancerBySpringCGLIB$$3e63e419] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+23:30:32.825 [32m[main][0;39m INFO  [34mo.s.b.w.e.t.TomcatWebServer[0;39m - [initialize,108] - Tomcat initialized with port(s): 9960 (http)
+23:30:32.834 [32m[main][0;39m INFO  [34mo.a.c.h.Http11NioProtocol[0;39m - [log,173] - Initializing ProtocolHandler ["http-nio-9960"]
+23:30:32.834 [32m[main][0;39m INFO  [34mo.a.c.c.StandardService[0;39m - [log,173] - Starting service [Tomcat]
+23:30:32.835 [32m[main][0;39m INFO  [34mo.a.c.c.StandardEngine[0;39m - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.70]
+23:30:33.085 [32m[main][0;39m INFO  [34mo.a.c.c.C.[.[.[/order][0;39m - [log,173] - Initializing Spring embedded WebApplicationContext
+23:30:33.086 [32m[main][0;39m INFO  [34mo.s.b.w.s.c.ServletWebServerApplicationContext[0;39m - [prepareWebApplicationContext,292] - Root WebApplicationContext: initialization completed in 3084 ms
+23:30:33.199 [32m[main][0;39m INFO  [34mc.a.d.s.b.a.DruidDataSourceAutoConfigure[0;39m - [dataSource,55] - Init DruidDataSource
+23:30:33.316 [32m[main][0;39m INFO  [34mc.a.d.p.DruidDataSource[0;39m - [init,985] - {dataSource-1} inited
+23:30:33.786 [32m[main][0;39m INFO  [34morg.redisson.Version[0;39m - [logVersion,41] - Redisson 3.13.6
+23:30:34.617 [32m[redisson-netty-2-26][0;39m INFO  [34mo.r.c.p.MasterPubSubConnectionPool[0;39m - [lambda$run$0,167] - 1 connections initialized for /117.78.8.197:6379
+23:30:34.714 [32m[redisson-netty-2-19][0;39m INFO  [34mo.r.c.p.MasterConnectionPool[0;39m - [lambda$run$0,167] - 24 connections initialized for /117.78.8.197:6379
+23:30:35.268 [32m[main][0;39m INFO  [34mo.s.c.o.FeignClientFactoryBean[0;39m - [getTarget,418] - For 'container-channel' URL not provided. Will try picking an instance via load-balancing.
+23:30:35.417 [32m[main][0;39m INFO  [34mc.a.d.p.DruidDataSource[0;39m - [close,2105] - {dataSource-1} closing ...
+23:30:35.420 [32m[main][0;39m INFO  [34mc.a.d.p.DruidDataSource[0;39m - [close,2178] - {dataSource-1} closed
+23:30:35.428 [32m[main][0;39m INFO  [34mo.a.c.c.StandardService[0;39m - [log,173] - Stopping service [Tomcat]
+23:30:35.469 [32m[main][0;39m INFO  [34mo.s.b.a.l.ConditionEvaluationReportLoggingListener[0;39m - [logMessage,136] - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+23:32:23.335 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [lambda$createClient$0,80] - [RpcClientFactory] create a new rpc client of b99d83ea-a585-4540-9769-93741d1916f9_config-0
+23:32:23.417 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 40 ms to scan 1 urls, producing 3 keys and 6 values 
+23:32:23.450 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 17 ms to scan 1 urls, producing 4 keys and 9 values 
+23:32:23.486 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 30 ms to scan 1 urls, producing 3 keys and 10 values 
+23:32:23.722 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 226 ms to scan 198 urls, producing 0 keys and 0 values 
+23:32:23.733 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 9 ms to scan 1 urls, producing 1 keys and 5 values 
+23:32:23.746 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 10 ms to scan 1 urls, producing 1 keys and 7 values 
+23:32:23.764 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 15 ms to scan 1 urls, producing 2 keys and 8 values 
+23:32:23.867 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 98 ms to scan 198 urls, producing 0 keys and 0 values 
+23:32:23.870 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [b99d83ea-a585-4540-9769-93741d1916f9_config-0] RpcClient init label, labels = {module=config, Vipserver-Tag=null, source=sdk, Amory-Tag=null, Location-Tag=null, taskId=0, AppName=unknown}
+23:32:23.874 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [b99d83ea-a585-4540-9769-93741d1916f9_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$325/1745701482
+23:32:23.874 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [b99d83ea-a585-4540-9769-93741d1916f9_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$326/49299717
+23:32:23.875 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [b99d83ea-a585-4540-9769-93741d1916f9_config-0] Registry connection listener to current client:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$1
+23:32:23.876 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [b99d83ea-a585-4540-9769-93741d1916f9_config-0] RpcClient init, ServerListFactory = com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$2
+23:32:23.885 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [b99d83ea-a585-4540-9769-93741d1916f9_config-0] Try to connect to server on start up, server: {serverIp = '123.249.79.51', server main port = 8848}
+23:32:24.570 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [b99d83ea-a585-4540-9769-93741d1916f9_config-0] Success to connect to server [123.249.79.51:8848] on start up, connectionId = 1715959944491_111.194.79.77_7304
+23:32:24.574 [32m[com.alibaba.nacos.client.remote.worker][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [b99d83ea-a585-4540-9769-93741d1916f9_config-0] Notify connected event to listeners.
+23:32:24.574 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [b99d83ea-a585-4540-9769-93741d1916f9_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+23:32:24.579 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [b99d83ea-a585-4540-9769-93741d1916f9_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$334/1245124890
+23:32:24.693 [32m[main][0;39m INFO  [34mo.s.c.b.c.PropertySourceBootstrapConfiguration[0;39m - [initialize,109] - Located property source: [BootstrapPropertySource {name='bootstrapProperties-container-order-dev.yaml,CONTAINER_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-container-order.yaml,CONTAINER_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-container-order,CONTAINER_GROUP'}]
+23:32:24.746 [32m[main][0;39m INFO  [34mc.f.o.ContainerOrderApplication[0;39m - [logStartupProfileInfo,637] - The following 1 profile is active: "dev"
+23:32:26.042 [32m[main][0;39m INFO  [34mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m - [multipleStoresDetected,262] - Multiple Spring Data modules found, entering strict repository configuration mode
+23:32:26.045 [32m[main][0;39m INFO  [34mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m - [registerRepositoriesIn,132] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+23:32:26.066 [32m[main][0;39m INFO  [34mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m - [registerRepositoriesIn,201] - Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
+23:32:26.417 [32m[main][0;39m INFO  [34mo.s.c.c.s.GenericScope[0;39m - [setSerializationId,283] - BeanFactory id=ac835398-5751-3669-9c6b-6ca53cd23185
+23:32:26.612 [32m[main][0;39m INFO  [34mo.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker[0;39m - [postProcessAfterInitialization,376] - Bean 'cn.fuguang.common.redis.configure.RedisConfig' of type [cn.fuguang.common.redis.configure.RedisConfig$$EnhancerBySpringCGLIB$$729f44b9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+23:32:26.974 [32m[main][0;39m INFO  [34mo.s.b.w.e.t.TomcatWebServer[0;39m - [initialize,108] - Tomcat initialized with port(s): 9960 (http)
+23:32:26.985 [32m[main][0;39m INFO  [34mo.a.c.h.Http11NioProtocol[0;39m - [log,173] - Initializing ProtocolHandler ["http-nio-9960"]
+23:32:26.986 [32m[main][0;39m INFO  [34mo.a.c.c.StandardService[0;39m - [log,173] - Starting service [Tomcat]
+23:32:26.986 [32m[main][0;39m INFO  [34mo.a.c.c.StandardEngine[0;39m - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.70]
+23:32:27.241 [32m[main][0;39m INFO  [34mo.a.c.c.C.[.[.[/order][0;39m - [log,173] - Initializing Spring embedded WebApplicationContext
+23:32:27.242 [32m[main][0;39m INFO  [34mo.s.b.w.s.c.ServletWebServerApplicationContext[0;39m - [prepareWebApplicationContext,292] - Root WebApplicationContext: initialization completed in 2463 ms
+23:32:27.354 [32m[main][0;39m INFO  [34mc.a.d.s.b.a.DruidDataSourceAutoConfigure[0;39m - [dataSource,55] - Init DruidDataSource
+23:32:27.469 [32m[main][0;39m INFO  [34mc.a.d.p.DruidDataSource[0;39m - [init,985] - {dataSource-1} inited
+23:32:27.949 [32m[main][0;39m INFO  [34morg.redisson.Version[0;39m - [logVersion,41] - Redisson 3.13.6
+23:32:28.605 [32m[redisson-netty-2-23][0;39m INFO  [34mo.r.c.p.MasterPubSubConnectionPool[0;39m - [lambda$run$0,167] - 1 connections initialized for /117.78.8.197:6379
+23:32:28.907 [32m[redisson-netty-2-19][0;39m INFO  [34mo.r.c.p.MasterConnectionPool[0;39m - [lambda$run$0,167] - 24 connections initialized for /117.78.8.197:6379
+23:32:29.511 [32m[main][0;39m INFO  [34mo.s.c.o.FeignClientFactoryBean[0;39m - [getTarget,418] - For 'container-channel' URL not provided. Will try picking an instance via load-balancing.
+23:32:29.631 [32m[main][0;39m INFO  [34mc.a.d.p.DruidDataSource[0;39m - [close,2105] - {dataSource-1} closing ...
+23:32:29.635 [32m[main][0;39m INFO  [34mc.a.d.p.DruidDataSource[0;39m - [close,2178] - {dataSource-1} closed
+23:32:29.641 [32m[main][0;39m INFO  [34mo.a.c.c.StandardService[0;39m - [log,173] - Stopping service [Tomcat]
+23:32:29.683 [32m[main][0;39m INFO  [34mo.s.b.a.l.ConditionEvaluationReportLoggingListener[0;39m - [logMessage,136] - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+23:39:00.693 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [lambda$createClient$0,80] - [RpcClientFactory] create a new rpc client of 2ceb1bf0-0423-43b1-87bc-796a2fecea6e_config-0
+23:39:00.755 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 41 ms to scan 1 urls, producing 3 keys and 6 values 
+23:39:00.782 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 15 ms to scan 1 urls, producing 4 keys and 9 values 
+23:39:00.799 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 13 ms to scan 1 urls, producing 3 keys and 10 values 
+23:39:00.943 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 140 ms to scan 198 urls, producing 0 keys and 0 values 
+23:39:00.955 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 10 ms to scan 1 urls, producing 1 keys and 5 values 
+23:39:00.968 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 10 ms to scan 1 urls, producing 1 keys and 7 values 
+23:39:00.983 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 12 ms to scan 1 urls, producing 2 keys and 8 values 
+23:39:01.082 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 93 ms to scan 198 urls, producing 0 keys and 0 values 
+23:39:01.084 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [2ceb1bf0-0423-43b1-87bc-796a2fecea6e_config-0] RpcClient init label, labels = {module=config, Vipserver-Tag=null, source=sdk, Amory-Tag=null, Location-Tag=null, taskId=0, AppName=unknown}
+23:39:01.086 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [2ceb1bf0-0423-43b1-87bc-796a2fecea6e_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$325/1362501759
+23:39:01.086 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [2ceb1bf0-0423-43b1-87bc-796a2fecea6e_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$326/648303898
+23:39:01.087 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [2ceb1bf0-0423-43b1-87bc-796a2fecea6e_config-0] Registry connection listener to current client:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$1
+23:39:01.088 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [2ceb1bf0-0423-43b1-87bc-796a2fecea6e_config-0] RpcClient init, ServerListFactory = com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$2
+23:39:01.095 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [2ceb1bf0-0423-43b1-87bc-796a2fecea6e_config-0] Try to connect to server on start up, server: {serverIp = '123.249.79.51', server main port = 8848}
+23:39:01.728 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [2ceb1bf0-0423-43b1-87bc-796a2fecea6e_config-0] Success to connect to server [123.249.79.51:8848] on start up, connectionId = 1715960341620_111.194.79.77_7528
+23:39:01.731 [32m[com.alibaba.nacos.client.remote.worker][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [2ceb1bf0-0423-43b1-87bc-796a2fecea6e_config-0] Notify connected event to listeners.
+23:39:01.731 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [2ceb1bf0-0423-43b1-87bc-796a2fecea6e_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+23:39:01.734 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [2ceb1bf0-0423-43b1-87bc-796a2fecea6e_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$334/443401609
+23:39:01.832 [32m[main][0;39m INFO  [34mo.s.c.b.c.PropertySourceBootstrapConfiguration[0;39m - [initialize,109] - Located property source: [BootstrapPropertySource {name='bootstrapProperties-container-order-dev.yaml,CONTAINER_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-container-order.yaml,CONTAINER_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-container-order,CONTAINER_GROUP'}]
+23:39:01.873 [32m[main][0;39m INFO  [34mc.f.o.ContainerOrderApplication[0;39m - [logStartupProfileInfo,637] - The following 1 profile is active: "dev"
+23:39:31.580 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [lambda$createClient$0,80] - [RpcClientFactory] create a new rpc client of 3dcf5554-3309-4ca8-9775-9ed7a6fd4267_config-0
+23:39:31.645 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 39 ms to scan 1 urls, producing 3 keys and 6 values 
+23:39:31.678 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 18 ms to scan 1 urls, producing 4 keys and 9 values 
+23:39:31.702 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 20 ms to scan 1 urls, producing 3 keys and 10 values 
+23:39:31.862 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 154 ms to scan 198 urls, producing 0 keys and 0 values 
+23:39:31.873 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 9 ms to scan 1 urls, producing 1 keys and 5 values 
+23:39:31.885 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 10 ms to scan 1 urls, producing 1 keys and 7 values 
+23:39:31.901 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 13 ms to scan 1 urls, producing 2 keys and 8 values 
+23:39:32.002 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 96 ms to scan 198 urls, producing 0 keys and 0 values 
+23:39:32.006 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [3dcf5554-3309-4ca8-9775-9ed7a6fd4267_config-0] RpcClient init label, labels = {module=config, Vipserver-Tag=null, source=sdk, Amory-Tag=null, Location-Tag=null, taskId=0, AppName=unknown}
+23:39:32.009 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [3dcf5554-3309-4ca8-9775-9ed7a6fd4267_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$325/648176342
+23:39:32.009 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [3dcf5554-3309-4ca8-9775-9ed7a6fd4267_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$326/18601987
+23:39:32.010 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [3dcf5554-3309-4ca8-9775-9ed7a6fd4267_config-0] Registry connection listener to current client:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$1
+23:39:32.011 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [3dcf5554-3309-4ca8-9775-9ed7a6fd4267_config-0] RpcClient init, ServerListFactory = com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$2
+23:39:32.020 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [3dcf5554-3309-4ca8-9775-9ed7a6fd4267_config-0] Try to connect to server on start up, server: {serverIp = '123.249.79.51', server main port = 8848}
+23:39:32.648 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [3dcf5554-3309-4ca8-9775-9ed7a6fd4267_config-0] Success to connect to server [123.249.79.51:8848] on start up, connectionId = 1715960372544_111.194.79.77_7349
+23:39:32.652 [32m[com.alibaba.nacos.client.remote.worker][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [3dcf5554-3309-4ca8-9775-9ed7a6fd4267_config-0] Notify connected event to listeners.
+23:39:32.652 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [3dcf5554-3309-4ca8-9775-9ed7a6fd4267_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+23:39:32.655 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [3dcf5554-3309-4ca8-9775-9ed7a6fd4267_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$334/680466239
+23:39:32.751 [32m[main][0;39m INFO  [34mo.s.c.b.c.PropertySourceBootstrapConfiguration[0;39m - [initialize,109] - Located property source: [BootstrapPropertySource {name='bootstrapProperties-container-order-dev.yaml,CONTAINER_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-container-order.yaml,CONTAINER_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-container-order,CONTAINER_GROUP'}]
+23:39:32.796 [32m[main][0;39m INFO  [34mc.f.o.ContainerOrderApplication[0;39m - [logStartupProfileInfo,637] - The following 1 profile is active: "dev"
+23:39:34.125 [32m[main][0;39m INFO  [34mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m - [multipleStoresDetected,262] - Multiple Spring Data modules found, entering strict repository configuration mode
+23:39:34.128 [32m[main][0;39m INFO  [34mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m - [registerRepositoriesIn,132] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+23:39:34.148 [32m[main][0;39m INFO  [34mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m - [registerRepositoriesIn,201] - Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
+23:39:34.483 [32m[main][0;39m INFO  [34mo.s.c.c.s.GenericScope[0;39m - [setSerializationId,283] - BeanFactory id=ac835398-5751-3669-9c6b-6ca53cd23185
+23:39:34.686 [32m[main][0;39m INFO  [34mo.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker[0;39m - [postProcessAfterInitialization,376] - Bean 'cn.fuguang.common.redis.configure.RedisConfig' of type [cn.fuguang.common.redis.configure.RedisConfig$$EnhancerBySpringCGLIB$$6160f55] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+23:39:35.061 [32m[main][0;39m INFO  [34mo.s.b.w.e.t.TomcatWebServer[0;39m - [initialize,108] - Tomcat initialized with port(s): 9960 (http)
+23:39:35.094 [32m[main][0;39m INFO  [34mo.a.c.h.Http11NioProtocol[0;39m - [log,173] - Initializing ProtocolHandler ["http-nio-9960"]
+23:39:35.095 [32m[main][0;39m INFO  [34mo.a.c.c.StandardService[0;39m - [log,173] - Starting service [Tomcat]
+23:39:35.095 [32m[main][0;39m INFO  [34mo.a.c.c.StandardEngine[0;39m - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.70]
+23:39:35.484 [32m[main][0;39m INFO  [34mo.a.c.c.C.[.[.[/order][0;39m - [log,173] - Initializing Spring embedded WebApplicationContext
+23:39:35.485 [32m[main][0;39m INFO  [34mo.s.b.w.s.c.ServletWebServerApplicationContext[0;39m - [prepareWebApplicationContext,292] - Root WebApplicationContext: initialization completed in 2660 ms
+23:39:35.594 [32m[main][0;39m INFO  [34mc.a.d.s.b.a.DruidDataSourceAutoConfigure[0;39m - [dataSource,55] - Init DruidDataSource
+23:39:35.712 [32m[main][0;39m INFO  [34mc.a.d.p.DruidDataSource[0;39m - [init,985] - {dataSource-1} inited
+23:39:36.152 [32m[main][0;39m INFO  [34morg.redisson.Version[0;39m - [logVersion,41] - Redisson 3.13.6
+23:39:36.961 [32m[redisson-netty-2-22][0;39m INFO  [34mo.r.c.p.MasterPubSubConnectionPool[0;39m - [lambda$run$0,167] - 1 connections initialized for /117.78.8.197:6379
+23:39:37.242 [32m[redisson-netty-2-17][0;39m INFO  [34mo.r.c.p.MasterConnectionPool[0;39m - [lambda$run$0,167] - 24 connections initialized for /117.78.8.197:6379
+23:39:37.751 [32m[main][0;39m INFO  [34mo.s.c.o.FeignClientFactoryBean[0;39m - [getTarget,418] - For 'container-channel' URL not provided. Will try picking an instance via load-balancing.
+23:39:37.882 [32m[main][0;39m INFO  [34mc.a.d.p.DruidDataSource[0;39m - [close,2105] - {dataSource-1} closing ...
+23:39:37.885 [32m[main][0;39m INFO  [34mc.a.d.p.DruidDataSource[0;39m - [close,2178] - {dataSource-1} closed
+23:39:37.891 [32m[main][0;39m INFO  [34mo.a.c.c.StandardService[0;39m - [log,173] - Stopping service [Tomcat]
+23:39:37.928 [32m[main][0;39m INFO  [34mo.s.b.a.l.ConditionEvaluationReportLoggingListener[0;39m - [logMessage,136] - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+23:40:17.321 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [lambda$createClient$0,80] - [RpcClientFactory] create a new rpc client of 5d9acd89-c6e3-4fbb-96a3-3190d4945579_config-0
+23:40:17.373 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 33 ms to scan 1 urls, producing 3 keys and 6 values 
+23:40:17.402 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 15 ms to scan 1 urls, producing 4 keys and 9 values 
+23:40:17.419 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 14 ms to scan 1 urls, producing 3 keys and 10 values 
+23:40:17.559 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 135 ms to scan 198 urls, producing 0 keys and 0 values 
+23:40:17.571 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 10 ms to scan 1 urls, producing 1 keys and 5 values 
+23:40:17.584 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 10 ms to scan 1 urls, producing 1 keys and 7 values 
+23:40:17.599 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 12 ms to scan 1 urls, producing 2 keys and 8 values 
+23:40:17.697 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 93 ms to scan 198 urls, producing 0 keys and 0 values 
+23:40:17.699 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [5d9acd89-c6e3-4fbb-96a3-3190d4945579_config-0] RpcClient init label, labels = {module=config, Vipserver-Tag=null, source=sdk, Amory-Tag=null, Location-Tag=null, taskId=0, AppName=unknown}
+23:40:17.700 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [5d9acd89-c6e3-4fbb-96a3-3190d4945579_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$325/1410456976
+23:40:17.700 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [5d9acd89-c6e3-4fbb-96a3-3190d4945579_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$326/1343835789
+23:40:17.701 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [5d9acd89-c6e3-4fbb-96a3-3190d4945579_config-0] Registry connection listener to current client:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$1
+23:40:17.702 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [5d9acd89-c6e3-4fbb-96a3-3190d4945579_config-0] RpcClient init, ServerListFactory = com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$2
+23:40:17.709 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [5d9acd89-c6e3-4fbb-96a3-3190d4945579_config-0] Try to connect to server on start up, server: {serverIp = '123.249.79.51', server main port = 8848}
+23:40:18.354 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [5d9acd89-c6e3-4fbb-96a3-3190d4945579_config-0] Success to connect to server [123.249.79.51:8848] on start up, connectionId = 1715960418252_111.194.79.77_7385
+23:40:18.358 [32m[com.alibaba.nacos.client.remote.worker][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [5d9acd89-c6e3-4fbb-96a3-3190d4945579_config-0] Notify connected event to listeners.
+23:40:18.358 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [5d9acd89-c6e3-4fbb-96a3-3190d4945579_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+23:40:18.361 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [5d9acd89-c6e3-4fbb-96a3-3190d4945579_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$334/954723689
+23:40:18.455 [32m[main][0;39m INFO  [34mo.s.c.b.c.PropertySourceBootstrapConfiguration[0;39m - [initialize,109] - Located property source: [BootstrapPropertySource {name='bootstrapProperties-container-order-dev.yaml,CONTAINER_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-container-order.yaml,CONTAINER_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-container-order,CONTAINER_GROUP'}]
+23:40:18.492 [32m[main][0;39m INFO  [34mc.f.o.ContainerOrderApplication[0;39m - [logStartupProfileInfo,637] - The following 1 profile is active: "dev"
+23:40:19.660 [32m[main][0;39m INFO  [34mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m - [multipleStoresDetected,262] - Multiple Spring Data modules found, entering strict repository configuration mode
+23:40:19.663 [32m[main][0;39m INFO  [34mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m - [registerRepositoriesIn,132] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+23:40:19.682 [32m[main][0;39m INFO  [34mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m - [registerRepositoriesIn,201] - Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+23:40:20.109 [32m[main][0;39m INFO  [34mo.s.c.c.s.GenericScope[0;39m - [setSerializationId,283] - BeanFactory id=6ae91cc2-1c2a-31c1-8369-11c7e440ad12
+23:40:20.302 [32m[main][0;39m INFO  [34mo.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker[0;39m - [postProcessAfterInitialization,376] - Bean 'cn.fuguang.common.redis.configure.RedisConfig' of type [cn.fuguang.common.redis.configure.RedisConfig$$EnhancerBySpringCGLIB$$10874218] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+23:40:20.598 [32m[main][0;39m INFO  [34mo.s.b.w.e.t.TomcatWebServer[0;39m - [initialize,108] - Tomcat initialized with port(s): 9960 (http)
+23:40:20.607 [32m[main][0;39m INFO  [34mo.a.c.h.Http11NioProtocol[0;39m - [log,173] - Initializing ProtocolHandler ["http-nio-9960"]
+23:40:20.607 [32m[main][0;39m INFO  [34mo.a.c.c.StandardService[0;39m - [log,173] - Starting service [Tomcat]
+23:40:20.608 [32m[main][0;39m INFO  [34mo.a.c.c.StandardEngine[0;39m - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.70]
+23:40:20.833 [32m[main][0;39m INFO  [34mo.a.c.c.C.[.[.[/order][0;39m - [log,173] - Initializing Spring embedded WebApplicationContext
+23:40:20.834 [32m[main][0;39m INFO  [34mo.s.b.w.s.c.ServletWebServerApplicationContext[0;39m - [prepareWebApplicationContext,292] - Root WebApplicationContext: initialization completed in 2318 ms
+23:40:20.975 [32m[main][0;39m INFO  [34mc.a.d.s.b.a.DruidDataSourceAutoConfigure[0;39m - [dataSource,55] - Init DruidDataSource
+23:40:21.093 [32m[main][0;39m INFO  [34mc.a.d.p.DruidDataSource[0;39m - [init,985] - {dataSource-1} inited
+23:40:21.533 [32m[main][0;39m INFO  [34morg.redisson.Version[0;39m - [logVersion,41] - Redisson 3.13.6
+23:40:22.129 [32m[redisson-netty-2-16][0;39m INFO  [34mo.r.c.p.MasterPubSubConnectionPool[0;39m - [lambda$run$0,167] - 1 connections initialized for /117.78.8.197:6379
+23:40:22.213 [32m[redisson-netty-2-17][0;39m INFO  [34mo.r.c.p.MasterConnectionPool[0;39m - [lambda$run$0,167] - 24 connections initialized for /117.78.8.197:6379
+23:40:22.704 [32m[main][0;39m INFO  [34mo.s.c.o.FeignClientFactoryBean[0;39m - [getTarget,418] - For 'container-channel' URL not provided. Will try picking an instance via load-balancing.
+23:40:22.812 [32m[main][0;39m INFO  [34mc.a.d.p.DruidDataSource[0;39m - [close,2105] - {dataSource-1} closing ...
+23:40:22.815 [32m[main][0;39m INFO  [34mc.a.d.p.DruidDataSource[0;39m - [close,2178] - {dataSource-1} closed
+23:40:22.821 [32m[main][0;39m INFO  [34mo.a.c.c.StandardService[0;39m - [log,173] - Stopping service [Tomcat]
+23:40:22.855 [32m[main][0;39m INFO  [34mo.s.b.a.l.ConditionEvaluationReportLoggingListener[0;39m - [logMessage,136] - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+23:40:57.190 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [lambda$createClient$0,80] - [RpcClientFactory] create a new rpc client of 78e9a4e9-9d1c-47fe-a17e-b61de43a4792_config-0
+23:40:57.251 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 41 ms to scan 1 urls, producing 3 keys and 6 values 
+23:40:57.293 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 18 ms to scan 1 urls, producing 4 keys and 9 values 
+23:40:57.314 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 16 ms to scan 1 urls, producing 3 keys and 10 values 
+23:40:57.481 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 162 ms to scan 198 urls, producing 0 keys and 0 values 
+23:40:57.493 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 10 ms to scan 1 urls, producing 1 keys and 5 values 
+23:40:57.506 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 10 ms to scan 1 urls, producing 1 keys and 7 values 
+23:40:57.524 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 15 ms to scan 1 urls, producing 2 keys and 8 values 
+23:40:57.628 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 99 ms to scan 198 urls, producing 0 keys and 0 values 
+23:40:57.634 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [78e9a4e9-9d1c-47fe-a17e-b61de43a4792_config-0] RpcClient init label, labels = {module=config, Vipserver-Tag=null, source=sdk, Amory-Tag=null, Location-Tag=null, taskId=0, AppName=unknown}
+23:40:57.635 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [78e9a4e9-9d1c-47fe-a17e-b61de43a4792_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$325/349978505
+23:40:57.635 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [78e9a4e9-9d1c-47fe-a17e-b61de43a4792_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$326/386311625
+23:40:57.636 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [78e9a4e9-9d1c-47fe-a17e-b61de43a4792_config-0] Registry connection listener to current client:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$1
+23:40:57.637 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [78e9a4e9-9d1c-47fe-a17e-b61de43a4792_config-0] RpcClient init, ServerListFactory = com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$2
+23:40:57.645 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [78e9a4e9-9d1c-47fe-a17e-b61de43a4792_config-0] Try to connect to server on start up, server: {serverIp = '123.249.79.51', server main port = 8848}
+23:40:58.396 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [78e9a4e9-9d1c-47fe-a17e-b61de43a4792_config-0] Success to connect to server [123.249.79.51:8848] on start up, connectionId = 1715960458281_111.194.79.77_8060
+23:40:58.399 [32m[com.alibaba.nacos.client.remote.worker][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [78e9a4e9-9d1c-47fe-a17e-b61de43a4792_config-0] Notify connected event to listeners.
+23:40:58.399 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [78e9a4e9-9d1c-47fe-a17e-b61de43a4792_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+23:40:58.402 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [78e9a4e9-9d1c-47fe-a17e-b61de43a4792_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$334/664656217
+23:40:58.504 [32m[main][0;39m INFO  [34mo.s.c.b.c.PropertySourceBootstrapConfiguration[0;39m - [initialize,109] - Located property source: [BootstrapPropertySource {name='bootstrapProperties-container-order-dev.yaml,CONTAINER_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-container-order.yaml,CONTAINER_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-container-order,CONTAINER_GROUP'}]
+23:40:58.544 [32m[main][0;39m INFO  [34mc.f.o.ContainerOrderApplication[0;39m - [logStartupProfileInfo,637] - The following 1 profile is active: "dev"
+23:40:59.748 [32m[main][0;39m INFO  [34mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m - [multipleStoresDetected,262] - Multiple Spring Data modules found, entering strict repository configuration mode
+23:40:59.752 [32m[main][0;39m INFO  [34mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m - [registerRepositoriesIn,132] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+23:40:59.781 [32m[main][0;39m INFO  [34mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m - [registerRepositoriesIn,201] - Finished Spring Data repository scanning in 18 ms. Found 0 Redis repository interfaces.
+23:41:00.107 [32m[main][0;39m INFO  [34mo.s.c.c.s.GenericScope[0;39m - [setSerializationId,283] - BeanFactory id=ac835398-5751-3669-9c6b-6ca53cd23185
+23:41:00.327 [32m[main][0;39m INFO  [34mo.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker[0;39m - [postProcessAfterInitialization,376] - Bean 'cn.fuguang.common.redis.configure.RedisConfig' of type [cn.fuguang.common.redis.configure.RedisConfig$$EnhancerBySpringCGLIB$$e1ef65a1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+23:41:00.642 [32m[main][0;39m INFO  [34mo.s.b.w.e.t.TomcatWebServer[0;39m - [initialize,108] - Tomcat initialized with port(s): 9960 (http)
+23:41:00.652 [32m[main][0;39m INFO  [34mo.a.c.h.Http11NioProtocol[0;39m - [log,173] - Initializing ProtocolHandler ["http-nio-9960"]
+23:41:00.653 [32m[main][0;39m INFO  [34mo.a.c.c.StandardService[0;39m - [log,173] - Starting service [Tomcat]
+23:41:00.653 [32m[main][0;39m INFO  [34mo.a.c.c.StandardEngine[0;39m - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.70]
+23:41:00.929 [32m[main][0;39m INFO  [34mo.a.c.c.C.[.[.[/order][0;39m - [log,173] - Initializing Spring embedded WebApplicationContext
+23:41:00.930 [32m[main][0;39m INFO  [34mo.s.b.w.s.c.ServletWebServerApplicationContext[0;39m - [prepareWebApplicationContext,292] - Root WebApplicationContext: initialization completed in 2361 ms
+23:41:01.046 [32m[main][0;39m INFO  [34mc.a.d.s.b.a.DruidDataSourceAutoConfigure[0;39m - [dataSource,55] - Init DruidDataSource
+23:41:01.156 [32m[main][0;39m INFO  [34mc.a.d.p.DruidDataSource[0;39m - [init,985] - {dataSource-1} inited
+23:41:01.614 [32m[main][0;39m INFO  [34morg.redisson.Version[0;39m - [logVersion,41] - Redisson 3.13.6
+23:41:02.197 [32m[redisson-netty-2-23][0;39m INFO  [34mo.r.c.p.MasterPubSubConnectionPool[0;39m - [lambda$run$0,167] - 1 connections initialized for /117.78.8.197:6379
+23:41:02.319 [32m[redisson-netty-2-19][0;39m INFO  [34mo.r.c.p.MasterConnectionPool[0;39m - [lambda$run$0,167] - 24 connections initialized for /117.78.8.197:6379
+23:41:02.821 [32m[main][0;39m INFO  [34mo.s.c.o.FeignClientFactoryBean[0;39m - [getTarget,418] - For 'container-channel' URL not provided. Will try picking an instance via load-balancing.
+23:41:02.941 [32m[main][0;39m INFO  [34mc.a.d.p.DruidDataSource[0;39m - [close,2105] - {dataSource-1} closing ...
+23:41:02.946 [32m[main][0;39m INFO  [34mc.a.d.p.DruidDataSource[0;39m - [close,2178] - {dataSource-1} closed
+23:41:02.950 [32m[main][0;39m INFO  [34mo.a.c.c.StandardService[0;39m - [log,173] - Stopping service [Tomcat]
+23:41:02.985 [32m[main][0;39m INFO  [34mo.s.b.a.l.ConditionEvaluationReportLoggingListener[0;39m - [logMessage,136] - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+23:44:17.275 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [lambda$createClient$0,80] - [RpcClientFactory] create a new rpc client of 8f65b65b-d76e-43b8-a5f9-6ccb607825ba_config-0
+23:44:17.329 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 36 ms to scan 1 urls, producing 3 keys and 6 values 
+23:44:17.356 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 14 ms to scan 1 urls, producing 4 keys and 9 values 
+23:44:17.377 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 17 ms to scan 1 urls, producing 3 keys and 10 values 
+23:44:17.516 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 134 ms to scan 198 urls, producing 0 keys and 0 values 
+23:44:17.528 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 10 ms to scan 1 urls, producing 1 keys and 5 values 
+23:44:17.541 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 10 ms to scan 1 urls, producing 1 keys and 7 values 
+23:44:17.555 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 11 ms to scan 1 urls, producing 2 keys and 8 values 
+23:44:17.652 [32m[main][0;39m INFO  [34mo.r.Reflections[0;39m - [scan,232] - Reflections took 92 ms to scan 198 urls, producing 0 keys and 0 values 
+23:44:17.656 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [8f65b65b-d76e-43b8-a5f9-6ccb607825ba_config-0] RpcClient init label, labels = {module=config, Vipserver-Tag=null, source=sdk, Amory-Tag=null, Location-Tag=null, taskId=0, AppName=unknown}
+23:44:17.657 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [8f65b65b-d76e-43b8-a5f9-6ccb607825ba_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$325/184133791
+23:44:17.658 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [8f65b65b-d76e-43b8-a5f9-6ccb607825ba_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$326/105393903
+23:44:17.658 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [8f65b65b-d76e-43b8-a5f9-6ccb607825ba_config-0] Registry connection listener to current client:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$1
+23:44:17.659 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [8f65b65b-d76e-43b8-a5f9-6ccb607825ba_config-0] RpcClient init, ServerListFactory = com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$2
+23:44:17.666 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [8f65b65b-d76e-43b8-a5f9-6ccb607825ba_config-0] Try to connect to server on start up, server: {serverIp = '123.249.79.51', server main port = 8848}
+23:44:18.293 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [8f65b65b-d76e-43b8-a5f9-6ccb607825ba_config-0] Success to connect to server [123.249.79.51:8848] on start up, connectionId = 1715960658194_111.194.79.77_7578
+23:44:18.297 [32m[com.alibaba.nacos.client.remote.worker][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [8f65b65b-d76e-43b8-a5f9-6ccb607825ba_config-0] Notify connected event to listeners.
+23:44:18.297 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [8f65b65b-d76e-43b8-a5f9-6ccb607825ba_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+23:44:18.301 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [8f65b65b-d76e-43b8-a5f9-6ccb607825ba_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$334/2070703728
+23:44:18.400 [32m[main][0;39m INFO  [34mo.s.c.b.c.PropertySourceBootstrapConfiguration[0;39m - [initialize,109] - Located property source: [BootstrapPropertySource {name='bootstrapProperties-container-order-dev.yaml,CONTAINER_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-container-order.yaml,CONTAINER_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-container-order,CONTAINER_GROUP'}]
+23:44:18.442 [32m[main][0;39m INFO  [34mc.f.o.ContainerOrderApplication[0;39m - [logStartupProfileInfo,637] - The following 1 profile is active: "dev"
+23:44:19.605 [32m[main][0;39m INFO  [34mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m - [multipleStoresDetected,262] - Multiple Spring Data modules found, entering strict repository configuration mode
+23:44:19.610 [32m[main][0;39m INFO  [34mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m - [registerRepositoriesIn,132] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+23:44:19.644 [32m[main][0;39m INFO  [34mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m - [registerRepositoriesIn,201] - Finished Spring Data repository scanning in 18 ms. Found 0 Redis repository interfaces.
+23:44:20.047 [32m[main][0;39m INFO  [34mo.s.c.c.s.GenericScope[0;39m - [setSerializationId,283] - BeanFactory id=19abe3da-037e-3528-9a96-ba195bd7e7c5
+23:44:20.235 [32m[main][0;39m INFO  [34mo.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker[0;39m - [postProcessAfterInitialization,376] - Bean 'cn.fuguang.common.redis.configure.RedisConfig' of type [cn.fuguang.common.redis.configure.RedisConfig$$EnhancerBySpringCGLIB$$65cb92f2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+23:44:20.569 [32m[main][0;39m INFO  [34mo.s.b.w.e.t.TomcatWebServer[0;39m - [initialize,108] - Tomcat initialized with port(s): 9960 (http)
+23:44:20.578 [32m[main][0;39m INFO  [34mo.a.c.h.Http11NioProtocol[0;39m - [log,173] - Initializing ProtocolHandler ["http-nio-9960"]
+23:44:20.579 [32m[main][0;39m INFO  [34mo.a.c.c.StandardService[0;39m - [log,173] - Starting service [Tomcat]
+23:44:20.579 [32m[main][0;39m INFO  [34mo.a.c.c.StandardEngine[0;39m - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.70]
+23:44:20.830 [32m[main][0;39m INFO  [34mo.a.c.c.C.[.[.[/order][0;39m - [log,173] - Initializing Spring embedded WebApplicationContext
+23:44:20.831 [32m[main][0;39m INFO  [34mo.s.b.w.s.c.ServletWebServerApplicationContext[0;39m - [prepareWebApplicationContext,292] - Root WebApplicationContext: initialization completed in 2361 ms
+23:44:21.019 [32m[main][0;39m INFO  [34mc.a.d.s.b.a.DruidDataSourceAutoConfigure[0;39m - [dataSource,55] - Init DruidDataSource
+23:44:21.204 [32m[main][0;39m INFO  [34mc.a.d.p.DruidDataSource[0;39m - [init,985] - {dataSource-1} inited
+23:44:21.678 [32m[main][0;39m INFO  [34morg.redisson.Version[0;39m - [logVersion,41] - Redisson 3.13.6
+23:44:22.309 [32m[redisson-netty-2-18][0;39m INFO  [34mo.r.c.p.MasterPubSubConnectionPool[0;39m - [lambda$run$0,167] - 1 connections initialized for /117.78.8.197:6379
+23:44:22.605 [32m[redisson-netty-2-13][0;39m INFO  [34mo.r.c.p.MasterConnectionPool[0;39m - [lambda$run$0,167] - 24 connections initialized for /117.78.8.197:6379
+23:44:23.116 [32m[main][0;39m INFO  [34mo.s.c.o.FeignClientFactoryBean[0;39m - [getTarget,418] - For 'container-channel' URL not provided. Will try picking an instance via load-balancing.
+23:44:24.794 [32m[main][0;39m INFO  [34mo.s.b.a.e.w.EndpointLinksResolver[0;39m - [<init>,58] - Exposing 1 endpoint(s) beneath base path '/actuator'
+23:44:25.051 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [lambda$createClient$0,80] - [RpcClientFactory] create a new rpc client of c2044343-7664-4c31-9d25-9f5aee99cc27
+23:44:25.052 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [c2044343-7664-4c31-9d25-9f5aee99cc27] RpcClient init label, labels = {module=naming, source=sdk}
+23:44:25.067 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [c2044343-7664-4c31-9d25-9f5aee99cc27] RpcClient init, ServerListFactory = com.alibaba.nacos.client.naming.core.ServerListManager
+23:44:25.068 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [c2044343-7664-4c31-9d25-9f5aee99cc27] Registry connection listener to current client:com.alibaba.nacos.client.naming.remote.gprc.redo.NamingGrpcRedoService
+23:44:25.071 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [c2044343-7664-4c31-9d25-9f5aee99cc27] Register server push request handler:com.alibaba.nacos.client.naming.remote.gprc.NamingPushRequestHandler
+23:44:25.079 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [c2044343-7664-4c31-9d25-9f5aee99cc27] Try to connect to server on start up, server: {serverIp = '123.249.79.51', server main port = 8848}
+23:44:25.584 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [c2044343-7664-4c31-9d25-9f5aee99cc27] Success to connect to server [123.249.79.51:8848] on start up, connectionId = 1715960665546_111.194.79.77_6880
+23:44:25.587 [32m[com.alibaba.nacos.client.remote.worker][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [c2044343-7664-4c31-9d25-9f5aee99cc27] Notify connected event to listeners.
+23:44:25.587 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [c2044343-7664-4c31-9d25-9f5aee99cc27] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+23:44:25.587 [32m[main][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [c2044343-7664-4c31-9d25-9f5aee99cc27] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$334/2070703728
+23:44:25.936 [32m[main][0;39m INFO  [34mo.a.c.h.Http11NioProtocol[0;39m - [log,173] - Starting ProtocolHandler ["http-nio-9960"]
+23:44:25.998 [32m[main][0;39m INFO  [34mo.s.b.w.e.t.TomcatWebServer[0;39m - [start,220] - Tomcat started on port(s): 9960 (http) with context path '/order'
+23:44:26.062 [32m[main][0;39m INFO  [34mc.a.c.n.r.NacosServiceRegistry[0;39m - [register,75] - nacos registry, DEFAULT_GROUP container-order 192.168.2.101:9960 register finished
+23:44:26.104 [32m[main][0;39m INFO  [34mc.f.o.ContainerOrderApplication[0;39m - [logStarted,61] - Started ContainerOrderApplication in 10.013 seconds (JVM running for 11.782)
+23:44:26.148 [32m[main][0;39m INFO  [34mc.a.c.n.r.NacosContextRefresher[0;39m - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=container-order.yaml, group=CONTAINER_GROUP
+23:44:26.151 [32m[main][0;39m INFO  [34mc.a.c.n.r.NacosContextRefresher[0;39m - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=container-order, group=CONTAINER_GROUP
+23:44:26.154 [32m[main][0;39m INFO  [34mc.a.c.n.r.NacosContextRefresher[0;39m - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=container-order-dev.yaml, group=CONTAINER_GROUP
+23:44:26.464 [32m[nacos-grpc-client-executor-8][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [c2044343-7664-4c31-9d25-9f5aee99cc27] Receive server push request, request = NotifySubscriberRequest, requestId = 38
+23:44:26.523 [32m[nacos-grpc-client-executor-8][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [printIfInfoEnabled,60] - [c2044343-7664-4c31-9d25-9f5aee99cc27] Ack server push request, request = NotifySubscriberRequest, requestId = 38
+23:44:26.607 [32m[RMI TCP Connection(4)-192.168.2.101][0;39m INFO  [34mo.a.c.c.C.[.[.[/order][0;39m - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+23:44:26.610 [32m[RMI TCP Connection(4)-192.168.2.101][0;39m INFO  [34mo.s.w.s.DispatcherServlet[0;39m - [initServletBean,525] - Initializing Servlet 'dispatcherServlet'
+23:44:26.615 [32m[RMI TCP Connection(4)-192.168.2.101][0;39m INFO  [34mo.s.w.s.DispatcherServlet[0;39m - [initServletBean,547] - Completed initialization in 3 ms
+23:44:36.861 [32m[SpringApplicationShutdownHook][0;39m INFO  [34mc.a.c.n.r.NacosServiceRegistry[0;39m - [deregister,94] - De-registering from Nacos Server now...
+23:44:36.881 [32m[SpringApplicationShutdownHook][0;39m INFO  [34mc.a.c.n.r.NacosServiceRegistry[0;39m - [deregister,114] - De-registration finished.
+23:44:37.214 [32m[SpringApplicationShutdownHook][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [shutdown,454] - Shutdown rpc client, set status to shutdown
+23:44:37.214 [32m[SpringApplicationShutdownHook][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [shutdown,456] - Shutdown client event executor java.util.concurrent.ScheduledThreadPoolExecutor@1849c06[Running, pool size = 2, active threads = 2, queued tasks = 0, completed tasks = 0]
+23:44:37.214 [32m[SpringApplicationShutdownHook][0;39m INFO  [34mc.a.n.c.r.client[0;39m - [closeConnection,591] - Close current connection 1715960665546_111.194.79.77_6880
+23:44:37.240 [32m[SpringApplicationShutdownHook][0;39m INFO  [34mc.a.n.c.r.c.g.GrpcClient[0;39m - [shutdown,85] - Shutdown grpc executor java.util.concurrent.ThreadPoolExecutor@1e6844eb[Running, pool size = 4, active threads = 0, queued tasks = 0, completed tasks = 16]
+23:44:37.433 [32m[NettyClientSelector_1][0;39m INFO  [34mRocketmqRemoting[0;39m - [info,95] - closeChannel: close the connection to remote address[123.249.79.51:10911] result: true
+23:44:37.440 [32m[NettyClientSelector_1][0;39m INFO  [34mRocketmqRemoting[0;39m - [info,95] - closeChannel: close the connection to remote address[123.249.79.51:9876] result: true
+23:44:37.538 [32m[SpringApplicationShutdownHook][0;39m INFO  [34mc.a.d.p.DruidDataSource[0;39m - [close,2105] - {dataSource-1} closing ...
+23:44:37.566 [32m[SpringApplicationShutdownHook][0;39m INFO  [34mc.a.d.p.DruidDataSource[0;39m - [close,2178] - {dataSource-1} closed
