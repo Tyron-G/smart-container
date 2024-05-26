@@ -8,3 +8,42 @@
 /dataSources.local.xml
 # Zeppelin ignored files
 /ZeppelinRemoteNotebooks/
+
+# 忽略所有 .class 文件
+*.class
+
+# 忽略所有 .log 文件
+*.log
+
+# 忽略所有 .war 文件
+*.war
+
+# 忽略所有 .ear 文件
+*.ear
+
+# 忽略所有 .apk 文件
+*.apk
+
+# 忽略所有 .idea 目录
+.idea/
+
+# 忽略所有 .project 文件
+.project
+
+# 忽略所有 .classpath 文件
+.classpath
+
+# 忽略所有 .settings 目录
+.settings/
+
+# 忽略所有 target 目录
+target/
+
+# 忽略所有 .DS_Store 文件（特定于Mac OS）
+.DS_Store
+
+# 忽略所有 .gitignore 文件，防止追踪这个文件本身
+.gitignore
+
+# 忽略所有 .gitkeep 文件，用于强制创建空的目录
+.gitkeep
