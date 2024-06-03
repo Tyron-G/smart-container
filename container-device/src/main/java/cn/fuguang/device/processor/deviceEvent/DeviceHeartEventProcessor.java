@@ -57,9 +57,11 @@ public class DeviceHeartEventProcessor extends DeviceEventAbstractProcessor {
         redisService.hset(RedisConstants.DEVICE_HEART_LAST_TIME_KEY, heartEventBean.getDeviceSn(), heartEventBean.getHeartDate());
 
         //获取最近5分钟的开始时间  例 目前是 2024-05-24 21:57:00  最近5分钟开始时间为2024-05-24 21:55:00
-        //获取最近5分钟的结束时间  例 目前是 2024-05-24 21:57:00  最近5分钟开始时间为2024-05-24 21:59:59
+        //获取最近5分钟的结束时间  例 目前是 2024-05-24 21:57:00  最近5分钟结束时间为2024-05-24 21:59:59
         String startTimeKey = "";
         String endTimeKey = "";
+
+        String key = "SERVICE_HEART_COUNT_KEY_" + "2024-05-24 21:55:00" + "_" +"2024-05-24 21:59:59";
 
         //获取当前时间所对应的redisKey
         String heartCountRedisKey = RedisConstants.SERVICE_HEART_COUNT_KEY + startTimeKey + "_" + endTimeKey;

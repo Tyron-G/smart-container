@@ -31,5 +31,10 @@ public class BaseConstants {
      */
     public static final Double DEVICE_HEART_COUNT_THRESHOLD = 0.8;
 
+    /**
+     * 验证码有效期(分钟)
+     */
+    public static final Integer VERIFY_CODE_PERIOD = 10;
+
 
 }

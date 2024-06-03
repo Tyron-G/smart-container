@@ -24,7 +24,6 @@ import cn.fuguang.order.pojo.vo.req.ScanCreateOrderReq;
 import cn.fuguang.order.pojo.vo.res.ScanCreateOrderRes;
 import cn.fuguang.order.service.BlackCustomerService;
 import cn.fuguang.order.service.CustomerService;
-import cn.fuguang.order.service.DeviceService;
 import cn.fuguang.order.service.OrderService;
 import cn.hutool.core.thread.ThreadUtil;
 import com.alibaba.fastjson2.JSONObject;
@@ -44,8 +43,6 @@ public class OrderBizImpl implements OrderBiz {
     private OrderService orderService;
     @Resource
     private BlackCustomerService blackCustomerService;
-    @Resource
-    private DeviceService deviceService;
     @Resource
     private RedissonClient redissonClient;
     @Resource

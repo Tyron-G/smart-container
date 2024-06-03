@@ -10,11 +10,11 @@
         <result column="order_amount" jdbcType="DECIMAL" property="orderAmount"/>
         <result column="pay_amount" jdbcType="DECIMAL" property="payAmount"/>
         <result column="coupon_amount" jdbcType="DECIMAL" property="couponAmount"/>
-        <result column="trx_time" jdbcType="DATE" property="trxTime"/>
-        <result column="pay_time" jdbcType="DATE" property="payTime"/>
+        <result column="trx_time"  property="trxTime"/>
+        <result column="pay_time"  property="payTime"/>
         <result column="order_status" jdbcType="VARCHAR" property="orderStatus"/>
-        <result column="create_time" jdbcType="DATE" property="createTime"/>
-        <result column="update_time" jdbcType="DATE" property="updateTime"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
         <result column="remarks" jdbcType="VARCHAR" property="remarks"/>
         <result column="procedure_type" jdbcType="VARCHAR" property="procedureType"/>
     </resultMap>
@@ -30,9 +30,9 @@
         insert into order_info (order_no, customer_id, device_id,
                                        gate_id , order_amount, pay_amount, coupon_amount, trx_time,
                                        pay_time,order_status,create_time,update_time,remarks,procedure_type)
-        values (#{orderNo,jdbcType=VARCHAR}, #{customerId,jdbcType=VARCHAR}, #{deviceId,jdbcType=DATE},
+        values (#{orderNo,jdbcType=VARCHAR}, #{customerId,jdbcType=VARCHAR}, #{deviceId},
                 #{gateId,jdbcType=VARCHAR}, #{orderAmount,jdbcType=DECIMAL}, #{payAmount,jdbcType=DECIMAL},
-                #{couponAmount,jdbcType=DECIMAL}, #{trxTime,jdbcType=DATE}, #{payTime,jdbcType=DATE},
+                #{couponAmount,jdbcType=DECIMAL}, #{trxTime}, #{payTime},
                 #{orderStatus,jdbcType=VARCHAR}, now(), now(), #{remarks,jdbcType=VARCHAR}, #{procedureType,jdbcType=VARCHAR})
     </insert>
 

@@ -10,6 +10,7 @@ import cn.fuguang.order.mapper.OrderInfoMapper;
 import cn.fuguang.order.pojo.vo.req.ScanCreateOrderReq;
 import cn.fuguang.order.service.OrderService;
 import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.util.IdUtil;
 import cn.hutool.core.util.RandomUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
