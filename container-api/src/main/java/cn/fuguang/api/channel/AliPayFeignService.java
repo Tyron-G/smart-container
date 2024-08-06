@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-@FeignClient(name = "container-channel")
+@FeignClient(name = "container-channel", contextId = "ali-pay")
 public interface AliPayFeignService {
 
     @ResponseBody
