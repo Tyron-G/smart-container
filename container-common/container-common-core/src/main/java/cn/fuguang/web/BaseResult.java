@@ -35,12 +35,12 @@ public class BaseResult<T> implements Serializable {
         return generateResult(BaseConstants.ERROR_CODE, retMsg,null);
     }
 
-    public static <T> BaseResult<T> fail(String retCode, String retMsg){
-        return generateResult(retCode, retMsg,null);
+    public static <T> BaseResult<T> fail(){
+        return generateResult(BaseConstants.ERROR_CODE, BaseConstants.ERROR_MSG,null);
     }
 
-    public static <T> BaseResult<T>  fail(){
-        return generateResult(BaseConstants.ERROR_CODE, null,null);
+    public static <T> BaseResult<T> fail(String retCode, String retMsg){
+        return generateResult(retCode, retMsg,null);
     }
 
     public static <T> BaseResult<T> generateResult(String code, String message, T data){

@@ -23,7 +23,7 @@ public class DeviceController {
      * 检查设备在线状态
      */
     @PostMapping("/checkDeviceHeart")
-    public BaseResult checkDeviceHeart(){
+    public BaseResult<Void> checkDeviceHeart(){
         log.info("开始检查设备心跳状态");
         try {
             deviceInfoBiz.checkDeviceHeart();

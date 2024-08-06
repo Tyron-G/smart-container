@@ -4,6 +4,8 @@ public class BaseConstants {
 
     public static final String SUCCESS_CODE = "000000";
     public static final String ERROR_CODE = "999999";
+
+    public static final String ERROR_MSG = "系统异常, 请稍后重试";
     public static final String DATE_PATTEN_STR = "yyyyMMddHHmmss";
 
     /**
