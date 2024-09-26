@@ -12,5 +12,5 @@ public interface EventAcceptFeignService {
 
     @ResponseBody
     @PostMapping("/communicate/eventAccept")
-    BaseResponse eventAccept(@RequestBody EventAcceptReqDTO reqDTO);
+    BaseResponse<Void> eventAccept(@RequestBody EventAcceptReqDTO reqDTO);
 }
