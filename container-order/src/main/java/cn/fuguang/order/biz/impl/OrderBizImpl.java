@@ -20,6 +20,7 @@ import cn.fuguang.enums.ProcedureTypeEnum;
 import cn.fuguang.exception.ContainerException;
 import cn.fuguang.feign.BaseResponse;
 import cn.fuguang.order.biz.OrderBiz;
+import cn.fuguang.order.pojo.OrderContext;
 import cn.fuguang.order.pojo.vo.req.ScanCreateOrderReq;
 import cn.fuguang.order.pojo.vo.res.ScanCreateOrderRes;
 import cn.fuguang.order.service.BlackCustomerService;
@@ -33,11 +34,17 @@ import org.redisson.api.RedissonClient;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 @Service
 @Slf4j
 public class OrderBizImpl implements OrderBiz {
+
+
+
 
     @Resource
     private OrderService orderService;
@@ -58,6 +65,10 @@ public class OrderBizImpl implements OrderBiz {
     @Override
     public ScanCreateOrderRes scanCreateOrder(ScanCreateOrderReq req) {
 
+
+        OrderContext orderContext = new OrderContext();
+        orderContext.setReq(req);
+
         ScanCreateOrderRes scanCreateOrderRes = new ScanCreateOrderRes();
 
         //创建订单前置校验
@@ -70,9 +81,13 @@ public class OrderBizImpl implements OrderBiz {
         if (lock.tryLock()) {
             //生成订单号
             String orderNo = orderService.createOrderNo(OrderTypeEnum.SHOP_ORDER);
+            orderContext.setOrderNo(orderNo);
 
             //获取客户信息
             CustomerEntity customerEntity = customerService.queryCustomerById(req.getCustomerId());
+            orderContext.setCustomer(customerEntity);
+
+
 
             //创建订单详情
             OrderInfoEntity orderInfo = orderService.buildOrderInfo(req, orderNo);
@@ -166,5 +181,31 @@ public class OrderBizImpl implements OrderBiz {
         blackCustomerService.checkCustomer(req.getCustomerId());
         //检查参数设备状态，仓门状态
         deviceInfoFeignService.checkDeviceStatus(CheckDeviceStatusReqDTO.builder().deviceId(req.getDeviceId()).gateId(req.getGateId()).build());
+    }
+
+
+
+    public void test(){
+
+        //1.调用微信后去账单
+
+        //2.放入oss
+
+        //3.读取oss 里面的excel文件 读取出一个list1
+
+        //4.查询数据库微信昨日订单list2
+
+        //5.对比
+
+        //5.1 list1.size == list.size()?
+
+        //5.2 汇总list1.的金额 list2.的金额 进行对比
+
+        //5.2 list1.对状态进行分组 list2。对状态进行分组
+
+        //5.3 list1.存在未支付的订单 或 list2。存在未支付的订单
+
+        //5.4 对这些未支付的订单号进行比较
+
     }
 }
