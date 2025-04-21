@@ -19,7 +19,7 @@ public class DeviceInfoEntity {
     private String deviceId;
 
     /**
-     * 设备Sn
+     * 设备Sn git测试
      */
     private String deviceSn;
 
