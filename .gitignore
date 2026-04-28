@@ -1,0 +1,23 @@
+# Build outputs
+target/
+*.class
+
+# IDE files
+.idea/
+*.iml
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local environment files
+.env
+.env.*
+application-local.yml
+application-local.yaml
+bootstrap-local.yml
+bootstrap-local.yaml
