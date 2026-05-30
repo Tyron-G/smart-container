@@ -6,16 +6,16 @@
         <result column="mobile" jdbcType="VARCHAR" property="mobile"/>
         <result column="verify_code" jdbcType="VARCHAR" property="verifyCode"/>
         <result column="order_no" jdbcType="VARCHAR" property="orderNo"/>
-        <result column="retry_times" jdbcType="VARCHAR" property="retryTimes"/>
-        <result column="invalid_time" jdbcType="DATETIME" property="invalidTime"/>
-        <result column="create_time" jdbcType="DATETIME" property="createTime"/>
-        <result column="update_time" jdbcType="DATETIME" property="updateTime"/>
+        <result column="retry_times" jdbcType="INTEGER" property="retryTimes"/>
+        <result column="invalid_time" property="invalidTime"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
     </resultMap>
 
-    <insert id="insert" parameterType="cn.fuguang.entity.OrderInfoEntity">
-        insert into order_info (mobile, verify_code, order_no,
-                                retry_times , invalid_time, ,create_time, update_time)
-        values (#{mobile,jdbcType=VARCHAR}, #{verifyCode,jdbcType=VARCHAR}, #{orderNo}, #{retryTimes},
-                #{invalidTime,jdbcType=DATETIME},now(), now())
+    <insert id="insert" parameterType="cn.fuguang.entity.VerifyCodeEntity">
+        insert into verify_code (mobile, verify_code, order_no,
+                                 retry_times, invalid_time, create_time, update_time)
+        values (#{mobile,jdbcType=VARCHAR}, #{verifyCode,jdbcType=VARCHAR}, #{orderNo,jdbcType=VARCHAR},
+                #{retryTimes,jdbcType=INTEGER}, #{invalidTime}, now(), now())
     </insert>
 </mapper>

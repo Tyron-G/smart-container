@@ -23,7 +23,7 @@
     <select id="queryCustomerByAliOpenId" parameterType="java.lang.String" resultMap="BaseResultMap">
         select *
         from customer
-        where ali_open_id = #{alipayUserId,jdbcType=VARCHARw}
+        where ali_open_id = #{alipayUserId,jdbcType=VARCHAR}
     </select>
 
 </mapper>

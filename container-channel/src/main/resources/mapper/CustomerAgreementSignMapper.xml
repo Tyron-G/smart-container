@@ -15,9 +15,9 @@
 
 
     <insert id="insert" parameterType="cn.fuguang.entity.CustomerAgreementSignEntity">
-        insert into order_info (customer_id, order_no, status, agreement_no, sign_time, ali_open_id, create_time,update_time)
+        insert into customer_agreement_sign (customer_id, order_no, status, agreement_no, sign_time, ali_open_id, create_time, update_time)
         values (#{customerId,jdbcType=VARCHAR}, #{orderNo,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR},
-                #{agreementNo,jdbcType=VARCHAR}, #{sign_time,jdbcType=DATE}, #{ali_open_id,jdbcType=VARCHAR}, now(), now())
+                #{agreementNo,jdbcType=VARCHAR}, #{signTime,jdbcType=DATE}, #{aliOpenId,jdbcType=VARCHAR}, now(), now())
     </insert>
 
 

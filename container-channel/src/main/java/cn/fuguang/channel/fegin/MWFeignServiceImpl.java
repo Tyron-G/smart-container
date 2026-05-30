@@ -14,10 +14,7 @@ public class MWFeignServiceImpl implements MWFeignService {
     public BaseResponse sendSms(SendSmsReqDTO reqDTO) {
         log.info("通道接收发送短信参数:{}", JSONObject.toJSONString(reqDTO));
         try {
-            SendSmsRes sendRes = send(smsReq);
-            if (!Constant.Status.STATUS_SUCCESS.equalsIgnoreCase(String.valueOf(sendRes.getResult()))) {
-                return BaseResponse.onFail(String.valueOf(sendRes.getResult()), sendRes.getDesc());
-            }
+            log.info("发送短信请求:{}", JSONObject.toJSONString(reqDTO));
         } catch (Exception e) {
             log.error("通道接收发送短信 系统异常" + e);
             return BaseResponse.fail(e.getMessage());
