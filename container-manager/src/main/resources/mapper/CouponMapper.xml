@@ -23,20 +23,87 @@
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
     </resultMap>
 
+    <sql id="BaseColumnList">
+        id,coupon_config_id,product_uid,coupon_type,coupon_money,coupon_all_categories,
+        coupon_count,coupon_valid_date,coupon_image,coupon_name,coupon_receive_valid_date,
+        coupon_total_money,coupon_customer_limit,coupon_customer_amount_limit,coupon_issued_count,
+        coupon_deadline,coupon_desc,remarks,create_time
+    </sql>
+
+    <sql id="CouponConfigPageWhere">
+        <where>
+            <if test="keyword != null and keyword != ''">
+                AND (
+                    coupon_config_id LIKE CONCAT('%', #{keyword}, '%')
+                    OR coupon_name LIKE CONCAT('%', #{keyword}, '%')
+                    OR product_uid LIKE CONCAT('%', #{keyword}, '%')
+                )
+            </if>
+            <if test="couponType != null and couponType != ''">
+                AND coupon_type = #{couponType}
+            </if>
+        </where>
+    </sql>
+
 
     <insert id="insert" parameterType="cn.fuguang.entity.CouponConfigEntity">
-        INSERT INTO CouponConfigEntity (
-            id,coupon_config_id,product_uid,coupon_type,coupon_money,coupon_all_categories,
+        INSERT INTO coupon_config (
+            coupon_config_id,product_uid,coupon_type,coupon_money,coupon_all_categories,
             coupon_count,coupon_valid_date,coupon_image,coupon_name,coupon_receive_valid_date,
             coupon_total_money,coupon_customer_limit,coupon_customer_amount_limit,coupon_issued_count,
             coupon_deadline,coupon_desc, remarks,create_time
         ) VALUES (
-            #{id,jdbcType=BIGINT},#{couponConfigId,jdbcType=VARCHAR},#{productUid,jdbcType=VARCHAR},
+            #{couponConfigId,jdbcType=VARCHAR},#{productUid,jdbcType=VARCHAR},
             #{couponType,jdbcType=VARCHAR}, #{couponMoney,jdbcType=DECIMAL},#{couponAllCategories,jdbcType=VARCHAR},
             #{couponCount,jdbcType=BIGINT},#{couponValidDate,jdbcType=BIGINT},#{couponImage,jdbcType=VARCHAR},
             #{couponName,jdbcType=VARCHAR},#{couponReceiveValidDate,jdbcType=BIGINT},#{couponTotalMoney,jdbcType=DECIMAL},
             #{couponCustomerLimit,jdbcType=BIGINT},#{couponCustomerAmountLimit,jdbcType=BIGINT},#{couponIssuedCount,jdbcType=BIGINT},
-            #{couponDeadline,jdbcType=TIMESTAMP},#{couponDesc,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR},#{createTime,jdbcType=TIMESTAMP})
+            #{couponDeadline,jdbcType=TIMESTAMP},#{couponDesc,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR},now())
     </insert>
+
+    <select id="selectByCouponConfigId" resultMap="BaseResultMap">
+        SELECT
+        <include refid="BaseColumnList"/>
+        FROM coupon_config
+        WHERE coupon_config_id = #{couponConfigId}
+        LIMIT 1
+    </select>
+
+    <update id="updateByCouponConfigId" parameterType="cn.fuguang.entity.CouponConfigEntity">
+        UPDATE coupon_config
+        <set>
+            <if test="productUid != null">product_uid = #{productUid,jdbcType=VARCHAR},</if>
+            <if test="couponType != null">coupon_type = #{couponType,jdbcType=VARCHAR},</if>
+            <if test="couponMoney != null">coupon_money = #{couponMoney,jdbcType=DECIMAL},</if>
+            <if test="couponAllCategories != null">coupon_all_categories = #{couponAllCategories,jdbcType=VARCHAR},</if>
+            <if test="couponCount != null">coupon_count = #{couponCount,jdbcType=BIGINT},</if>
+            <if test="couponValidDate != null">coupon_valid_date = #{couponValidDate,jdbcType=BIGINT},</if>
+            <if test="couponImage != null">coupon_image = #{couponImage,jdbcType=VARCHAR},</if>
+            <if test="couponName != null">coupon_name = #{couponName,jdbcType=VARCHAR},</if>
+            <if test="couponReceiveValidDate != null">coupon_receive_valid_date = #{couponReceiveValidDate,jdbcType=BIGINT},</if>
+            <if test="couponTotalMoney != null">coupon_total_money = #{couponTotalMoney,jdbcType=DECIMAL},</if>
+            <if test="couponCustomerLimit != null">coupon_customer_limit = #{couponCustomerLimit,jdbcType=BIGINT},</if>
+            <if test="couponCustomerAmountLimit != null">coupon_customer_amount_limit = #{couponCustomerAmountLimit,jdbcType=BIGINT},</if>
+            <if test="couponDeadline != null">coupon_deadline = #{couponDeadline,jdbcType=TIMESTAMP},</if>
+            <if test="couponDesc != null">coupon_desc = #{couponDesc,jdbcType=VARCHAR},</if>
+            <if test="remarks != null">remarks = #{remarks,jdbcType=VARCHAR},</if>
+        </set>
+        WHERE coupon_config_id = #{couponConfigId,jdbcType=VARCHAR}
+    </update>
+
+    <select id="countByPageReq" parameterType="cn.fuguang.manager.pojo.vo.req.CouponConfigPageReq" resultType="long">
+        SELECT COUNT(1)
+        FROM coupon_config
+        <include refid="CouponConfigPageWhere"/>
+    </select>
+
+    <select id="queryByPageReq" parameterType="cn.fuguang.manager.pojo.vo.req.CouponConfigPageReq" resultMap="BaseResultMap">
+        SELECT
+        <include refid="BaseColumnList"/>
+        FROM coupon_config
+        <include refid="CouponConfigPageWhere"/>
+        ORDER BY create_time DESC, id DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
 
 </mapper>
