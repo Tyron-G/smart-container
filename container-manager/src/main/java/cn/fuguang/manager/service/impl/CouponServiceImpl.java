@@ -54,6 +54,21 @@ public class CouponServiceImpl implements CouponService {
     }
 
     @Override
+    public void updateStatusByCouponConfigId(String couponConfigId, String status) {
+        try {
+            int affectedRows = couponMapper.updateStatusByCouponConfigId(couponConfigId, status);
+            if (affectedRows == 0) {
+                throw ContainerException.DATE_NOT_EXIST_ERROR.newInstance("[coupon] coupon config not exist");
+            }
+        } catch (ContainerException e) {
+            throw e;
+        } catch (Exception e) {
+            log.error("[coupon] updateStatusByCouponConfigId error couponConfigId:" + couponConfigId + ", status:" + status, e);
+            throw ContainerException.DATABASE_UPDATE_ERROR.newInstance("[coupon] update status error");
+        }
+    }
+
+    @Override
     public long countByPageReq(CouponConfigPageReq req) {
         try {
             return couponMapper.countByPageReq(req);
@@ -70,6 +85,16 @@ public class CouponServiceImpl implements CouponService {
         } catch (Exception e) {
             log.error("[coupon] queryByPageReq error req:" + JSONObject.toJSONString(req), e);
             throw ContainerException.DATABASE_QUERY_ERROR.newInstance("[coupon] query page error");
+        }
+    }
+
+    @Override
+    public long sumIssuedCountByPageReq(CouponConfigPageReq req) {
+        try {
+            return couponMapper.sumIssuedCountByPageReq(req);
+        } catch (Exception e) {
+            log.error("[coupon] sumIssuedCountByPageReq error req:" + JSONObject.toJSONString(req), e);
+            throw ContainerException.DATABASE_QUERY_ERROR.newInstance("[coupon] sum issued count error");
         }
     }
 }

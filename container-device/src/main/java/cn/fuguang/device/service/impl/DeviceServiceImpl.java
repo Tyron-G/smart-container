@@ -45,8 +45,8 @@ public class DeviceServiceImpl implements DeviceService {
             throw ContainerException.DATE_NOT_EXIST_ERROR.newInstance("设备不存在");
         }
 
-        if (DeviceStatusEnum.NORMAL.name().equals(deviceInfoEntity.getDeviceStatus())){
-            throw ContainerException.DEVICE_STATUS_ERROR;
+        if (!DeviceStatusEnum.NORMAL.name().equals(deviceInfoEntity.getDeviceStatus())){
+            throw ContainerException.DEVICE_STATUS_ERROR.newInstance("设备状态异常");
         }
 
         GateInfoEntity gateInfoEntity = gateInfoMapper.queryGateInfoById(gateId);
@@ -55,7 +55,7 @@ public class DeviceServiceImpl implements DeviceService {
             throw ContainerException.DATE_NOT_EXIST_ERROR.newInstance("仓门不存在");
         }
 
-        if (GateStatusEnum.NORMAL.name().equals(deviceInfoEntity.getDeviceStatus())){
+        if (!GateStatusEnum.NORMAL.name().equals(gateInfoEntity.getGateStatus())){
             throw ContainerException.DEVICE_STATUS_ERROR.newInstance("仓门状态异常");
         }
 

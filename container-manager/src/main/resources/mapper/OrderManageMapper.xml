@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.fuguang.manager.mapper.OrderManageMapper">
+    <sql id="OrderListFrom">
+        FROM order_info o
+        LEFT JOIN customer c ON o.customer_id = c.customer_id
+        LEFT JOIN device_info d ON o.device_id = d.device_id
+        LEFT JOIN gate_info g ON o.gate_id = g.gate_id
+    </sql>
+
+    <sql id="OrderListWhere">
+        <where>
+            <if test="keyword != null and keyword != ''">
+                AND (
+                    o.order_no LIKE CONCAT('%', #{keyword}, '%')
+                    OR o.customer_id LIKE CONCAT('%', #{keyword}, '%')
+                    OR c.mobile LIKE CONCAT('%', #{keyword}, '%')
+                    OR o.device_id LIKE CONCAT('%', #{keyword}, '%')
+                    OR d.device_sn LIKE CONCAT('%', #{keyword}, '%')
+                )
+            </if>
+            <if test="status != null and status != ''">
+                AND o.order_status = #{status}
+            </if>
+        </where>
+    </sql>
+
+    <select id="countOrders" resultType="long">
+        SELECT COUNT(1)
+        <include refid="OrderListFrom"/>
+        <include refid="OrderListWhere"/>
+    </select>
+
+    <select id="selectOrders" resultType="map">
+        SELECT o.id, o.order_no, o.customer_id, c.user_name, c.mobile, o.device_id, d.device_sn, d.device_name,
+               o.gate_id, g.gate_name, o.order_amount, o.pay_amount, o.coupon_amount, o.trx_time, o.pay_time,
+               o.order_status, o.procedure_type, o.create_time, o.update_time, o.remarks
+        <include refid="OrderListFrom"/>
+        <include refid="OrderListWhere"/>
+        ORDER BY o.create_time DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <select id="selectOrderDetail" resultType="map">
+        SELECT o.*, c.user_name, c.mobile, c.ali_open_id, c.wechat_open_id, d.device_sn, d.device_name, d.device_status,
+               g.gate_name, g.gate_code, g.gate_status
+        FROM order_info o
+        LEFT JOIN customer c ON o.customer_id = c.customer_id
+        LEFT JOIN device_info d ON o.device_id = d.device_id
+        LEFT JOIN gate_info g ON o.gate_id = g.gate_id
+        WHERE o.order_no = #{orderNo}
+        LIMIT 1
+    </select>
+
+    <select id="selectOrderEvents" resultType="map">
+        SELECT id, event_time, event_type, event_tag, device_sn, event_level, content, process_status
+        FROM device_event
+        WHERE order_no = #{orderNo}
+        ORDER BY event_time DESC
+    </select>
+
+    <select id="selectOrderItems" resultType="map">
+        SELECT id, order_no, product_id, product_name, sku_code, quantity, unit_price, total_amount, create_time
+        FROM order_item
+        WHERE order_no = #{orderNo}
+        ORDER BY id ASC
+    </select>
+
+    <select id="selectOrderRefunds" resultType="map">
+        SELECT id, refund_no, order_no, refund_amount, refund_reason, status, operator, create_time, update_time
+        FROM order_refund_record
+        WHERE order_no = #{orderNo}
+        ORDER BY create_time DESC
+    </select>
+
+    <select id="selectOrderAdjustments" resultType="map">
+        SELECT id, adjust_no, order_no, adjust_type, adjust_amount, adjust_reason, status, operator, create_time, update_time
+        FROM order_adjust_record
+        WHERE order_no = #{orderNo}
+        ORDER BY create_time DESC
+    </select>
+
+    <select id="selectOrderExceptions" resultType="map">
+        SELECT id, exception_no, order_no, exception_type, description, process_status, process_result, operator, create_time, update_time
+        FROM order_exception_record
+        WHERE order_no = #{orderNo}
+        ORDER BY create_time DESC
+    </select>
+
+    <select id="countAllOrders" resultType="long">
+        SELECT COUNT(1) FROM order_info
+    </select>
+
+    <select id="countOrdersByStatus" resultType="long">
+        SELECT COUNT(1) FROM order_info WHERE order_status = #{status}
+    </select>
+
+    <select id="countUnpaidOrders" resultType="long">
+        SELECT COUNT(1)
+        FROM order_info
+        WHERE order_status IN ('UN_PAID', 'INIT', 'PRE_AUTH_CREATE_SUCCESS', 'PRE_AUTH_SUCCESS', 'IN_PAYMENT')
+    </select>
+
+    <select id="sumTodayPaidAmount" resultType="java.math.BigDecimal">
+        SELECT COALESCE(SUM(pay_amount), 0)
+        FROM order_info
+        WHERE order_status = 'FULLY_PAY'
+          AND DATE(COALESCE(pay_time, create_time)) = CURDATE()
+    </select>
+
+    <update id="updateOrderStatus">
+        UPDATE order_info
+        SET order_status = #{status},
+            update_time = now(),
+            pay_time = CASE WHEN #{status} = 'FULLY_PAY' AND pay_time IS NULL THEN now() ELSE pay_time END
+        WHERE order_no = #{orderNo}
+    </update>
+
+    <select id="selectOrderPaymentInfo" resultType="map">
+        SELECT order_no, pay_amount, order_status
+        FROM order_info
+        WHERE order_no = #{orderNo}
+        LIMIT 1
+    </select>
+
+    <select id="selectOrderStatus" resultType="map">
+        SELECT order_no, order_status
+        FROM order_info
+        WHERE order_no = #{orderNo}
+        LIMIT 1
+    </select>
+
+    <select id="sumSuccessRefundAmount" resultType="java.math.BigDecimal">
+        SELECT COALESCE(SUM(refund_amount), 0)
+        FROM order_refund_record
+        WHERE order_no = #{orderNo}
+          AND status = 'SUCCESS'
+    </select>
+
+    <insert id="insertRefundRecord">
+        INSERT INTO order_refund_record(
+            refund_no, order_no, refund_amount, refund_reason, status, operator, payment_request_no, create_time, update_time
+        ) VALUES(
+            #{refundNo}, #{orderNo}, #{amount}, #{reason}, #{status}, #{operator}, #{paymentRequestNo}, now(), now()
+        )
+        ON DUPLICATE KEY UPDATE update_time = now()
+    </insert>
+
+    <insert id="insertAdjustRecord">
+        INSERT INTO order_adjust_record(
+            adjust_no, order_no, adjust_type, adjust_amount, adjust_reason, status, operator, payment_request_no, create_time, update_time
+        ) VALUES(
+            #{adjustNo}, #{orderNo}, 'SUPPLEMENT_CHARGE', #{amount}, #{reason}, #{status}, #{operator}, #{paymentRequestNo}, now(), now()
+        )
+        ON DUPLICATE KEY UPDATE update_time = now()
+    </insert>
+
+    <update id="handleExceptionByExceptionNo">
+        UPDATE order_exception_record
+        SET process_status = 'DONE',
+            process_result = #{result},
+            operator = #{operator},
+            update_time = now()
+        WHERE exception_no = #{exceptionNo}
+    </update>
+
+    <update id="handleExceptionByOrderNo">
+        UPDATE order_exception_record
+        SET process_status = 'DONE',
+            process_result = #{result},
+            operator = #{operator},
+            update_time = now()
+        WHERE order_no = #{orderNo}
+          AND process_status &lt;&gt; 'DONE'
+    </update>
+</mapper>

@@ -59,7 +59,7 @@ function Start-Nacos {
     }
 
     Write-Host '正在启动 Nacos...' -ForegroundColor Cyan
-    Start-CmdProcess -FilePath 'cmd.exe' -Arguments "/c \"$startupCmd -m standalone\"" -WorkingDirectory (Join-Path $nacosHome 'bin')
+    Start-CmdProcess -FilePath 'cmd.exe' -Arguments ('/c ""{0}" -m standalone"' -f $startupCmd) -WorkingDirectory (Join-Path $nacosHome 'bin')
     Wait-PortOpen -Port 8848 -Name 'Nacos' -TimeoutSeconds 90
     Write-Host 'Nacos 启动成功。' -ForegroundColor Green
 }
@@ -72,7 +72,7 @@ function Start-RocketMQ {
         }
 
         Write-Host '正在启动 RocketMQ NameServer...' -ForegroundColor Cyan
-        Start-CmdProcess -FilePath 'cmd.exe' -Arguments "/c \"$namesrvCmd\"" -WorkingDirectory (Join-Path $rocketMqHome 'bin')
+        Start-CmdProcess -FilePath 'cmd.exe' -Arguments ('/c ""{0}""' -f $namesrvCmd) -WorkingDirectory (Join-Path $rocketMqHome 'bin')
         Wait-PortOpen -Port 9876 -Name 'RocketMQ NameServer' -TimeoutSeconds 90
         Write-Host 'RocketMQ NameServer 启动成功。' -ForegroundColor Green
     }
@@ -88,7 +88,7 @@ function Start-RocketMQ {
         }
 
         Write-Host '正在启动 RocketMQ Broker...' -ForegroundColor Cyan
-        Start-CmdProcess -FilePath 'cmd.exe' -Arguments "/c \"$brokerCmd -n localhost:9876 -c $brokerConf autoCreateTopicEnable=true\"" -WorkingDirectory (Join-Path $rocketMqHome 'bin')
+        Start-CmdProcess -FilePath 'cmd.exe' -Arguments ('/c ""{0}" -n localhost:9876 -c "{1}" autoCreateTopicEnable=true"' -f $brokerCmd, $brokerConf) -WorkingDirectory (Join-Path $rocketMqHome 'bin')
         Wait-PortOpen -Port 10911 -Name 'RocketMQ Broker' -TimeoutSeconds 90
         Write-Host 'RocketMQ Broker 启动成功。' -ForegroundColor Green
     }
@@ -116,7 +116,7 @@ function Start-Microservice {
     }
 
     Write-Host "正在启动 $Name ..." -ForegroundColor Cyan
-    $command = "mvn spring-boot:run -DskipTests \"-Dspring-boot.run.mainClass=$MainClass\""
+    $command = 'mvn spring-boot:run -DskipTests "-Dspring-boot.run.mainClass={0}"' -f $MainClass
     Start-CmdProcess -FilePath 'cmd.exe' -Arguments "/c $command" -WorkingDirectory $modulePath
     Wait-PortOpen -Port $Port -Name $Name -TimeoutSeconds 180
     Write-Host "$Name 启动成功。" -ForegroundColor Green

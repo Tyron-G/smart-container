@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.fuguang.manager.mapper.PaymentOperationMapper">
+    <select id="selectByRequestNo" resultType="map">
+        SELECT request_no, status, channel_trade_no, channel_message, error_code
+        FROM payment_operation_record
+        WHERE request_no = #{requestNo}
+        LIMIT 1
+    </select>
+
+    <insert id="insertPaymentOperation">
+        INSERT INTO payment_operation_record(
+            request_no, order_no, operation_type, channel_type, amount, reason,
+            status, channel_trade_no, channel_message, error_code, channel_request_payload, channel_response_payload,
+            operator, create_time, update_time
+        ) VALUES(
+            #{requestNo}, #{orderNo}, #{operationType}, #{channelType}, #{amount}, #{reason},
+            #{status}, #{channelTradeNo}, #{channelMessage}, #{errorCode}, #{channelRequestPayload}, #{channelResponsePayload},
+            #{operator}, now(), now()
+        )
+    </insert>
+</mapper>

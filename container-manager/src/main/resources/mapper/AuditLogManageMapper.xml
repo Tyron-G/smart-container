@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.fuguang.manager.mapper.AuditLogManageMapper">
+    <sql id="LogWhere">
+        <where>
+            <if test="keyword != null and keyword != ''">
+                AND (log_id LIKE CONCAT('%', #{keyword}, '%')
+                     OR action LIKE CONCAT('%', #{keyword}, '%')
+                     OR target_id LIKE CONCAT('%', #{keyword}, '%')
+                     OR operator LIKE CONCAT('%', #{keyword}, '%')
+                     OR content LIKE CONCAT('%', #{keyword}, '%'))
+            </if>
+            <if test="module != null and module != ''">
+                AND module = #{module}
+            </if>
+        </where>
+    </sql>
+
+    <select id="countLogs" resultType="long">
+        SELECT COUNT(1) FROM operation_log
+        <include refid="LogWhere"/>
+    </select>
+
+    <select id="selectLogs" resultType="map">
+        SELECT id, log_id, module, action, target_id, operator, content, result, create_time
+        FROM operation_log
+        <include refid="LogWhere"/>
+        ORDER BY create_time DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <select id="countAllLogs" resultType="long">
+        SELECT COUNT(1) FROM operation_log
+    </select>
+
+    <select id="countTodayLogs" resultType="long">
+        SELECT COUNT(1) FROM operation_log WHERE DATE(create_time) = CURDATE()
+    </select>
+
+    <select id="selectModuleTotals" resultType="map">
+        SELECT module, COUNT(1) AS total
+        FROM operation_log
+        GROUP BY module
+        ORDER BY total DESC
+    </select>
+</mapper>

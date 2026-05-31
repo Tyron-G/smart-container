@@ -38,6 +38,7 @@
         <druid.pring.boot.starter-version>1.2.15</druid.pring.boot.starter-version>
         <fastjson.version>2.0.22</fastjson.version>
         <alipay-sdk>4.39.70.ALL</alipay-sdk>
+        <wechatpay-java.version>0.2.17</wechatpay-java.version>
         <rocketmq-starter.version>2.2.2</rocketmq-starter.version>
     </properties>
 
@@ -119,6 +120,12 @@
                 <artifactId>alipay-sdk-java</artifactId>
                 <version>${alipay-sdk}</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.github.wechatpay-apiv3</groupId>
+                <artifactId>wechatpay-java</artifactId>
+                <version>${wechatpay-java.version}</version>
+            </dependency>
         </dependencies>
 
     </dependencyManagement>
@@ -131,9 +138,8 @@
         </dependency>
 
         <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>7.0.5.Final</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>

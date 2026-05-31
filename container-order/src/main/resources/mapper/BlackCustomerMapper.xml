@@ -3,15 +3,15 @@
 <mapper namespace="cn.fuguang.order.mapper.BlackCustomerMapper">
     <resultMap id="BaseResultMap" type="cn.fuguang.entity.BlackCustomerEntity">
         <result column="id" jdbcType="BIGINT" property="id"/>
-        <result column="orderNo" jdbcType="VARCHAR" property="customerId"/>
-        <result column="customerId" jdbcType="VARCHAR" property="status"/>
-        <result column="createTime" jdbcType="DATE" property="createTime"/>
-        <result column="updateTime" jdbcType="DATE" property="updateTime"/>
+        <result column="customer_id" jdbcType="VARCHAR" property="customerId"/>
+        <result column="status" jdbcType="VARCHAR" property="status"/>
+        <result column="create_time" jdbcType="DATE" property="createTime"/>
+        <result column="update_time" jdbcType="DATE" property="updateTime"/>
     </resultMap>
 
     <select id="queryBlackCustomer" parameterType="java.lang.String" resultMap="BaseResultMap">
         select *
         from black_customer
-        where customerId = #{customerId,jdbcType=VARCHAR}
+        where customer_id = #{customerId,jdbcType=VARCHAR}
     </select>
 </mapper>

@@ -14,7 +14,7 @@ public interface OrderInfoMapper {
 
     void insert(OrderInfoEntity orderInfo);
 
-    OrderInfoEntity queryByOrderNo(@Param("customerId") String orderNo);
+    OrderInfoEntity queryByOrderNo(@Param("orderNo") String orderNo);
 
     int updateOrderStatus(OrderInfoEntity orderInfoEntity);
 }

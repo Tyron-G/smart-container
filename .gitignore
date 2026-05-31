@@ -21,3 +21,13 @@ application-local.yml
 application-local.yaml
 bootstrap-local.yml
 bootstrap-local.yaml
+
+# 2026-05-31: 本地支付沙箱密钥与商户配置，禁止提交。
+work/.payment-secrets/
+
+# 2026-05-31: 本地交付包为构建产物，按需手动分发，不进入源码提交。
+work/交付包_*/
+work/*交付包*.zip
+
+# 2026-05-31: 支付二维码为本地一次性验证产物，不进入源码提交。
+work/*二维码*.png

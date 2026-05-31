@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.fuguang.manager.mapper.DeviceManageMapper">
+    <sql id="DeviceWhere">
+        <where>
+            <if test="keyword != null and keyword != ''">
+                AND (device_id LIKE CONCAT('%', #{keyword}, '%')
+                     OR device_sn LIKE CONCAT('%', #{keyword}, '%')
+                     OR device_name LIKE CONCAT('%', #{keyword}, '%'))
+            </if>
+            <if test="status != null and status != ''">
+                AND device_status = #{status}
+            </if>
+        </where>
+    </sql>
+
+    <select id="countDevices" resultType="long">
+        SELECT COUNT(1) FROM device_info
+        <include refid="DeviceWhere"/>
+    </select>
+
+    <select id="selectDevices" resultType="map">
+        SELECT device_id, device_sn, device_name, device_status, province, city, county, community, address,
+               update_time AS last_heartbeat, remarks
+        FROM device_info
+        <include refid="DeviceWhere"/>
+        ORDER BY update_time DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <select id="selectDeviceById" resultType="map">
+        SELECT * FROM device_info WHERE device_id = #{deviceId} LIMIT 1
+    </select>
+
+    <select id="selectGatesByDeviceId" resultType="map">
+        SELECT * FROM gate_info WHERE device_id = #{deviceId} ORDER BY sort ASC
+    </select>
+
+    <select id="countAllDevices" resultType="long">
+        SELECT COUNT(1) FROM device_info
+    </select>
+
+    <select id="countDevicesByStatus" resultType="long">
+        SELECT COUNT(1) FROM device_info WHERE device_status = #{status}
+    </select>
+
+    <select id="countErrorDevices" resultType="long">
+        SELECT COUNT(1) FROM device_info WHERE device_status IN ('ABNORMAL', 'MAINTENANCE', 'INIT')
+    </select>
+
+    <select id="countTodayAlertEvents" resultType="long">
+        SELECT COUNT(1) FROM device_event WHERE event_level = 'WARNING' AND DATE(event_time) = CURDATE()
+    </select>
+
+    <sql id="EventWhere">
+        <where>
+            <if test="keyword != null and keyword != ''">
+                AND (device_id LIKE CONCAT('%', #{keyword}, '%')
+                     OR device_sn LIKE CONCAT('%', #{keyword}, '%')
+                     OR content LIKE CONCAT('%', #{keyword}, '%'))
+            </if>
+            <if test="status != null and status != ''">
+                AND device_status = #{status}
+            </if>
+            <if test="processStatus != null and processStatus != ''">
+                AND process_status = #{processStatus}
+            </if>
+        </where>
+    </sql>
+
+    <select id="countEvents" resultType="long">
+        SELECT COUNT(1) FROM device_event
+        <include refid="EventWhere"/>
+    </select>
+
+    <select id="selectEvents" resultType="map">
+        SELECT id, event_time, event_type, event_tag, device_id, device_sn, device_status, event_level,
+               content, order_no, process_status, process_remark, processed_by, processed_time
+        FROM device_event
+        <include refid="EventWhere"/>
+        ORDER BY event_time DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <insert id="upsertDevice">
+        INSERT INTO device_info(
+            device_id, device_sn, device_name, device_status, device_type, province, city, county,
+            community, address, remarks, create_time, update_time
+        ) VALUES(
+            #{deviceId}, #{deviceSn}, #{deviceName}, #{deviceStatus}, #{deviceType}, #{province}, #{city}, #{county},
+            #{community}, #{address}, #{remarks}, now(), now()
+        )
+        ON DUPLICATE KEY UPDATE device_sn = VALUES(device_sn),
+                                device_name = VALUES(device_name),
+                                device_status = VALUES(device_status),
+                                device_type = VALUES(device_type),
+                                province = VALUES(province),
+                                city = VALUES(city),
+                                county = VALUES(county),
+                                community = VALUES(community),
+                                address = VALUES(address),
+                                remarks = VALUES(remarks),
+                                update_time = now()
+    </insert>
+
+    <insert id="upsertGate">
+        INSERT INTO gate_info(gate_id, device_id, device_sn, gate_name, gate_code, sort, gate_status, create_time, update_time, remarks)
+        VALUES(#{gateId}, #{deviceId}, #{deviceSn}, #{gateName}, #{gateCode}, #{sort}, #{gateStatus}, now(), now(), #{remarks})
+        ON DUPLICATE KEY UPDATE gate_name = VALUES(gate_name),
+                                gate_code = VALUES(gate_code),
+                                sort = VALUES(sort),
+                                gate_status = VALUES(gate_status),
+                                remarks = VALUES(remarks),
+                                update_time = now()
+    </insert>
+
+    <update id="markEventProcessed">
+        UPDATE device_event
+        SET process_status = 'DONE',
+            process_remark = #{remark},
+            processed_by = #{operator},
+            processed_time = now()
+        WHERE id = #{id}
+    </update>
+
+    <insert id="insertDeviceCommandEvent">
+        INSERT INTO device_event(
+            event_id, event_time, event_type, event_tag, device_id, device_sn, device_status,
+            event_level, content, process_status, raw_payload, create_time
+        ) VALUES(
+            concat('EVT-', date_format(now(), '%Y%m%d%H%i%s'), '-', floor(rand() * 10000)),
+            now(), #{eventType}, #{eventTag}, #{deviceId}, #{deviceSn}, #{deviceStatus},
+            #{eventLevel}, #{content}, 'CREATED', #{rawPayload}, now()
+        )
+    </insert>
+</mapper>

@@ -79,45 +79,49 @@ public class OrderBizImpl implements OrderBiz {
         RLock lock = redissonClient.getLock(redisLockKey);
 
         if (lock.tryLock()) {
-            //生成订单号
-            String orderNo = orderService.createOrderNo(OrderTypeEnum.SHOP_ORDER);
-            orderContext.setOrderNo(orderNo);
+            try {
+                //生成订单号
+                String orderNo = orderService.createOrderNo(OrderTypeEnum.SHOP_ORDER);
+                orderContext.setOrderNo(orderNo);
 
-            //获取客户信息
-            CustomerEntity customerEntity = customerService.queryCustomerById(req.getCustomerId());
-            orderContext.setCustomer(customerEntity);
+                //获取客户信息
+                CustomerEntity customerEntity = customerService.queryCustomerById(req.getCustomerId());
+                orderContext.setCustomer(customerEntity);
 
 
 
-            //创建订单详情
-            OrderInfoEntity orderInfo = orderService.buildOrderInfo(req, orderNo);
+                //创建订单详情
+                OrderInfoEntity orderInfo = orderService.buildOrderInfo(req, orderNo);
 
-            log.info("用户扫码下单生成订单入库 orderInfo:{}", JSONObject.toJSONString(orderInfo));
-            //入库
-            orderService.saveOrderInfo(orderInfo);
+                log.info("用户扫码下单生成订单入库 orderInfo:{}", JSONObject.toJSONString(orderInfo));
+                //入库
+                orderService.saveOrderInfo(orderInfo);
 
-            //微信支付宝预授权下单
-            if (ProcedureTypeEnum.ALI.name().equals(req.getSourceType())){
-                BaseResponse<AgreementSignResDTO> agreementSignResDTOBaseResponse = aliPayFeignService.agreementSign(AgreementSignReqDTO.builder().orderNo(orderNo)
-                        .customerId(customerEntity.getId())
-                        .mobile(customerEntity.getMobile()).build());
+                //微信支付宝预授权下单
+                if (ProcedureTypeEnum.ALI.name().equals(req.getSourceType())){
+                    BaseResponse<AgreementSignResDTO> agreementSignResDTOBaseResponse = aliPayFeignService.agreementSign(AgreementSignReqDTO.builder().orderNo(orderNo)
+                            .customerId(customerEntity.getId())
+                            .mobile(customerEntity.getMobile()).build());
 
-                if (!agreementSignResDTOBaseResponse.isSuccess()){
-                    log.error("调用channel服务创建阿里预授权订单失败");
-                    //更新订单状态
-                    orderService.updateOrderStatus(orderNo, OrderStatusEnum.PRE_AUTH_CREATE_ERROR.name());
-                    //释放锁
+                    if (!agreementSignResDTOBaseResponse.isSuccess()){
+                        log.error("调用channel服务创建阿里预授权订单失败");
+                        //更新订单状态
+                        orderService.updateOrderStatus(orderNo, OrderStatusEnum.PRE_AUTH_CREATE_ERROR.name());
+                    } else {
+                        //更新订单状态
+                        orderService.updateOrderStatus(orderNo, OrderStatusEnum.PRE_AUTH_CREATE_SUCCESS.name());
+                        scanCreateOrderRes.setSignStr(agreementSignResDTOBaseResponse.getData().getSignStr());
+                    }
+                }
+
+                //发送延迟消息
+                this.sendDelayMessage(orderNo);
+                scanCreateOrderRes.setOrderNo(orderNo);
+            } finally {
+                if (lock.isHeldByCurrentThread()) {
                     lock.unlock();
-                } else {
-                    //更新订单状态
-                    orderService.updateOrderStatus(orderNo, OrderStatusEnum.PRE_AUTH_CREATE_SUCCESS.name());
-                    scanCreateOrderRes.setSignStr(agreementSignResDTOBaseResponse.getData().getSignStr());
                 }
             }
-
-            //发送延迟消息
-            this.sendDelayMessage(orderNo);
-            scanCreateOrderRes.setOrderNo(orderNo);
 
         } else {
             log.error("用户扫码下单获取redis锁失败");
@@ -180,7 +184,10 @@ public class OrderBizImpl implements OrderBiz {
         //检查客户是否在黑名单中
         blackCustomerService.checkCustomer(req.getCustomerId());
         //检查参数设备状态，仓门状态
-        deviceInfoFeignService.checkDeviceStatus(CheckDeviceStatusReqDTO.builder().deviceId(req.getDeviceId()).gateId(req.getGateId()).build());
+        BaseResponse checkDeviceStatusRes = deviceInfoFeignService.checkDeviceStatus(CheckDeviceStatusReqDTO.builder().deviceId(req.getDeviceId()).gateId(req.getGateId()).build());
+        if (checkDeviceStatusRes == null || !checkDeviceStatusRes.isSuccess()) {
+            throw ContainerException.DEVICE_STATUS_ERROR.newInstance(checkDeviceStatusRes == null ? "设备状态校验失败" : checkDeviceStatusRes.getMessage());
+        }
     }
 
 

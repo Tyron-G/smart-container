@@ -95,6 +95,10 @@ public class CouponConfigEntity {
      */
     private String remarks;
 
+    private String status;
+
     private Date createTime;
+
+    private Date updateTime;
 
 }

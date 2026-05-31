@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-@FeignClient(name = "container-device",contextId = "device-info")
+@FeignClient(name = "container-device", contextId = "device-info", path = "/device")
 public interface DeviceInfoFeignService {
 
     @ResponseBody

@@ -77,7 +77,7 @@ public class OrderServiceImpl implements OrderService {
             updateEntity.setOrderNo(orderNo);
             updateEntity.setOldOrderStatus(orderInfoEntity.getOrderStatus());
             updateEntity.setOrderStatus(updateStatus);
-            int result = orderInfoMapper.updateOrderStatus(orderInfoEntity);
+            int result = orderInfoMapper.updateOrderStatus(updateEntity);
             if (result == 1){
                 updateFlag = true;
             } else {

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.fuguang.manager.mapper.CouponFlowManageMapper">
+    <sql id="IssueWhere">
+        <where>
+            <if test="keyword != null and keyword != ''">
+                AND (issue_no LIKE CONCAT('%', #{keyword}, '%')
+                     OR coupon_config_id LIKE CONCAT('%', #{keyword}, '%')
+                     OR customer_id LIKE CONCAT('%', #{keyword}, '%')
+                     OR coupon_name LIKE CONCAT('%', #{keyword}, '%'))
+            </if>
+            <if test="status != null and status != ''">
+                AND status = #{status}
+            </if>
+        </where>
+    </sql>
+
+    <select id="countIssues" resultType="long">
+        SELECT COUNT(1) FROM coupon_issue_record
+        <include refid="IssueWhere"/>
+    </select>
+
+    <select id="selectIssues" resultType="map">
+        SELECT id, issue_no, coupon_config_id, customer_id, coupon_name, coupon_amount, status,
+               receive_time, expire_time, create_time, update_time
+        FROM coupon_issue_record
+        <include refid="IssueWhere"/>
+        ORDER BY create_time DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <sql id="UseWhere">
+        <where>
+            <if test="keyword != null and keyword != ''">
+                AND (use_no LIKE CONCAT('%', #{keyword}, '%')
+                     OR issue_no LIKE CONCAT('%', #{keyword}, '%')
+                     OR order_no LIKE CONCAT('%', #{keyword}, '%')
+                     OR customer_id LIKE CONCAT('%', #{keyword}, '%'))
+            </if>
+        </where>
+    </sql>
+
+    <select id="countUses" resultType="long">
+        SELECT COUNT(1) FROM coupon_use_record
+        <include refid="UseWhere"/>
+    </select>
+
+    <select id="selectUses" resultType="map">
+        SELECT id, use_no, issue_no, coupon_config_id, customer_id, order_no, discount_amount, status, use_time, create_time
+        FROM coupon_use_record
+        <include refid="UseWhere"/>
+        ORDER BY create_time DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <select id="selectActiveCouponConfig" resultType="map">
+        SELECT coupon_name, coupon_money, coupon_valid_date
+        FROM coupon_config
+        WHERE coupon_config_id = #{couponConfigId}
+          AND status = 'ACTIVE'
+        LIMIT 1
+    </select>
+
+    <insert id="insertIssueRecord">
+        INSERT INTO coupon_issue_record(
+            issue_no, coupon_config_id, customer_id, coupon_name, coupon_amount,
+            status, receive_time, expire_time, create_time, update_time
+        ) VALUES(
+            concat('ISS-', date_format(now(), '%Y%m%d%H%i%s'), '-', floor(rand() * 10000)),
+            #{couponConfigId}, #{customerId}, #{couponName}, #{couponAmount},
+            'RECEIVED', now(), date_add(now(), interval coalesce(#{couponValidDate}, 7) day), now(), now()
+        )
+    </insert>
+
+    <update id="increaseCouponIssuedCount">
+        UPDATE coupon_config
+        SET coupon_issued_count = COALESCE(coupon_issued_count, 0) + 1,
+            update_time = now()
+        WHERE coupon_config_id = #{couponConfigId}
+    </update>
+
+    <update id="revokeIssue">
+        UPDATE coupon_issue_record
+        SET status = 'REVOKED',
+            update_time = now()
+        WHERE issue_no = #{issueNo}
+          AND status &lt;&gt; 'USED'
+    </update>
+</mapper>

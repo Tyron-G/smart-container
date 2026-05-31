@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.fuguang.manager.mapper.CustomerManageMapper">
+    <sql id="CustomerWhere">
+        <where>
+            <if test="keyword != null and keyword != ''">
+                AND (
+                    c.customer_id LIKE CONCAT('%', #{keyword}, '%')
+                    OR c.mobile LIKE CONCAT('%', #{keyword}, '%')
+                    OR c.ali_open_id LIKE CONCAT('%', #{keyword}, '%')
+                    OR c.wechat_open_id LIKE CONCAT('%', #{keyword}, '%')
+                )
+            </if>
+            <if test="status == 'BLACKLIST'">
+                AND bc.status = 'ACTIVE'
+            </if>
+            <if test="status == 'DISABLED'">
+                AND bc.customer_id IS NULL AND c.status &lt;&gt; 'ACTIVE'
+            </if>
+            <if test="status == 'ACTIVE'">
+                AND bc.customer_id IS NULL AND c.status = 'ACTIVE'
+            </if>
+        </where>
+    </sql>
+
+    <select id="countCustomers" resultType="long">
+        SELECT COUNT(1)
+        FROM customer c
+        LEFT JOIN black_customer bc ON c.customer_id = bc.customer_id AND bc.status = 'ACTIVE'
+        <include refid="CustomerWhere"/>
+    </select>
+
+    <select id="selectCustomers" resultType="map">
+        SELECT c.customer_id, c.user_name, c.mobile, c.ali_open_id, c.wechat_open_id, c.status,
+               c.create_time, MAX(o.create_time) AS last_order_time,
+               CASE WHEN bc.customer_id IS NOT NULL THEN 'BLACKLIST'
+                    WHEN c.status = 'ACTIVE' THEN 'ACTIVE'
+                    ELSE 'DISABLED' END AS manager_status
+        FROM customer c
+        LEFT JOIN black_customer bc ON c.customer_id = bc.customer_id AND bc.status = 'ACTIVE'
+        LEFT JOIN order_info o ON c.customer_id = o.customer_id
+        <include refid="CustomerWhere"/>
+        GROUP BY c.customer_id, c.user_name, c.mobile, c.ali_open_id, c.wechat_open_id, c.status, c.create_time, bc.customer_id
+        ORDER BY c.create_time DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <select id="selectCustomerDetail" resultType="map">
+        SELECT c.customer_id, c.user_name, c.mobile, c.ali_open_id, c.wechat_open_id, c.status,
+               c.create_time, c.update_time, c.remarks,
+               CASE WHEN bc.customer_id IS NOT NULL AND bc.status = 'ACTIVE' THEN 'BLACKLIST'
+                    WHEN c.status = 'ACTIVE' THEN 'ACTIVE'
+                    ELSE 'DISABLED' END AS manager_status
+        FROM customer c
+        LEFT JOIN black_customer bc ON c.customer_id = bc.customer_id
+        WHERE c.customer_id = #{customerId}
+        LIMIT 1
+    </select>
+
+    <select id="selectAgreements" resultType="map">
+        SELECT id, customer_id, status, order_no, agreement_no, sign_time, ali_open_id, create_time, update_time
+        FROM customer_agreement_sign
+        WHERE customer_id = #{customerId}
+        ORDER BY create_time DESC
+    </select>
+
+    <select id="selectRecentOrders" resultType="map">
+        SELECT order_no, device_id, gate_id, order_amount, pay_amount, coupon_amount, order_status, create_time, update_time
+        FROM order_info
+        WHERE customer_id = #{customerId}
+        ORDER BY create_time DESC
+        LIMIT 10
+    </select>
+
+    <select id="countCustomerOrders" resultType="long">
+        SELECT COUNT(1) FROM order_info WHERE customer_id = #{customerId}
+    </select>
+
+    <select id="selectCustomerOrders" resultType="map">
+        SELECT order_no, customer_id, device_id, gate_id, order_amount, pay_amount, coupon_amount, order_status, create_time, update_time, remarks
+        FROM order_info
+        WHERE customer_id = #{customerId}
+        ORDER BY create_time DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <select id="countAllCustomers" resultType="long">
+        SELECT COUNT(1) FROM customer
+    </select>
+
+    <select id="countActiveCustomers" resultType="long">
+        SELECT COUNT(1)
+        FROM customer c
+        LEFT JOIN black_customer bc ON c.customer_id = bc.customer_id AND bc.status = 'ACTIVE'
+        WHERE c.status = 'ACTIVE' AND bc.customer_id IS NULL
+    </select>
+
+    <select id="countDisabledCustomers" resultType="long">
+        SELECT COUNT(1)
+        FROM customer c
+        LEFT JOIN black_customer bc ON c.customer_id = bc.customer_id AND bc.status = 'ACTIVE'
+        WHERE c.status &lt;&gt; 'ACTIVE' AND bc.customer_id IS NULL
+    </select>
+
+    <select id="countBlacklistCustomers" resultType="long">
+        SELECT COUNT(1) FROM black_customer WHERE status = 'ACTIVE'
+    </select>
+
+    <update id="updateCustomerStatus">
+        UPDATE customer
+        SET status = #{status}, update_time = now()
+        WHERE customer_id = #{customerId}
+    </update>
+
+    <insert id="upsertBlackCustomer">
+        INSERT INTO black_customer(customer_id, status, create_time, update_time)
+        VALUES(#{customerId}, #{status}, now(), now())
+        ON DUPLICATE KEY UPDATE status = #{status}, update_time = now()
+    </insert>
+
+    <insert id="upsertCustomer">
+        INSERT INTO customer(customer_id, user_name, mobile, ali_open_id, wechat_open_id, status, create_time, update_time, remarks)
+        VALUES(#{customerId}, #{userName}, #{mobile}, #{aliOpenId}, #{wechatOpenId}, 'ACTIVE', now(), now(), #{remarks})
+        ON DUPLICATE KEY UPDATE user_name = VALUES(user_name),
+                                mobile = VALUES(mobile),
+                                ali_open_id = VALUES(ali_open_id),
+                                wechat_open_id = VALUES(wechat_open_id),
+                                update_time = now(),
+                                remarks = VALUES(remarks)
+    </insert>
+
+    <update id="updateCustomer">
+        UPDATE customer
+        SET user_name = #{userName},
+            mobile = #{mobile},
+            ali_open_id = #{aliOpenId},
+            wechat_open_id = #{wechatOpenId},
+            remarks = #{remarks},
+            update_time = now()
+        WHERE customer_id = #{customerId}
+    </update>
+</mapper>

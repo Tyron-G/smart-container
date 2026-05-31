@@ -22,6 +22,6 @@
     <select id="queryByOrderNo" parameterType="java.lang.String" resultMap="BaseResultMap">
         select *
         from order_info
-        where orderNo = #{orderNo,jdbcType=VARCHAR}
+        where order_no = #{orderNo,jdbcType=VARCHAR}
     </select>
 </mapper>

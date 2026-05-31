@@ -46,5 +46,9 @@ public class CouponConfigRes implements Serializable {
 
     private String remarks;
 
+    private String status;
+
     private String createTime;
+
+    private String updateTime;
 }

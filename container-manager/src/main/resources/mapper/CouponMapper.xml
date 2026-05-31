@@ -20,18 +20,21 @@
         <result column="coupon_deadline" jdbcType="TIMESTAMP" property="couponDeadline"/>
         <result column="coupon_desc" jdbcType="VARCHAR" property="couponDesc"/>
         <result column="remarks" jdbcType="VARCHAR" property="remarks"/>
+        <result column="status" jdbcType="VARCHAR" property="status"/>
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
     </resultMap>
 
     <sql id="BaseColumnList">
         id,coupon_config_id,product_uid,coupon_type,coupon_money,coupon_all_categories,
         coupon_count,coupon_valid_date,coupon_image,coupon_name,coupon_receive_valid_date,
         coupon_total_money,coupon_customer_limit,coupon_customer_amount_limit,coupon_issued_count,
-        coupon_deadline,coupon_desc,remarks,create_time
+        coupon_deadline,coupon_desc,remarks,status,create_time,update_time
     </sql>
 
     <sql id="CouponConfigPageWhere">
         <where>
+            AND (status IS NULL OR status != 'DELETED')
             <if test="keyword != null and keyword != ''">
                 AND (
                     coupon_config_id LIKE CONCAT('%', #{keyword}, '%')
@@ -42,6 +45,9 @@
             <if test="couponType != null and couponType != ''">
                 AND coupon_type = #{couponType}
             </if>
+            <if test="status != null and status != ''">
+                AND status = #{status}
+            </if>
         </where>
     </sql>
 
@@ -51,14 +57,15 @@
             coupon_config_id,product_uid,coupon_type,coupon_money,coupon_all_categories,
             coupon_count,coupon_valid_date,coupon_image,coupon_name,coupon_receive_valid_date,
             coupon_total_money,coupon_customer_limit,coupon_customer_amount_limit,coupon_issued_count,
-            coupon_deadline,coupon_desc, remarks,create_time
+            coupon_deadline,coupon_desc, remarks,status,create_time,update_time
         ) VALUES (
             #{couponConfigId,jdbcType=VARCHAR},#{productUid,jdbcType=VARCHAR},
             #{couponType,jdbcType=VARCHAR}, #{couponMoney,jdbcType=DECIMAL},#{couponAllCategories,jdbcType=VARCHAR},
             #{couponCount,jdbcType=BIGINT},#{couponValidDate,jdbcType=BIGINT},#{couponImage,jdbcType=VARCHAR},
             #{couponName,jdbcType=VARCHAR},#{couponReceiveValidDate,jdbcType=BIGINT},#{couponTotalMoney,jdbcType=DECIMAL},
             #{couponCustomerLimit,jdbcType=BIGINT},#{couponCustomerAmountLimit,jdbcType=BIGINT},#{couponIssuedCount,jdbcType=BIGINT},
-            #{couponDeadline,jdbcType=TIMESTAMP},#{couponDesc,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR},now())
+            #{couponDeadline,jdbcType=TIMESTAMP},#{couponDesc,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR},
+            #{status,jdbcType=VARCHAR},now(),now())
     </insert>
 
     <select id="selectByCouponConfigId" resultMap="BaseResultMap">
@@ -66,6 +73,7 @@
         <include refid="BaseColumnList"/>
         FROM coupon_config
         WHERE coupon_config_id = #{couponConfigId}
+        AND (status IS NULL OR status != 'DELETED')
         LIMIT 1
     </select>
 
@@ -87,8 +95,17 @@
             <if test="couponDeadline != null">coupon_deadline = #{couponDeadline,jdbcType=TIMESTAMP},</if>
             <if test="couponDesc != null">coupon_desc = #{couponDesc,jdbcType=VARCHAR},</if>
             <if test="remarks != null">remarks = #{remarks,jdbcType=VARCHAR},</if>
+            update_time = now(),
         </set>
         WHERE coupon_config_id = #{couponConfigId,jdbcType=VARCHAR}
+        AND (status IS NULL OR status != 'DELETED')
+    </update>
+
+    <update id="updateStatusByCouponConfigId">
+        UPDATE coupon_config
+        SET status = #{status,jdbcType=VARCHAR}, update_time = now()
+        WHERE coupon_config_id = #{couponConfigId,jdbcType=VARCHAR}
+        AND (status IS NULL OR status != 'DELETED')
     </update>
 
     <select id="countByPageReq" parameterType="cn.fuguang.manager.pojo.vo.req.CouponConfigPageReq" resultType="long">
@@ -104,6 +121,12 @@
         <include refid="CouponConfigPageWhere"/>
         ORDER BY create_time DESC, id DESC
         LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <select id="sumIssuedCountByPageReq" parameterType="cn.fuguang.manager.pojo.vo.req.CouponConfigPageReq" resultType="long">
+        SELECT IFNULL(SUM(coupon_issued_count), 0)
+        FROM coupon_config
+        <include refid="CouponConfigPageWhere"/>
     </select>
 
 </mapper>

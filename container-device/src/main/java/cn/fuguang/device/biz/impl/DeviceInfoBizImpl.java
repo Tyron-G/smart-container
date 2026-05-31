@@ -57,12 +57,17 @@ public class DeviceInfoBizImpl implements DeviceInfoBiz {
 
         //获取当前时间所对应的redisKey
         String heartCountRedisKey = RedisConstants.SERVICE_HEART_COUNT_KEY + startTimeKey + "_" + endTimeKey;
-        long count = Long.parseLong(redisService.getKey(heartCountRedisKey));
+        String heartCountValue = redisService.getKey(heartCountRedisKey);
+        long count = heartCountValue == null ? 0L : Long.parseLong(heartCountValue);
 
 
         //遍历在线设备查询目前的心跳时间
         for (DeviceInfoEntity deviceInfoEntity : deviceInfoEntityList) {
             Date lastHeartTime = (Date) redisService.hget(RedisConstants.DEVICE_HEART_LAST_TIME_KEY, deviceInfoEntity.getDeviceSn());
+            if (lastHeartTime == null) {
+                log.warn("设备:{}未找到最后心跳时间, deviceSn:{}", deviceInfoEntity.getDeviceId(), deviceInfoEntity.getDeviceSn());
+                continue;
+            }
 
             long minuteBetween = DateUtil.between(lastHeartTime, curTime, DateUnit.MINUTE);
 

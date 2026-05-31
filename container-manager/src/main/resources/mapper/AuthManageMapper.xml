@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.fuguang.manager.mapper.AuthManageMapper">
+    <select id="selectUserByUsername" resultType="map">
+        SELECT user_id, username, real_name, status
+        FROM sys_admin_user
+        WHERE username = #{username}
+        LIMIT 1
+    </select>
+
+    <select id="selectRolesByUsername" resultType="map">
+        SELECT r.role_id, r.role_name, r.role_code
+        FROM sys_role r
+        INNER JOIN sys_user_role ur ON r.role_id = ur.role_id
+        INNER JOIN sys_admin_user u ON ur.user_id = u.user_id
+        WHERE u.username = #{username}
+    </select>
+
+    <select id="selectPermissionsByUsername" resultType="map">
+        SELECT DISTINCT p.permission_code, p.permission_name, p.permission_type, p.menu_key
+        FROM sys_permission p
+        INNER JOIN sys_role_permission rp ON p.permission_id = rp.permission_id
+        INNER JOIN sys_user_role ur ON rp.role_id = ur.role_id
+        INNER JOIN sys_admin_user u ON ur.user_id = u.user_id
+        WHERE u.username = #{username}
+          AND p.status = 'ACTIVE'
+        ORDER BY p.permission_code ASC
+    </select>
+
+    <select id="selectPermissionsByRoleCode" resultType="map">
+        SELECT p.permission_id, p.permission_name, p.permission_code, p.permission_type, p.menu_key,
+               p.parent_code, p.description, p.sort, p.status
+        FROM sys_permission p
+        INNER JOIN sys_role_permission rp ON p.permission_id = rp.permission_id
+        INNER JOIN sys_role r ON rp.role_id = r.role_id
+        WHERE r.role_code = #{roleCode}
+          AND p.status = 'ACTIVE'
+        ORDER BY p.sort ASC, p.permission_id ASC
+    </select>
+
+    <select id="selectAllPermissions" resultType="map">
+        SELECT permission_id, permission_name, permission_code, permission_type, menu_key, parent_code, description, sort, status
+        FROM sys_permission
+        ORDER BY sort ASC, permission_id ASC
+    </select>
+
+    <select id="selectRoles" resultType="map">
+        SELECT role_id, role_name, role_code, description, status
+        FROM sys_role
+        ORDER BY role_id ASC
+    </select>
+
+    <select id="selectPermissionCodesByRoleId" resultType="map">
+        SELECT p.permission_code
+        FROM sys_permission p
+        INNER JOIN sys_role_permission rp ON p.permission_id = rp.permission_id
+        WHERE rp.role_id = #{roleId}
+        ORDER BY p.sort ASC
+    </select>
+
+    <select id="selectRoleById" resultType="map">
+        SELECT role_id FROM sys_role WHERE role_id = #{roleId} LIMIT 1
+    </select>
+
+    <delete id="deleteRolePermissions">
+        DELETE FROM sys_role_permission WHERE role_id = #{roleId}
+    </delete>
+
+    <select id="selectActivePermissionByCode" resultType="map">
+        SELECT permission_id
+        FROM sys_permission
+        WHERE permission_code = #{permissionCode}
+          AND status = 'ACTIVE'
+        LIMIT 1
+    </select>
+
+    <insert id="insertRolePermission">
+        INSERT IGNORE INTO sys_role_permission(role_id, permission_id, create_time)
+        VALUES(#{roleId}, #{permissionId}, now())
+    </insert>
+
+    <insert id="upsertRole">
+        INSERT INTO sys_role(role_id, role_name, role_code, description, status, create_time, update_time)
+        VALUES(#{roleId}, #{roleName}, #{roleCode}, #{description}, #{status}, now(), now())
+        ON DUPLICATE KEY UPDATE role_name = VALUES(role_name),
+                                role_code = VALUES(role_code),
+                                description = VALUES(description),
+                                status = VALUES(status),
+                                update_time = now()
+    </insert>
+
+    <update id="updateRoleStatus">
+        UPDATE sys_role SET status = #{status}, update_time = now() WHERE role_id = #{roleId}
+    </update>
+
+    <insert id="upsertPermission">
+        INSERT INTO sys_permission(
+            permission_id, permission_name, permission_code, permission_type, menu_key,
+            parent_code, description, sort, status, create_time, update_time
+        ) VALUES(
+            #{permissionId}, #{permissionName}, #{permissionCode}, #{permissionType}, #{menuKey},
+            #{parentCode}, #{description}, #{sort}, #{status}, now(), now()
+        )
+        ON DUPLICATE KEY UPDATE permission_name = VALUES(permission_name),
+                                permission_code = VALUES(permission_code),
+                                permission_type = VALUES(permission_type),
+                                menu_key = VALUES(menu_key),
+                                parent_code = VALUES(parent_code),
+                                description = VALUES(description),
+                                sort = VALUES(sort),
+                                status = VALUES(status),
+                                update_time = now()
+    </insert>
+
+    <update id="updatePermissionStatus">
+        UPDATE sys_permission SET status = #{status}, update_time = now() WHERE permission_id = #{permissionId}
+    </update>
+
+    <select id="countUserPermission" resultType="int">
+        SELECT COUNT(1)
+        FROM sys_permission p
+        INNER JOIN sys_role_permission rp ON p.permission_id = rp.permission_id
+        INNER JOIN sys_user_role ur ON rp.role_id = ur.role_id
+        INNER JOIN sys_admin_user u ON ur.user_id = u.user_id
+        INNER JOIN sys_role r ON ur.role_id = r.role_id
+        WHERE u.username = #{username}
+          AND u.status = 'ACTIVE'
+          AND r.status = 'ACTIVE'
+          AND p.status = 'ACTIVE'
+          AND p.permission_code = #{permissionCode}
+    </select>
+</mapper>

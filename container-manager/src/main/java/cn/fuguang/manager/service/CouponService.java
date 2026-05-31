@@ -13,7 +13,11 @@ public interface CouponService {
 
     void updateByCouponConfigId(CouponConfigEntity couponConfigEntity);
 
+    void updateStatusByCouponConfigId(String couponConfigId, String status);
+
     long countByPageReq(CouponConfigPageReq req);
 
     List<CouponConfigEntity> queryByPageReq(CouponConfigPageReq req);
+
+    long sumIssuedCountByPageReq(CouponConfigPageReq req);
 }

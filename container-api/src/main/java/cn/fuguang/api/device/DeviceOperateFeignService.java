@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-@FeignClient(name = "container-device",contextId = "device-operate")
+@FeignClient(name = "container-device", contextId = "device-operate", path = "/device")
 public interface DeviceOperateFeignService {
 
     /**

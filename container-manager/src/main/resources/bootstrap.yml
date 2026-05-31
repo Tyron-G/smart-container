@@ -16,10 +16,35 @@ spring:
     nacos:
       discovery:
         #服务注册地址
-        server-addr: 123.249.79.51:8848
+        server-addr: localhost:8848
       config:
         #服务配置中心地址
-        server-addr: 123.249.79.51:8848
+        server-addr: localhost:8848
         file-extension: yaml
         group: CONTAINER_GROUP
-        namespace: c5185dbc-6bf6-4fa2-afe7-15b12bc08ae1
+        namespace: container-group
+
+manager:
+  payment:
+    alipay:
+      enabled: ${MANAGER_ALIPAY_ENABLED:false}
+      environment: "${MANAGER_ALIPAY_ENVIRONMENT:}"
+      server-url: "${MANAGER_ALIPAY_SERVER_URL:}"
+      app-id: "${MANAGER_ALIPAY_APP_ID:}"
+      merchant-private-key: "${MANAGER_ALIPAY_MERCHANT_PRIVATE_KEY:}"
+      alipay-public-key: "${MANAGER_ALIPAY_PUBLIC_KEY:}"
+      sign-type: ${MANAGER_ALIPAY_SIGN_TYPE:RSA2}
+      charset: ${MANAGER_ALIPAY_CHARSET:UTF-8}
+      format: ${MANAGER_ALIPAY_FORMAT:json}
+      allow-order-no-as-out-trade-no: ${MANAGER_ALIPAY_ALLOW_ORDER_NO_AS_OUT_TRADE_NO:false}
+    wechat:
+      enabled: ${MANAGER_WECHAT_ENABLED:false}
+      environment: "${MANAGER_WECHAT_ENVIRONMENT:}"
+      mch-id: "${MANAGER_WECHAT_MCH_ID:}"
+      app-id: "${MANAGER_WECHAT_APP_ID:}"
+      api-v3-key: "${MANAGER_WECHAT_API_V3_KEY:}"
+      merchant-serial-no: "${MANAGER_WECHAT_MERCHANT_SERIAL_NO:}"
+      private-key-path: "${MANAGER_WECHAT_PRIVATE_KEY_PATH:}"
+      refund-notify-url: "${MANAGER_WECHAT_REFUND_NOTIFY_URL:}"
+      allow-order-no-as-out-trade-no: ${MANAGER_WECHAT_ALLOW_ORDER_NO_AS_OUT_TRADE_NO:false}
+      local-test-mode: ${MANAGER_WECHAT_LOCAL_TEST_MODE:false}
