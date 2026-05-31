@@ -53,9 +53,9 @@ public class AlipayPaymentAdapter implements PaymentChannelAdapter {
             if (response.isSuccess()) {
                 return new PaymentChannelResult("SUCCESS", channelTradeNo, "支付宝退款成功：" + response.getMsg(), requestPayload, responsePayload, response.getSubCode());
             }
-            return new PaymentChannelResult("FAILED", channelTradeNo, "支付宝退款失败：" + firstNonBlank(response.getSubMsg(), response.getMsg()), requestPayload, responsePayload, response.getSubCode());
+            return new PaymentChannelResult("FAILED", channelTradeNo, "支付宝退款失败：" + alipayMessage(firstNonBlank(response.getSubMsg(), response.getMsg())), requestPayload, responsePayload, response.getSubCode());
         } catch (AlipayApiException e) {
-            return new PaymentChannelResult("FAILED", pendingTradeNo(request), "支付宝退款接口异常：" + e.getMessage(), requestPayload, null, "ALIPAY_API_EXCEPTION");
+            return new PaymentChannelResult("FAILED", pendingTradeNo(request), "支付宝退款接口异常：" + alipayMessage(e.getMessage()), requestPayload, null, "ALIPAY_API_EXCEPTION");
         }
     }
 
@@ -94,5 +94,13 @@ public class AlipayPaymentAdapter implements PaymentChannelAdapter {
 
     private String firstNonBlank(String first, String second) {
         return nonBlank(first) ? first : second;
+    }
+
+    private String alipayMessage(String message) {
+        String actual = message == null ? "" : message.trim();
+        if (actual.contains("<!DOCTYPE") || actual.contains("<html") || actual.contains("&lt;!DOCTYPE") || actual.contains("&lt;html")) {
+            return "支付宝沙箱网关返回 504 或非 JSON 响应，退款请求未确认成功；请稍后查询交易或重新发起退款验证。";
+        }
+        return actual.length() == 0 ? "支付宝网关未返回明确错误信息" : actual;
     }
 }

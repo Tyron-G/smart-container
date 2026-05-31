@@ -37,7 +37,7 @@ public class ManagerPaymentGateway {
         }
         return new PaymentResult(requestNo, String.valueOf(row.get("status")),
                 String.valueOf(row.get("channel_trade_no")),
-                String.valueOf(row.get("channel_message")),
+                cleanChannelMessage(String.valueOf(row.get("channel_message"))),
                 row.get("error_code") == null ? null : String.valueOf(row.get("error_code")), true);
     }
 
@@ -128,9 +128,20 @@ public class ManagerPaymentGateway {
     }
 
     private String limit(String value, int maxLength) {
-        if (value == null || value.length() <= maxLength) {
-            return value;
+        String actual = cleanChannelMessage(value);
+        if (actual == null || actual.length() <= maxLength) {
+            return actual;
         }
-        return value.substring(0, maxLength);
+        return actual.substring(0, maxLength);
+    }
+
+    private String cleanChannelMessage(String value) {
+        if (value == null) {
+            return null;
+        }
+        if (value.contains("<!DOCTYPE") || value.contains("<html") || value.contains("&lt;!DOCTYPE") || value.contains("&lt;html")) {
+            return "支付宝沙箱网关返回 504 或非 JSON 响应，退款请求未确认成功；请稍后查询交易或重新发起退款验证。";
+        }
+        return value;
     }
 }
