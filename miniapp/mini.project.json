@@ -1,0 +1,8 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "smart-container-miniapp",
+  "description": "smart-container alipay mini program",
+  "appid": "touristappid",
+  "compileType": "miniprogram",
+  "enableAppxNg": true
+}

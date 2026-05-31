@@ -1,0 +1,32 @@
+<view class="page">
+  <view class="card detail-card">
+    <view class="section-title">订单详情</view>
+    <view class="detail-row">
+      <text>订单号</text>
+      <text>{{detail.orderNo || '-'}}</text>
+    </view>
+    <view class="detail-row">
+      <text>状态</text>
+      <text>{{detail.orderStatus || '-'}}</text>
+    </view>
+    <view class="detail-row">
+      <text>设备</text>
+      <text>{{detail.deviceName || detail.deviceId || '-'}}</text>
+    </view>
+    <view class="detail-row">
+      <text>支付金额</text>
+      <text>¥{{detail.payAmount || detail.orderAmount || '0.00'}}</text>
+    </view>
+  </view>
+
+  <view class="card detail-card">
+    <view class="section-title">商品明细</view>
+    <view a:for="{{items}}" a:key="id" class="item-row">
+      <view>
+        <view class="item-name">{{item.product_name || item.productName}}</view>
+        <view class="muted">{{item.sku_code || item.skuCode}}</view>
+      </view>
+      <view class="item-price">x{{item.quantity}} ¥{{item.total_amount || item.totalAmount}}</view>
+    </view>
+  </view>
+</view>

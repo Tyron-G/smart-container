@@ -1,0 +1,76 @@
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 28rpx;
+}
+
+.home-title {
+  font-size: 46rpx;
+  font-weight: 900;
+}
+
+.home-subtitle {
+  margin-top: 8rpx;
+  color: #64748b;
+}
+
+.status-pill {
+  padding: 10rpx 18rpx;
+  border-radius: 999rpx;
+  background: #e0f2fe;
+  color: #0369a1;
+  font-size: 24rpx;
+  font-weight: 700;
+}
+
+.scan-panel {
+  min-height: 460rpx;
+  padding: 42rpx;
+  border-radius: 28rpx;
+  background: #0f172a;
+  color: #ffffff;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-shadow: 0 24rpx 60rpx rgba(15, 23, 42, 0.24);
+}
+
+.scan-title {
+  font-size: 52rpx;
+  font-weight: 900;
+}
+
+.scan-copy {
+  margin-top: 14rpx;
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+.scan-button {
+  margin-top: 36rpx;
+}
+
+.quick-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18rpx;
+  margin-top: 24rpx;
+}
+
+.quick-card {
+  padding: 28rpx;
+}
+
+.quick-title {
+  font-size: 30rpx;
+  font-weight: 800;
+}
+
+.quick-desc {
+  margin-top: 10rpx;
+  color: #64748b;
+  font-size: 24rpx;
+  line-height: 1.5;
+}

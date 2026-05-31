@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/scan/index",
+    "pages/orders/list",
+    "pages/orders/detail",
+    "pages/login/index",
+    "pages/profile/index"
+  ],
+  "window": {
+    "defaultTitle": "智能货柜",
+    "titleBarColor": "#0f172a",
+    "backgroundColor": "#f6f8fb"
+  }
+}

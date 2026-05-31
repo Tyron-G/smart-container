@@ -1,0 +1,26 @@
+<view class="page home-page">
+  <view class="home-header">
+    <view>
+      <view class="home-title">欢迎使用</view>
+      <view class="home-subtitle">客户 {{session.customerId || '-'}}</view>
+    </view>
+    <view class="status-pill">本地演示</view>
+  </view>
+
+  <view class="scan-panel">
+    <view class="scan-title">扫码开柜</view>
+    <view class="scan-copy">扫描设备二维码，确认设备和仓门后创建订单。</view>
+    <button class="primary-button scan-button" onTap="goScan">开始扫码</button>
+  </view>
+
+  <view class="quick-grid">
+    <view class="card quick-card" onTap="goOrders">
+      <view class="quick-title">我的订单</view>
+      <view class="quick-desc">查看订单状态和明细</view>
+    </view>
+    <view class="card quick-card" onTap="goProfile">
+      <view class="quick-title">账户信息</view>
+      <view class="quick-desc">查看绑定与手机号</view>
+    </view>
+  </view>
+</view>
