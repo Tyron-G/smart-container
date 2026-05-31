@@ -70,6 +70,9 @@ public class ManagerPermissionInterceptor implements HandlerInterceptor {
         PATH_PERMISSION_MAP.put("GET /api/manager/audit/statistics", "system:audit");
 
         PATH_PERMISSION_MAP.put("GET /api/manager/payment/configStatus", "system:audit");
+        PATH_PERMISSION_MAP.put("POST /api/manager/paymentLab/alipay/precreate", "system:audit");
+        PATH_PERMISSION_MAP.put("GET /api/manager/paymentLab/alipay/query", "system:audit");
+        PATH_PERMISSION_MAP.put("POST /api/manager/paymentLab/alipay/refund", "system:audit");
     }
 
     @Override
