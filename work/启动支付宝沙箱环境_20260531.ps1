@@ -27,6 +27,7 @@ $env:MANAGER_ALIPAY_SIGN_TYPE = "RSA2"
 $env:MANAGER_ALIPAY_CHARSET = "UTF-8"
 $env:MANAGER_ALIPAY_FORMAT = "json"
 $env:MANAGER_ALIPAY_ALLOW_ORDER_NO_AS_OUT_TRADE_NO = "false"
+$env:MAVEN_OPTS = "--add-opens=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED --add-opens=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED --add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED --add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED --add-opens=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED --add-opens=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED --add-opens=jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED --add-opens=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED --add-opens=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED --add-opens=jdk.compiler/com.sun.tools.javac.jvm=ALL-UNNAMED"
 
 $Listener = Get-NetTCPConnection -LocalPort 9965 -State Listen -ErrorAction SilentlyContinue | Select-Object -First 1
 if ($Listener) {
@@ -46,6 +47,7 @@ Start-Process -FilePath "cmd.exe" -ArgumentList "/c $Command" -WorkingDirectory 
     MANAGER_ALIPAY_CHARSET = $env:MANAGER_ALIPAY_CHARSET
     MANAGER_ALIPAY_FORMAT = $env:MANAGER_ALIPAY_FORMAT
     MANAGER_ALIPAY_ALLOW_ORDER_NO_AS_OUT_TRADE_NO = $env:MANAGER_ALIPAY_ALLOW_ORDER_NO_AS_OUT_TRADE_NO
+    MAVEN_OPTS = $env:MAVEN_OPTS
 }
 
 $Deadline = (Get-Date).AddSeconds(150)
