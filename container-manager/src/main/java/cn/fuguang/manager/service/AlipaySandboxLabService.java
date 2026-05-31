@@ -33,6 +33,9 @@ public class AlipaySandboxLabService {
     @Resource
     private OrderManageService orderManageService;
 
+    @Resource
+    private ManagerLogService managerLogService;
+
     public BaseResult<Map<String, Object>> precreate(AlipaySandboxPrecreateReq req) {
         BaseResult<Map<String, Object>> guard = ensureSandboxReady();
         if (guard != null) {
@@ -62,11 +65,16 @@ public class AlipaySandboxLabService {
             data.put("subCode", response.getSubCode());
             data.put("subMsg", response.getSubMsg());
             if (!response.isSuccess()) {
-                return BaseResult.fail(firstNonBlank(response.getSubMsg(), response.getMsg()));
+                String message = firstNonBlank(response.getSubMsg(), response.getMsg());
+                recordLabLog("ALIPAY_PRECREATE_FAIL", outTradeNo, "amount=" + amount.toPlainString() + ", message=" + limit(message, 160));
+                return BaseResult.fail(message);
             }
+            recordLabLog("ALIPAY_PRECREATE", outTradeNo, "amount=" + amount.toPlainString() + ", subject=" + limit(subject, 80));
             return BaseResult.success(data);
         } catch (AlipayApiException e) {
-            return BaseResult.fail("支付宝沙箱预下单异常：" + alipayErrorMessage(e));
+            String message = alipayErrorMessage(e);
+            recordLabLog("ALIPAY_PRECREATE_FAIL", outTradeNo, "amount=" + amount.toPlainString() + ", message=" + limit(message, 160));
+            return BaseResult.fail("支付宝沙箱预下单异常：" + message);
         }
     }
 
@@ -96,11 +104,16 @@ public class AlipaySandboxLabService {
             data.put("subCode", response.getSubCode());
             data.put("subMsg", response.getSubMsg());
             if (!response.isSuccess()) {
-                return BaseResult.fail(firstNonBlank(response.getSubMsg(), response.getMsg()));
+                String message = firstNonBlank(response.getSubMsg(), response.getMsg());
+                recordLabLog("ALIPAY_QUERY_FAIL", tradeNo, "message=" + limit(message, 160));
+                return BaseResult.fail(message);
             }
+            recordLabLog("ALIPAY_QUERY", tradeNo, "status=" + trim(response.getTradeStatus()) + ", totalAmount=" + trim(response.getTotalAmount()));
             return BaseResult.success(data);
         } catch (AlipayApiException e) {
-            return BaseResult.fail("支付宝沙箱交易查询异常：" + alipayErrorMessage(e));
+            String message = alipayErrorMessage(e);
+            recordLabLog("ALIPAY_QUERY_FAIL", tradeNo, "message=" + limit(message, 160));
+            return BaseResult.fail("支付宝沙箱交易查询异常：" + message);
         }
     }
 
@@ -117,7 +130,11 @@ public class AlipaySandboxLabService {
         paymentReq.setOperator("admin");
         paymentReq.setChannelType("ALIPAY");
         paymentReq.setOriginalChannelTradeNo(trim(req == null ? null : req.getAlipayTradeNo()));
-        return orderManageService.refund(paymentReq);
+        BaseResult<Map<String, Object>> result = orderManageService.refund(paymentReq);
+        String action = "000000".equals(result.getCode()) ? "ALIPAY_REFUND" : "ALIPAY_REFUND_FAIL";
+        recordLabLog(action, paymentReq.getOrderNo(), "requestNo=" + paymentReq.getRequestNo() + ", amount=" + paymentReq.getAmount().toPlainString()
+                + ", alipayTradeNo=" + limit(paymentReq.getOriginalChannelTradeNo(), 64) + ", message=" + limit(result.getMessage(), 120));
+        return result;
     }
 
     private BaseResult<Map<String, Object>> ensureSandboxReady() {
@@ -163,6 +180,10 @@ public class AlipaySandboxLabService {
 
     private String firstNonBlank(String first, String second) {
         return trim(first).length() > 0 ? first : second;
+    }
+
+    private void recordLabLog(String action, String targetId, String content) {
+        managerLogService.record("paymentLab", action, targetId, "admin", content);
     }
 
     private String alipayErrorMessage(AlipayApiException e) {
