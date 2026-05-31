@@ -1,0 +1,56 @@
+.login-page {
+  padding-top: 72rpx;
+}
+
+.login-hero {
+  margin-bottom: 42rpx;
+}
+
+.brand-mark {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 24rpx;
+  background: #0f172a;
+  color: #dbeafe;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 2rpx;
+}
+
+.login-title {
+  margin-top: 28rpx;
+  font-size: 48rpx;
+  font-weight: 900;
+}
+
+.login-subtitle {
+  margin-top: 10rpx;
+  color: #64748b;
+}
+
+.login-card {
+  padding: 30rpx;
+}
+
+.form-label {
+  margin: 22rpx 0 12rpx;
+  color: #334155;
+  font-weight: 700;
+}
+
+.input {
+  height: 86rpx;
+  padding: 0 24rpx;
+  border: 1rpx solid #dbe3ef;
+  border-radius: 12rpx;
+  background: #f8fafc;
+}
+
+.form-actions {
+  display: grid;
+  gap: 18rpx;
+  margin-top: 34rpx;
+}
+

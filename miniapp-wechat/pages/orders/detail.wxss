@@ -1,0 +1,39 @@
+.detail-card {
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 24rpx;
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid #edf2f7;
+}
+
+.detail-row text:first-child {
+  color: #64748b;
+}
+
+.detail-row text:last-child {
+  text-align: right;
+  font-weight: 700;
+}
+
+.item-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 24rpx;
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid #edf2f7;
+}
+
+.item-name {
+  font-weight: 800;
+}
+
+.item-price {
+  color: #0f172a;
+  font-weight: 800;
+}
+

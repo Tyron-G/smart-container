@@ -1,0 +1,21 @@
+<view class="page login-page">
+  <view class="login-hero">
+    <view class="brand-mark">SC</view>
+    <view class="login-title">智能货柜</view>
+    <view class="login-subtitle">微信小程序本地演示版</view>
+  </view>
+
+  <view class="card login-card">
+    <view class="form-label">客户 ID</view>
+    <input class="input" value="{{customerId}}" placeholder="请输入客户 ID" bindinput="handleCustomerIdInput" />
+
+    <view class="form-label">手机号</view>
+    <input class="input" value="{{mobile}}" placeholder="请输入手机号" type="number" bindinput="handleMobileInput" />
+
+    <view class="form-actions">
+      <button class="primary-button" bindtap="handleDemoLogin">使用演示用户登录</button>
+      <button class="secondary-button" bindtap="handleWechatLogin">微信授权绑定</button>
+    </view>
+  </view>
+</view>
+

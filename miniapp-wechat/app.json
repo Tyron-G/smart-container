@@ -1,0 +1,18 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/scan/index",
+    "pages/orders/list",
+    "pages/orders/detail",
+    "pages/login/index",
+    "pages/profile/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "智能货柜",
+    "navigationBarBackgroundColor": "#0f172a",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f6f8fb",
+    "backgroundTextStyle": "dark"
+  }
+}
+
