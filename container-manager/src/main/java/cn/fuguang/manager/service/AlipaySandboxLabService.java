@@ -40,7 +40,7 @@ public class AlipaySandboxLabService {
         }
         String outTradeNo = trim(req == null ? null : req.getOutTradeNo());
         if (outTradeNo.length() == 0) {
-            outTradeNo = "SC-SANDBOX-" + new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+            outTradeNo = "SC-SANDBOX-" + new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date());
         }
         BigDecimal amount = amount(req == null ? null : req.getAmount());
         String subject = trim(req == null ? null : req.getSubject());
@@ -66,7 +66,7 @@ public class AlipaySandboxLabService {
             }
             return BaseResult.success(data);
         } catch (AlipayApiException e) {
-            return BaseResult.fail("支付宝沙箱预下单异常：" + limit(e.getMessage(), 240));
+            return BaseResult.fail("支付宝沙箱预下单异常：" + alipayErrorMessage(e));
         }
     }
 
@@ -100,7 +100,7 @@ public class AlipaySandboxLabService {
             }
             return BaseResult.success(data);
         } catch (AlipayApiException e) {
-            return BaseResult.fail("支付宝沙箱交易查询异常：" + limit(e.getMessage(), 240));
+            return BaseResult.fail("支付宝沙箱交易查询异常：" + alipayErrorMessage(e));
         }
     }
 
@@ -110,7 +110,7 @@ public class AlipaySandboxLabService {
             return guard;
         }
         OrderPaymentReq paymentReq = new OrderPaymentReq();
-        paymentReq.setRequestNo("RF-ALIPAY-LAB-" + new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()));
+        paymentReq.setRequestNo("RF-ALIPAY-LAB-" + new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date()));
         paymentReq.setOrderNo(trim(req == null ? null : req.getOrderNo()));
         paymentReq.setAmount(amount(req == null ? null : req.getAmount()));
         paymentReq.setReason("alipay sandbox payment lab refund");
@@ -163,6 +163,17 @@ public class AlipaySandboxLabService {
 
     private String firstNonBlank(String first, String second) {
         return trim(first).length() > 0 ? first : second;
+    }
+
+    private String alipayErrorMessage(AlipayApiException e) {
+        String message = trim(e == null ? null : e.getMessage());
+        if (message.contains("<!DOCTYPE") || message.contains("<html") || message.contains("&lt;!DOCTYPE") || message.contains("&lt;html")) {
+            return "支付宝沙箱网关返回了非 JSON 响应，请换一个新的商户订单号后重试；如果刚付款成功，不需要再次生成二维码。";
+        }
+        if (message.length() == 0) {
+            return "支付宝沙箱网关无明确错误信息，请稍后重试。";
+        }
+        return limit(message, 240);
     }
 
     private String limit(String value, int maxLength) {
