@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.fuguang.manager.mapper.DemoDataManageMapper">
+    <sql id="DemoPermissionCodes">
+        'dashboard:view', 'coupon:create', 'coupon:list', 'coupon:detail', 'coupon:edit', 'coupon:disable',
+        'user:list', 'user:detail', 'user:disable', 'device:overview', 'device:monitor', 'device:openGate',
+        'device:restart', 'system:role', 'system:permission', 'order:list', 'order:detail', 'order:changeStatus',
+        'order:refund', 'order:supplementCharge', 'order:handleException', 'user:save', 'user:agreements',
+        'user:orders', 'device:save', 'device:saveGate', 'device:processEvent', 'system:roleSave',
+        'system:roleStatus', 'system:permissionSave', 'system:permissionStatus', 'coupon:flow',
+        'coupon:issue', 'coupon:revoke', 'system:audit'
+    </sql>
+
+    <insert id="ensureCustomers">
+        INSERT INTO customer(customer_id, user_name, wechat_open_id, ali_open_id, mobile, status, remarks)
+        VALUES
+          ('CUST-10001', '张三', 'wx_8f1a1001', 'ali_7a2c1001', '13800010001', 'ACTIVE', '演示用户-正常'),
+          ('CUST-10002', '李四', 'wx_8f1a1002', 'ali_7a2c1002', '13800010002', 'ACTIVE', '演示用户-正常'),
+          ('CUST-10003', '王五', 'wx_8f1a1003', 'ali_7a2c1003', '13800010003', 'INACTIVE', '演示用户-停用'),
+          ('CUST-10004', '赵六', 'wx_8f1a1004', 'ali_7a2c1004', '13800010004', 'ACTIVE', '演示用户-黑名单'),
+          ('CUST-10005', '钱七', 'wx_8f1a1005', 'ali_7a2c1005', '13800010005', 'ACTIVE', '演示用户-无历史订单')
+        ON DUPLICATE KEY UPDATE
+          user_name = VALUES(user_name),
+          wechat_open_id = VALUES(wechat_open_id),
+          ali_open_id = VALUES(ali_open_id),
+          mobile = VALUES(mobile),
+          status = VALUES(status),
+          remarks = VALUES(remarks)
+    </insert>
+
+    <insert id="ensureBlackCustomers">
+        INSERT INTO black_customer(customer_id, status)
+        VALUES ('CUST-10004', 'ACTIVE')
+        ON DUPLICATE KEY UPDATE status = VALUES(status)
+    </insert>
+
+    <insert id="ensureAgreements">
+        INSERT INTO customer_agreement_sign(customer_id, status, order_no, agreement_no, sign_time, ali_open_id)
+        VALUES
+          ('CUST-10001', 'NORMAL', 'ORD-20260530-001', 'AGR-20260530-001', NOW(), 'ali_7a2c1001'),
+          ('CUST-10002', 'NORMAL', 'ORD-20260530-002', 'AGR-20260530-002', NOW(), 'ali_7a2c1002')
+        ON DUPLICATE KEY UPDATE
+          status = VALUES(status),
+          order_no = VALUES(order_no),
+          sign_time = VALUES(sign_time),
+          ali_open_id = VALUES(ali_open_id)
+    </insert>
+
+    <insert id="ensureDevices">
+        INSERT INTO device_info(device_id, device_sn, device_name, device_status, device_type, heating_switch_status,
+                                heating_threshold, close_heating_threshold, province, city, county, community, address,
+                                device_desc, lgt_on_time, addr_location_gd, addr_location_tx, device_version, remarks)
+        VALUES
+          ('DEV-001', 'SN-001', '虹桥站1号柜', 'ABNORMAL', 'SMART_CONTAINER', 'ON', 45, 55, '上海市', '上海市', '闵行区', '虹桥商圈', '虹桥站出入口A', '门锁异常演示设备', '08:00-22:00', '121.326,31.194', '121.326,31.194', 'v1.0.0', '演示设备-异常'),
+          ('DEV-002', 'SN-002', '陆家嘴2号柜', 'NORMAL', 'SMART_CONTAINER', 'ON', 45, 55, '上海市', '上海市', '浦东新区', '陆家嘴', '陆家嘴中心B1', '正常在线演示设备', '08:00-22:00', '121.506,31.245', '121.506,31.245', 'v1.0.0', '演示设备-正常'),
+          ('DEV-003', 'SN-003', '张江3号柜', 'OFF_LINE', 'SMART_CONTAINER', 'OFF', 45, 55, '上海市', '上海市', '浦东新区', '张江', '张江园区3号楼', '离线演示设备', '08:00-22:00', '121.610,31.205', '121.610,31.205', 'v1.0.0', '演示设备-离线'),
+          ('DEV-004', 'SN-004', '五角场4号柜', 'NORMAL', 'SMART_CONTAINER', 'ON', 45, 55, '上海市', '上海市', '杨浦区', '五角场', '五角场商圈地铁口', '正常在线演示设备', '08:00-22:00', '121.522,31.303', '121.522,31.303', 'v1.0.1', '演示设备-正常')
+        ON DUPLICATE KEY UPDATE
+          device_sn = VALUES(device_sn),
+          device_name = VALUES(device_name),
+          device_status = VALUES(device_status),
+          device_type = VALUES(device_type),
+          heating_switch_status = VALUES(heating_switch_status),
+          heating_threshold = VALUES(heating_threshold),
+          close_heating_threshold = VALUES(close_heating_threshold),
+          province = VALUES(province),
+          city = VALUES(city),
+          county = VALUES(county),
+          community = VALUES(community),
+          address = VALUES(address),
+          device_desc = VALUES(device_desc),
+          lgt_on_time = VALUES(lgt_on_time),
+          addr_location_gd = VALUES(addr_location_gd),
+          addr_location_tx = VALUES(addr_location_tx),
+          device_version = VALUES(device_version),
+          remarks = VALUES(remarks)
+    </insert>
+
+    <insert id="ensureGates">
+        INSERT INTO gate_info(gate_id, device_id, device_sn, gate_name, gate_code, sort, gate_status, remarks)
+        VALUES
+          ('GATE-001-01', 'DEV-001', 'SN-001', '1号门', '01', 1, 'ABNORMAL', '异常门演示'),
+          ('GATE-002-01', 'DEV-002', 'SN-002', '1号门', '01', 1, 'NORMAL', '正常门演示'),
+          ('GATE-003-01', 'DEV-003', 'SN-003', '1号门', '01', 1, 'NORMAL', '离线设备门演示'),
+          ('GATE-004-01', 'DEV-004', 'SN-004', '1号门', '01', 1, 'NORMAL', '正常门演示')
+        ON DUPLICATE KEY UPDATE
+          device_id = VALUES(device_id),
+          device_sn = VALUES(device_sn),
+          gate_name = VALUES(gate_name),
+          gate_code = VALUES(gate_code),
+          sort = VALUES(sort),
+          gate_status = VALUES(gate_status),
+          remarks = VALUES(remarks)
+    </insert>
+
+    <insert id="ensureOrders">
+        INSERT INTO order_info(order_no, customer_id, device_id, gate_id, order_amount, pay_amount, coupon_amount,
+                               trx_time, pay_time, order_status, remarks, procedure_type)
+        VALUES
+          ('ORD-20260530-001', 'CUST-10001', 'DEV-002', 'GATE-002-01', 12.00, 10.00, 2.00, NOW(), NOW(), 'FULLY_PAY', '演示已支付订单', 'ALI'),
+          ('ORD-20260530-002', 'CUST-10002', 'DEV-002', 'GATE-002-01', 15.00, 15.00, 0.00, NOW(), NULL, 'PRE_AUTH_SUCCESS', '演示待支付订单', 'WECHAT'),
+          ('ORD-20260530-003', 'CUST-10001', 'DEV-001', 'GATE-001-01', 20.00, 18.00, 2.00, NOW(), NULL, 'IN_PAYMENT', '演示支付中订单', 'ALI')
+        ON DUPLICATE KEY UPDATE
+          customer_id = VALUES(customer_id),
+          device_id = VALUES(device_id),
+          gate_id = VALUES(gate_id),
+          order_amount = VALUES(order_amount),
+          pay_amount = VALUES(pay_amount),
+          coupon_amount = VALUES(coupon_amount),
+          trx_time = VALUES(trx_time),
+          pay_time = VALUES(pay_time),
+          order_status = VALUES(order_status),
+          remarks = VALUES(remarks),
+          procedure_type = VALUES(procedure_type)
+    </insert>
+
+    <insert id="ensureOrderItems">
+        INSERT INTO order_item(order_no, product_id, product_name, sku_code, quantity, unit_price, total_amount)
+        SELECT 'ORD-20260530-001', 'PROD-001', '冰美式咖啡', 'SKU-COFFEE-001', 1, 10.00, 10.00
+        FROM DUAL WHERE NOT EXISTS (SELECT 1 FROM order_item WHERE order_no = 'ORD-20260530-001' AND product_id = 'PROD-001')
+        UNION ALL
+        SELECT 'ORD-20260530-002', 'PROD-002', '苏打气泡水', 'SKU-WATER-001', 2, 7.50, 15.00
+        FROM DUAL WHERE NOT EXISTS (SELECT 1 FROM order_item WHERE order_no = 'ORD-20260530-002' AND product_id = 'PROD-002')
+        UNION ALL
+        SELECT 'ORD-20260530-003', 'PROD-003', '轻食三明治', 'SKU-FOOD-001', 1, 18.00, 18.00
+        FROM DUAL WHERE NOT EXISTS (SELECT 1 FROM order_item WHERE order_no = 'ORD-20260530-003' AND product_id = 'PROD-003')
+    </insert>
+
+    <insert id="ensureOrderExceptions">
+        INSERT INTO order_exception_record(exception_no, order_no, exception_type, description, process_status, operator)
+        VALUES ('EXC-20260531-001', 'ORD-20260530-003', 'PAY_TIMEOUT', '支付中订单长时间未完成，需要人工复核', 'CREATED', 'admin')
+        ON DUPLICATE KEY UPDATE description = VALUES(description), process_status = VALUES(process_status), operator = VALUES(operator)
+    </insert>
+
+    <insert id="ensureCouponConfigs">
+        INSERT INTO coupon_config(coupon_config_id, product_uid, coupon_type, coupon_money, coupon_all_categories,
+                                  coupon_count, coupon_valid_date, coupon_image, coupon_name, coupon_receive_valid_date,
+                                  coupon_total_money, coupon_customer_limit, coupon_customer_amount_limit,
+                                  coupon_issued_count, coupon_deadline, coupon_desc, remarks, status)
+        VALUES
+          ('CP-20260530-CASH-001', 'PROD-001', 'CASH', 2.00, 'Y', 100, 7, '', '演示现金券2元', 3, 200.00, 100, 1, 12, NULL, '演示现金券', '演示数据', 'ACTIVE'),
+          ('CP-20260530-GROUP-001', 'PROD-002', 'GROUP', 5.00, 'N', 50, 5, '', '演示团购券5元', 2, 250.00, 50, 1, 8, DATE_ADD(NOW(), INTERVAL 7 DAY), '演示团购券', '演示数据', 'ACTIVE'),
+          ('CP-20260530-CASH-002', 'PROD-003', 'CASH', 1.00, 'Y', 80, 5, '', '演示停用现金券1元', 2, 80.00, 80, 1, 20, NULL, '用于验证启用停用状态', '演示数据', 'DISABLED')
+        ON DUPLICATE KEY UPDATE
+          product_uid = VALUES(product_uid),
+          coupon_type = VALUES(coupon_type),
+          coupon_money = VALUES(coupon_money),
+          coupon_all_categories = VALUES(coupon_all_categories),
+          coupon_count = VALUES(coupon_count),
+          coupon_valid_date = VALUES(coupon_valid_date),
+          coupon_image = VALUES(coupon_image),
+          coupon_name = VALUES(coupon_name),
+          coupon_receive_valid_date = VALUES(coupon_receive_valid_date),
+          coupon_total_money = VALUES(coupon_total_money),
+          coupon_customer_limit = VALUES(coupon_customer_limit),
+          coupon_customer_amount_limit = VALUES(coupon_customer_amount_limit),
+          coupon_issued_count = VALUES(coupon_issued_count),
+          coupon_deadline = VALUES(coupon_deadline),
+          coupon_desc = VALUES(coupon_desc),
+          remarks = VALUES(remarks),
+          status = VALUES(status)
+    </insert>
+
+    <insert id="ensureCouponIssues">
+        INSERT INTO coupon_issue_record(issue_no, coupon_config_id, customer_id, coupon_name, coupon_amount, status, receive_time, expire_time)
+        VALUES
+          ('ISS-20260531-001', 'CP-20260530-CASH-001', 'CUST-10001', '演示现金券2元', 2.00, 'USED', NOW() - INTERVAL 1 DAY, NOW() + INTERVAL 6 DAY),
+          ('ISS-20260531-002', 'CP-20260530-GROUP-001', 'CUST-10002', '演示团购券5元', 5.00, 'RECEIVED', NOW() - INTERVAL 2 HOUR, NOW() + INTERVAL 2 DAY)
+        ON DUPLICATE KEY UPDATE status = VALUES(status), receive_time = VALUES(receive_time), expire_time = VALUES(expire_time)
+    </insert>
+
+    <insert id="ensureCouponUses">
+        INSERT INTO coupon_use_record(use_no, issue_no, coupon_config_id, customer_id, order_no, discount_amount, status, use_time)
+        VALUES ('USE-20260531-001', 'ISS-20260531-001', 'CP-20260530-CASH-001', 'CUST-10001', 'ORD-20260530-001', 2.00, 'USED', NOW() - INTERVAL 30 MINUTE)
+        ON DUPLICATE KEY UPDATE discount_amount = VALUES(discount_amount), status = VALUES(status), use_time = VALUES(use_time)
+    </insert>
+
+    <insert id="ensureDeviceEvents">
+        INSERT INTO device_event(event_id, event_time, event_type, event_tag, device_id, device_sn, device_status,
+                                 event_level, content, order_no, process_status, raw_payload)
+        VALUES
+          ('EVT-20260530-001', NOW() - INTERVAL 10 MINUTE, 'HEART_TIMEOUT', '告警', 'DEV-001', 'SN-001', 'ABNORMAL', 'WARNING', '设备 SN-001 心跳超时，需现场复核', NULL, 'CREATED', '{"source":"demo"}'),
+          ('EVT-20260530-002', NOW() - INTERVAL 25 MINUTE, 'DEVICE_ONLINE', '上线', 'DEV-002', 'SN-002', 'NORMAL', 'INFO', '设备 SN-002 重新上线', NULL, 'DONE', '{"source":"demo"}'),
+          ('EVT-20260530-003', NOW() - INTERVAL 1 HOUR, 'OPEN_GATE_FAIL', '告警', 'DEV-003', 'SN-003', 'OFF_LINE', 'WARNING', '设备 SN-003 开门失败，设备当前离线', NULL, 'CREATED', '{"source":"demo"}'),
+          ('EVT-20260530-004', NOW() - INTERVAL 2 HOUR, 'FIRMWARE_UPGRADE', '信息', 'DEV-004', 'SN-004', 'NORMAL', 'INFO', '设备 SN-004 固件更新完成', NULL, 'DONE', '{"source":"demo"}'),
+          ('EVT-20260530-005', NOW() - INTERVAL 30 MINUTE, 'ORDER_OPEN_GATE', '开门', 'DEV-002', 'SN-002', 'NORMAL', 'INFO', '订单 ORD-20260530-001 触发开门', 'ORD-20260530-001', 'DONE', '{"source":"demo"}'),
+          ('EVT-20260530-006', NOW() - INTERVAL 3 MINUTE, 'HEART', '心跳', 'DEV-004', 'SN-004', 'NORMAL', 'INFO', '设备心跳正常，库存同步完成', NULL, 'DONE', '{"source":"demo"}')
+        ON DUPLICATE KEY UPDATE
+          event_time = VALUES(event_time),
+          event_type = VALUES(event_type),
+          event_tag = VALUES(event_tag),
+          device_id = VALUES(device_id),
+          device_sn = VALUES(device_sn),
+          device_status = VALUES(device_status),
+          event_level = VALUES(event_level),
+          content = VALUES(content),
+          order_no = VALUES(order_no),
+          process_status = VALUES(process_status),
+          raw_payload = VALUES(raw_payload)
+    </insert>
+
+    <insert id="ensureAdminUsers">
+        INSERT INTO sys_admin_user(user_id, username, password_hash, real_name, mobile, status)
+        VALUES
+          ('ADM-001', 'admin', 'local-dev-password', '系统管理员', '13800019999', 'ACTIVE'),
+          ('ADM-002', 'operator', 'local-dev-password', '运营人员', '13800018888', 'ACTIVE'),
+          ('ADM-003', 'device_admin', 'local-dev-password', '设备管理员', '13800017777', 'ACTIVE')
+        ON DUPLICATE KEY UPDATE password_hash = VALUES(password_hash), real_name = VALUES(real_name), mobile = VALUES(mobile), status = VALUES(status)
+    </insert>
+
+    <insert id="ensureRoles">
+        INSERT INTO sys_role(role_id, role_name, role_code, description, status)
+        VALUES
+          ('ROLE-001', '超级管理员', 'ADMIN', '拥有全部管理权限', 'ACTIVE'),
+          ('ROLE-002', '运营人员', 'OPERATOR', '优惠券配置与运营管理', 'ACTIVE'),
+          ('ROLE-003', '设备管理员', 'DEVICE_ADMIN', '设备监控与维护', 'ACTIVE')
+        ON DUPLICATE KEY UPDATE role_name = VALUES(role_name), description = VALUES(description), status = VALUES(status)
+    </insert>
+
+    <insert id="ensurePermissions">
+        INSERT INTO sys_permission(permission_id, permission_name, permission_code, permission_type, menu_key, parent_code, description, sort, status)
+        VALUES
+          ('PERM-001', '工作台查看', 'dashboard:view', 'MENU', 'dashboard', NULL, '查看工作台', 10, 'ACTIVE'),
+          ('PERM-002', '优惠券配置新增', 'coupon:create', 'ACTION', 'coupon', NULL, '新增优惠券配置', 20, 'ACTIVE'),
+          ('PERM-003', '优惠券配置列表', 'coupon:list', 'MENU', 'coupon', NULL, '查看优惠券配置列表', 30, 'ACTIVE'),
+          ('PERM-004', '优惠券配置详情', 'coupon:detail', 'MENU', 'coupon', NULL, '查看优惠券配置详情', 40, 'ACTIVE'),
+          ('PERM-005', '优惠券配置编辑', 'coupon:edit', 'ACTION', 'coupon', NULL, '编辑优惠券配置', 50, 'ACTIVE'),
+          ('PERM-006', '优惠券配置停用', 'coupon:disable', 'ACTION', 'coupon', NULL, '停用优惠券配置', 60, 'ACTIVE'),
+          ('PERM-007', '用户列表查看', 'user:list', 'MENU', 'user', NULL, '查看用户列表', 70, 'ACTIVE'),
+          ('PERM-008', '用户详情查看', 'user:detail', 'MENU', 'user', NULL, '查看用户详情', 80, 'ACTIVE'),
+          ('PERM-009', '用户状态变更', 'user:disable', 'ACTION', 'user', NULL, '启用、停用或拉黑用户', 90, 'ACTIVE'),
+          ('PERM-010', '设备概览查看', 'device:overview', 'MENU', 'device', NULL, '查看设备概览', 100, 'ACTIVE'),
+          ('PERM-011', '设备监控查看', 'device:monitor', 'MENU', 'device', NULL, '查看设备监控', 110, 'ACTIVE'),
+          ('PERM-012', '远程开门操作', 'device:openGate', 'ACTION', 'device', NULL, '远程触发设备开门', 120, 'ACTIVE'),
+          ('PERM-013', '设备重启操作', 'device:restart', 'ACTION', 'device', NULL, '远程触发设备重启', 130, 'ACTIVE'),
+          ('PERM-014', '角色权限查看', 'system:role', 'MENU', 'system', NULL, '查看角色权限页面', 140, 'ACTIVE'),
+          ('PERM-015', '权限配置查看', 'system:permission', 'MENU', 'system', NULL, '查看权限配置页面', 150, 'ACTIVE'),
+          ('PERM-016', '订单列表查看', 'order:list', 'MENU', 'order', NULL, '查看订单列表', 160, 'ACTIVE'),
+          ('PERM-017', '订单详情查看', 'order:detail', 'MENU', 'order', NULL, '查看订单详情', 170, 'ACTIVE'),
+          ('PERM-018', '订单状态修正', 'order:changeStatus', 'ACTION', 'order', NULL, '标记支付、取消或异常订单', 180, 'ACTIVE'),
+          ('PERM-019', '订单退款', 'order:refund', 'ACTION', 'order', NULL, '订单退款处理', 190, 'ACTIVE'),
+          ('PERM-020', '订单补扣', 'order:supplementCharge', 'ACTION', 'order', NULL, '订单补扣处理', 200, 'ACTIVE'),
+          ('PERM-021', '订单异常处理', 'order:handleException', 'ACTION', 'order', NULL, '处理订单异常记录', 210, 'ACTIVE'),
+          ('PERM-022', '用户新增编辑', 'user:save', 'ACTION', 'user', NULL, '新增或编辑用户资料', 220, 'ACTIVE'),
+          ('PERM-023', '用户签约记录', 'user:agreements', 'ACTION', 'user', NULL, '查看用户签约记录', 230, 'ACTIVE'),
+          ('PERM-024', '用户订单历史', 'user:orders', 'ACTION', 'user', NULL, '查看用户订单历史', 240, 'ACTIVE'),
+          ('PERM-025', '设备新增编辑', 'device:save', 'ACTION', 'device', NULL, '新增或编辑设备', 250, 'ACTIVE'),
+          ('PERM-026', '仓门维护', 'device:saveGate', 'ACTION', 'device', NULL, '维护设备仓门', 260, 'ACTIVE'),
+          ('PERM-027', '设备事件处理', 'device:processEvent', 'ACTION', 'device', NULL, '处理设备事件', 270, 'ACTIVE'),
+          ('PERM-028', '角色保存', 'system:roleSave', 'ACTION', 'system', NULL, '新增或编辑角色', 280, 'ACTIVE'),
+          ('PERM-029', '角色启停', 'system:roleStatus', 'ACTION', 'system', NULL, '启用或停用角色', 290, 'ACTIVE'),
+          ('PERM-030', '权限保存', 'system:permissionSave', 'ACTION', 'system', NULL, '新增或编辑权限点', 300, 'ACTIVE'),
+          ('PERM-031', '权限启停', 'system:permissionStatus', 'ACTION', 'system', NULL, '启用或停用权限点', 310, 'ACTIVE'),
+          ('PERM-032', '优惠券流水', 'coupon:flow', 'MENU', 'coupon', NULL, '查看优惠券流水', 320, 'ACTIVE'),
+          ('PERM-033', '优惠券发放', 'coupon:issue', 'ACTION', 'coupon', NULL, '手工发放优惠券', 330, 'ACTIVE'),
+          ('PERM-034', '优惠券撤回', 'coupon:revoke', 'ACTION', 'coupon', NULL, '撤回未使用优惠券', 340, 'ACTIVE'),
+          ('PERM-035', '审计日志', 'system:audit', 'MENU', 'system', NULL, '查看操作审计日志', 350, 'ACTIVE')
+        ON DUPLICATE KEY UPDATE
+          permission_name = VALUES(permission_name),
+          permission_type = VALUES(permission_type),
+          menu_key = VALUES(menu_key),
+          parent_code = VALUES(parent_code),
+          description = VALUES(description),
+          sort = VALUES(sort),
+          status = VALUES(status)
+    </insert>
+
+    <insert id="ensureUserRoles">
+        INSERT INTO sys_user_role(user_id, role_id)
+        VALUES ('ADM-001', 'ROLE-001'), ('ADM-002', 'ROLE-002'), ('ADM-003', 'ROLE-003')
+        ON DUPLICATE KEY UPDATE role_id = VALUES(role_id)
+    </insert>
+
+    <insert id="ensureAdminRolePermissions">
+        INSERT IGNORE INTO sys_role_permission(role_id, permission_id)
+        SELECT 'ROLE-001', permission_id FROM sys_permission WHERE permission_code IN (<include refid="DemoPermissionCodes"/>)
+    </insert>
+
+    <insert id="ensureOperatorRolePermissions">
+        INSERT IGNORE INTO sys_role_permission(role_id, permission_id)
+        SELECT 'ROLE-002', permission_id FROM sys_permission
+        WHERE permission_code IN ('dashboard:view', 'coupon:create', 'coupon:list', 'coupon:detail', 'coupon:edit',
+                                  'coupon:disable', 'coupon:flow', 'coupon:issue', 'coupon:revoke',
+                                  'user:list', 'user:detail', 'order:list', 'order:detail', 'order:changeStatus')
+    </insert>
+
+    <insert id="ensureDeviceRolePermissions">
+        INSERT IGNORE INTO sys_role_permission(role_id, permission_id)
+        SELECT 'ROLE-003', permission_id FROM sys_permission
+        WHERE permission_code IN ('dashboard:view', 'device:overview', 'device:monitor', 'device:openGate',
+                                  'device:restart', 'device:save', 'device:saveGate', 'device:processEvent')
+    </insert>
+
+    <insert id="ensureOperationLog">
+        INSERT INTO operation_log(log_id, module, action, target_id, operator, content, result)
+        VALUES ('LOG-DEMO-DATA-20260531', 'system', 'DEMO_DATA_READY', 'smart-container', 'system', '2026-05-31: 管理端演示数据已补齐', 'SUCCESS')
+        ON DUPLICATE KEY UPDATE content = VALUES(content), result = VALUES(result)
+    </insert>
+
+    <select id="countDemoCustomers" resultType="long">
+        SELECT COUNT(1) FROM customer WHERE customer_id IN ('CUST-10001', 'CUST-10002', 'CUST-10003', 'CUST-10004', 'CUST-10005')
+    </select>
+
+    <select id="countDemoDevices" resultType="long">
+        SELECT COUNT(1) FROM device_info WHERE device_id IN ('DEV-001', 'DEV-002', 'DEV-003', 'DEV-004')
+    </select>
+
+    <select id="countDemoGates" resultType="long">
+        SELECT COUNT(1) FROM gate_info WHERE gate_id IN ('GATE-001-01', 'GATE-002-01', 'GATE-003-01', 'GATE-004-01')
+    </select>
+
+    <select id="countDemoOrders" resultType="long">
+        SELECT COUNT(1) FROM order_info WHERE order_no IN ('ORD-20260530-001', 'ORD-20260530-002', 'ORD-20260530-003')
+    </select>
+
+    <select id="countDemoOrderItems" resultType="long">
+        SELECT COUNT(1) FROM order_item
+        WHERE (order_no = 'ORD-20260530-001' AND product_id = 'PROD-001')
+           OR (order_no = 'ORD-20260530-002' AND product_id = 'PROD-002')
+           OR (order_no = 'ORD-20260530-003' AND product_id = 'PROD-003')
+    </select>
+
+    <select id="countDemoCouponConfigs" resultType="long">
+        SELECT COUNT(1) FROM coupon_config WHERE coupon_config_id IN ('CP-20260530-CASH-001', 'CP-20260530-GROUP-001', 'CP-20260530-CASH-002')
+    </select>
+
+    <select id="countDemoCouponFlows" resultType="long">
+        SELECT
+          (SELECT COUNT(1) FROM coupon_issue_record WHERE issue_no IN ('ISS-20260531-001', 'ISS-20260531-002'))
+          +
+          (SELECT COUNT(1) FROM coupon_use_record WHERE use_no = 'USE-20260531-001')
+    </select>
+
+    <select id="countDemoDeviceEvents" resultType="long">
+        SELECT COUNT(1) FROM device_event
+        WHERE event_id IN ('EVT-20260530-001', 'EVT-20260530-002', 'EVT-20260530-003', 'EVT-20260530-004', 'EVT-20260530-005', 'EVT-20260530-006')
+    </select>
+
+    <select id="countDemoPermissions" resultType="long">
+        SELECT COUNT(1) FROM sys_permission WHERE permission_code IN (<include refid="DemoPermissionCodes"/>)
+    </select>
+
+    <select id="countDemoAuditLogs" resultType="long">
+        SELECT COUNT(1) FROM operation_log WHERE log_id = 'LOG-DEMO-DATA-20260531'
+    </select>
+</mapper>
