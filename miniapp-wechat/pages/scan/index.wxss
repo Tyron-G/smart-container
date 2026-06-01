@@ -1,6 +1,6 @@
 .scan-visual {
   padding: 34rpx;
-  background: #18352c;
+  background: #151a23;
   color: #ffffff;
 }
 
@@ -17,7 +17,7 @@
   position: absolute;
   width: 46rpx;
   height: 46rpx;
-  border-color: #f1c35b;
+  border-color: #2f6fed;
   border-style: solid;
 }
 
@@ -56,7 +56,7 @@
   top: 102rpx;
   height: 4rpx;
   border-radius: 4rpx;
-  background: #f1c35b;
+  background: #2f6fed;
 }
 
 .scan-visual-title {
@@ -69,7 +69,7 @@
 .scan-visual-desc {
   margin-top: 8rpx;
   text-align: center;
-  color: #cfe0d8;
+  color: #cbd5e1;
   font-size: 24rpx;
 }
 
@@ -88,7 +88,7 @@
 
 .label {
   margin-bottom: 12rpx;
-  color: #334239;
+  color: #344054;
   font-size: 25rpx;
   font-weight: 900;
 }
@@ -96,9 +96,9 @@
 .input {
   height: 86rpx;
   padding: 0 24rpx;
-  border: 1rpx solid #dbe4dc;
+  border: 1rpx solid #dbe6f5;
   border-radius: 14rpx;
-  background: #f8faf6;
+  background: #f8fafc;
   box-sizing: border-box;
 }
 
@@ -114,8 +114,8 @@
   align-items: center;
   gap: 20rpx;
   margin-top: 24rpx;
-  background: #fff9e8;
-  border-color: #e7dec2;
+  background: #ffffff;
+  border-color: #dbe6f5;
 }
 
 .success-mark {
@@ -123,8 +123,8 @@
   width: 62rpx;
   height: 62rpx;
   border-radius: 18rpx;
-  background: #d9f5e8;
-  color: #087443;
+  background: #eaf2ff;
+  color: #1d4ed8;
   text-align: center;
   line-height: 62rpx;
   font-size: 24rpx;
@@ -138,7 +138,7 @@
 
 .order-no {
   margin-top: 8rpx;
-  color: #7c4f00;
+  color: #1d4ed8;
   font-size: 24rpx;
   font-weight: 900;
   overflow: hidden;
@@ -151,4 +151,3 @@
   width: 168rpx;
   margin: 0;
 }
-

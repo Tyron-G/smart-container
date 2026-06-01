@@ -10,8 +10,8 @@
   height: 64rpx;
   margin: 8rpx 0 0;
   border-radius: 999rpx;
-  background: #fff2c9;
-  color: #7c4f00;
+  background: #eaf2ff;
+  color: #1d4ed8;
   font-size: 24rpx;
   font-weight: 900;
   line-height: 64rpx;
@@ -31,8 +31,8 @@
   height: 76rpx;
   margin: 0 auto 18rpx;
   border-radius: 22rpx;
-  background: #d9f5e8;
-  color: #087443;
+  background: #eaf2ff;
+  color: #1d4ed8;
   line-height: 76rpx;
   font-size: 28rpx;
   font-weight: 900;
@@ -58,7 +58,7 @@
 
 .order-label,
 .meta-label {
-  color: #6b756f;
+  color: #667085;
   font-size: 22rpx;
   font-weight: 800;
 }
@@ -68,7 +68,7 @@
   margin-top: 6rpx;
   font-size: 28rpx;
   font-weight: 900;
-  color: #17211b;
+  color: #141a24;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -78,8 +78,8 @@
   flex: 0 0 auto;
   padding: 9rpx 16rpx;
   border-radius: 999rpx;
-  background: #d9f5e8;
-  color: #087443;
+  background: #eaf2ff;
+  color: #1d4ed8;
   font-size: 22rpx;
   font-weight: 900;
 }
@@ -91,23 +91,22 @@
   margin-top: 24rpx;
   padding: 20rpx;
   border-radius: 16rpx;
-  background: #f8faf6;
+  background: #f8fafc;
 }
 
 .meta-value {
   margin-top: 6rpx;
-  color: #334239;
+  color: #344054;
   font-size: 26rpx;
   font-weight: 900;
 }
 
 .amount {
-  color: #a13c24;
+  color: #b5472f;
 }
 
 .order-time {
   margin-top: 16rpx;
-  color: #6b756f;
+  color: #667085;
   font-size: 24rpx;
 }
-

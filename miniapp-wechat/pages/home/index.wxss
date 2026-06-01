@@ -2,8 +2,8 @@
   min-height: 100vh;
   padding: 30rpx 28rpx 46rpx;
   box-sizing: border-box;
-  background: #f4f7f2;
-  color: #17211b;
+  background: #f6f8fb;
+  color: #141a24;
 }
 
 .home-topbar {
@@ -20,7 +20,7 @@
 
 .customer-line {
   margin-top: 8rpx;
-  color: #6b756f;
+  color: #667085;
   font-size: 25rpx;
 }
 
@@ -37,13 +37,13 @@
 }
 
 .state-ready {
-  background: #d9f5e8;
-  color: #087443;
+  background: #eaf2ff;
+  color: #1d4ed8;
 }
 
 .state-wait {
-  background: #fff2c9;
-  color: #8f5a00;
+  background: #fff4dc;
+  color: #8a5a00;
 }
 
 .hero-panel {
@@ -54,9 +54,9 @@
   border-radius: 26rpx;
   box-sizing: border-box;
   overflow: hidden;
-  background: #18352c;
+  background: #151a23;
   color: #ffffff;
-  box-shadow: 0 28rpx 68rpx rgba(31, 64, 52, 0.28);
+  box-shadow: 0 28rpx 68rpx rgba(20, 26, 36, 0.28);
 }
 
 .hero-panel::after {
@@ -76,7 +76,7 @@
 }
 
 .hero-kicker {
-  color: #f1c35b;
+  color: #2f6fed;
   font-size: 20rpx;
   font-weight: 900;
 }
@@ -92,7 +92,7 @@
 .hero-desc {
   width: 360rpx;
   margin-top: 18rpx;
-  color: #cfe0d8;
+  color: #cbd5e1;
   font-size: 25rpx;
   line-height: 1.55;
 }
@@ -102,8 +102,8 @@
   height: 86rpx;
   margin: 34rpx 0 0;
   border-radius: 14rpx;
-  background: #f1c35b;
-  color: #18352c;
+  background: #2f6fed;
+  color: #ffffff;
   font-size: 30rpx;
   font-weight: 900;
   line-height: 86rpx;
@@ -127,7 +127,7 @@
   height: 24rpx;
   margin-left: 42rpx;
   border-radius: 12rpx 12rpx 4rpx 4rpx;
-  background: #d7ded9;
+  background: #d8dee8;
 }
 
 .cabinet-body {
@@ -138,12 +138,12 @@
   padding: 14rpx;
   border-radius: 22rpx;
   box-sizing: border-box;
-  background: #eef3ef;
-  box-shadow: inset 0 -16rpx 0 rgba(23, 33, 27, 0.12);
+  background: #f1f4f8;
+  box-shadow: inset 0 -16rpx 0 rgba(20, 26, 36, 0.12);
 }
 
 .cabinet-door {
-  border: 2rpx solid #c2cbc4;
+  border: 2rpx solid #cbd5e1;
   border-radius: 14rpx;
   background: #ffffff;
   box-sizing: border-box;
@@ -166,8 +166,8 @@
 }
 
 .door-small.active {
-  background: #f7d779;
-  border-color: #e0b53f;
+  background: #f6b73c;
+  border-color: #d99817;
 }
 
 .cabinet-base {
@@ -175,7 +175,7 @@
   height: 22rpx;
   margin-left: 17rpx;
   border-radius: 0 0 16rpx 16rpx;
-  background: #111c17;
+  background: #0c1118;
 }
 
 .login-strip {
@@ -184,21 +184,21 @@
   align-items: center;
   margin-top: 22rpx;
   padding: 24rpx;
-  border: 1rpx solid #e7dec2;
+  border: 1rpx solid #dbe6f5;
   border-radius: 18rpx;
-  background: #fff9e8;
+  background: #ffffff;
   box-sizing: border-box;
 }
 
 .strip-title {
-  color: #17211b;
+  color: #141a24;
   font-size: 30rpx;
   font-weight: 900;
 }
 
 .strip-desc {
   margin-top: 6rpx;
-  color: #7f7046;
+  color: #667085;
   font-size: 24rpx;
 }
 
@@ -207,7 +207,7 @@
   height: 70rpx;
   margin: 0;
   border-radius: 12rpx;
-  background: #18352c;
+  background: #151a23;
   color: #ffffff;
   font-size: 26rpx;
   font-weight: 800;
@@ -227,8 +227,8 @@
   border-radius: 18rpx;
   box-sizing: border-box;
   background: #ffffff;
-  border: 1rpx solid #e0e7df;
-  box-shadow: 0 14rpx 34rpx rgba(31, 64, 52, 0.08);
+  border: 1rpx solid #e2e8f0;
+  box-shadow: 0 14rpx 34rpx rgba(20, 26, 36, 0.08);
 }
 
 .quick-icon {
@@ -242,25 +242,25 @@
 }
 
 .order-card .quick-icon {
-  background: #d9f5e8;
-  color: #087443;
+  background: #eaf2ff;
+  color: #1d4ed8;
 }
 
 .profile-card .quick-icon {
-  background: #ffe1d8;
-  color: #a13c24;
+  background: #fff1ed;
+  color: #b5472f;
 }
 
 .quick-title {
   margin-top: 18rpx;
-  color: #17211b;
+  color: #141a24;
   font-size: 30rpx;
   font-weight: 900;
 }
 
 .quick-desc {
   margin-top: 6rpx;
-  color: #6b756f;
+  color: #667085;
   font-size: 24rpx;
 }
 
@@ -271,13 +271,13 @@
   padding: 24rpx 26rpx;
   border-radius: 18rpx;
   background: #ffffff;
-  border: 1rpx solid #e0e7df;
+  border: 1rpx solid #e2e8f0;
 }
 
 .process-item {
   display: flex;
   align-items: center;
-  color: #334239;
+  color: #344054;
   font-size: 25rpx;
   font-weight: 800;
 }
@@ -290,20 +290,20 @@
 }
 
 .accent-teal {
-  background: #18a06b;
+  background: #2563eb;
 }
 
 .accent-amber {
-  background: #e3a81f;
+  background: #f6b73c;
 }
 
 .accent-coral {
-  background: #d85a3a;
+  background: #ef6b4a;
 }
 
 .process-line {
   flex: 1;
   height: 2rpx;
   margin: 0 14rpx;
-  background: #dbe4dc;
+  background: #dbe6f5;
 }

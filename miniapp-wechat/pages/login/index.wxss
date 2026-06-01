@@ -7,7 +7,7 @@
   min-height: 286rpx;
   padding: 34rpx;
   overflow: hidden;
-  background: #18352c;
+  background: #151a23;
   color: #ffffff;
   box-sizing: border-box;
 }
@@ -27,7 +27,7 @@
 
 .login-subtitle {
   margin-top: 14rpx;
-  color: #cfe0d8;
+  color: #cbd5e1;
   font-size: 25rpx;
   line-height: 1.55;
 }
@@ -41,13 +41,13 @@
   height: 172rpx;
   padding: 12rpx;
   border-radius: 22rpx;
-  background: #eef3ef;
+  background: #f1f4f8;
   box-sizing: border-box;
 }
 
 .brand-door {
   width: 78rpx;
-  border: 2rpx solid #c2cbc4;
+  border: 2rpx solid #cbd5e1;
   border-radius: 14rpx;
   background: #ffffff;
 }
@@ -62,14 +62,14 @@
 
 .brand-lines view {
   flex: 1;
-  border: 2rpx solid #c2cbc4;
+  border: 2rpx solid #cbd5e1;
   border-radius: 12rpx;
   background: #ffffff;
 }
 
 .brand-lines .active {
-  background: #f1c35b;
-  border-color: #e0b53f;
+  background: #2f6fed;
+  border-color: #1d4ed8;
 }
 
 .login-card {
@@ -83,7 +83,7 @@
 
 .form-label {
   margin-bottom: 12rpx;
-  color: #334239;
+  color: #344054;
   font-size: 25rpx;
   font-weight: 900;
 }
@@ -91,9 +91,9 @@
 .input {
   height: 86rpx;
   padding: 0 24rpx;
-  border: 1rpx solid #dbe4dc;
+  border: 1rpx solid #dbe6f5;
   border-radius: 14rpx;
-  background: #f8faf6;
+  background: #f8fafc;
   box-sizing: border-box;
 }
 
@@ -102,4 +102,3 @@
   gap: 18rpx;
   margin-top: 34rpx;
 }
-

@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: flex-start;
   padding: 32rpx;
-  background: #18352c;
+  background: #151a23;
   color: #ffffff;
 }
 
@@ -16,7 +16,7 @@
 .detail-no {
   max-width: 470rpx;
   margin-top: 10rpx;
-  color: #cfe0d8;
+  color: #cbd5e1;
   font-size: 24rpx;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -27,8 +27,8 @@
   flex: 0 0 auto;
   padding: 10rpx 18rpx;
   border-radius: 999rpx;
-  background: #d9f5e8;
-  color: #087443;
+  background: #eaf2ff;
+  color: #1d4ed8;
   font-size: 22rpx;
   font-weight: 900;
 }
@@ -36,26 +36,26 @@
 .amount-card {
   margin-top: 20rpx;
   padding: 30rpx;
-  background: #fff9e8;
-  border-color: #e7dec2;
+  background: #ffffff;
+  border-color: #dbe6f5;
 }
 
 .amount-label {
-  color: #7f7046;
+  color: #667085;
   font-size: 24rpx;
   font-weight: 900;
 }
 
 .amount-value {
   margin-top: 8rpx;
-  color: #a13c24;
+  color: #b5472f;
   font-size: 54rpx;
   font-weight: 900;
 }
 
 .amount-desc {
   margin-top: 8rpx;
-  color: #7f7046;
+  color: #667085;
   font-size: 24rpx;
 }
 
@@ -69,12 +69,12 @@
   justify-content: space-between;
   gap: 24rpx;
   padding: 24rpx 0;
-  border-bottom: 1rpx solid #edf1ea;
+  border-bottom: 1rpx solid #edf2f7;
 }
 
 .detail-row text:first-child {
   flex: 0 0 auto;
-  color: #6b756f;
+  color: #667085;
   font-size: 25rpx;
   font-weight: 800;
 }
@@ -82,7 +82,7 @@
 .detail-row text:last-child {
   min-width: 0;
   text-align: right;
-  color: #17211b;
+  color: #141a24;
   font-weight: 900;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -91,7 +91,7 @@
 
 .empty-items {
   padding: 34rpx 0 8rpx;
-  color: #6b756f;
+  color: #667085;
   text-align: center;
   font-size: 25rpx;
 }
@@ -101,16 +101,15 @@
   justify-content: space-between;
   gap: 24rpx;
   padding: 24rpx 0;
-  border-bottom: 1rpx solid #edf1ea;
+  border-bottom: 1rpx solid #edf2f7;
 }
 
 .item-name {
-  color: #17211b;
+  color: #141a24;
   font-weight: 900;
 }
 
 .item-price {
-  color: #a13c24;
+  color: #b5472f;
   font-weight: 900;
 }
-
