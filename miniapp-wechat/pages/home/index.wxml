@@ -1,26 +1,27 @@
-<view class="page home-page">
-  <view class="home-header">
-    <view>
-      <view class="home-title">欢迎使用</view>
-      <view class="home-subtitle">客户 {{session.customerId || '-'}}</view>
-    </view>
-    <view class="status-pill">本地演示</view>
+<view style="min-height: 100vh; padding: 28rpx; box-sizing: border-box; background: #f6f8fb;">
+  <view style="font-size: 46rpx; font-weight: 700; color: #0f172a;">欢迎使用</view>
+  <view style="margin-top: 10rpx; color: #64748b;">客户 {{customerIdText}}</view>
+
+  <view style="margin-top: 28rpx; padding: 28rpx; border-radius: 16rpx; background: #ffffff; border: 1rpx solid #e2e8f0;">
+    <view style="font-size: 32rpx; font-weight: 700; color: #0f172a;">本地演示</view>
+    <view style="margin-top: 10rpx; color: #64748b; line-height: 1.5;">如果没有登录，可以先使用演示用户进入小程序流程。</view>
+    <button style="margin-top: 22rpx; height: 88rpx; line-height: 88rpx; background: #2563eb; color: #ffffff; border-radius: 12rpx;" bindtap="demoLogin">演示登录</button>
   </view>
 
-  <view class="scan-panel">
-    <view class="scan-title">扫码开柜</view>
-    <view class="scan-copy">扫描设备二维码，确认设备和仓门后创建订单。</view>
-    <button class="primary-button scan-button" bindtap="goScan">开始扫码</button>
+  <view style="margin-top: 24rpx; padding: 42rpx; min-height: 360rpx; border-radius: 24rpx; background: #0f172a; color: #ffffff; box-sizing: border-box;">
+    <view style="font-size: 50rpx; font-weight: 700;">扫码开柜</view>
+    <view style="margin-top: 14rpx; color: #cbd5e1; line-height: 1.6;">扫描设备二维码，确认设备和仓门后创建订单。</view>
+    <button style="margin-top: 36rpx; height: 88rpx; line-height: 88rpx; background: #2563eb; color: #ffffff; border-radius: 12rpx;" bindtap="goScan">开始扫码</button>
   </view>
 
-  <view class="quick-grid">
-    <view class="card quick-card" bindtap="goOrders">
-      <view class="quick-title">我的订单</view>
-      <view class="quick-desc">查看订单状态和明细</view>
+  <view style="display: flex; gap: 18rpx; margin-top: 24rpx;">
+    <view style="flex: 1; padding: 28rpx; border-radius: 16rpx; background: #ffffff; border: 1rpx solid #e2e8f0;" bindtap="goOrders">
+      <view style="font-size: 30rpx; font-weight: 700; color: #0f172a;">我的订单</view>
+      <view style="margin-top: 10rpx; color: #64748b; font-size: 24rpx;">查看订单状态</view>
     </view>
-    <view class="card quick-card" bindtap="goProfile">
-      <view class="quick-title">账户信息</view>
-      <view class="quick-desc">查看绑定与手机号</view>
+    <view style="flex: 1; padding: 28rpx; border-radius: 16rpx; background: #ffffff; border: 1rpx solid #e2e8f0;" bindtap="goProfile">
+      <view style="font-size: 30rpx; font-weight: 700; color: #0f172a;">账户信息</view>
+      <view style="margin-top: 10rpx; color: #64748b; font-size: 24rpx;">查看绑定信息</view>
     </view>
   </view>
 </view>

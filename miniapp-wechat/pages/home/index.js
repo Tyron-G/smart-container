@@ -1,15 +1,14 @@
-const { ensureSession } = require('../../utils/session')
-
 Page({
   data: {
-    session: {}
+    customerIdText: 'CUST-10001'
   },
 
-  onShow() {
-    const session = ensureSession()
-    if (session) {
-      this.setData({ session })
-    }
+  demoLogin() {
+    this.setData({ customerIdText: 'CUST-10001' })
+  },
+
+  goLogin() {
+    wx.navigateTo({ url: '/pages/login/index' })
   },
 
   goScan() {

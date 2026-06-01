@@ -13,6 +13,6 @@
     "navigationBarTextStyle": "white",
     "backgroundColor": "#f6f8fb",
     "backgroundTextStyle": "dark"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }
-

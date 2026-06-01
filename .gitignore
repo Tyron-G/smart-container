@@ -32,7 +32,11 @@ work/*交付包*.zip
 # 2026-05-31: 支付二维码为本地一次性验证产物，不进入源码提交。
 work/*二维码*.png
 
+# 2026-06-01: 微信小程序注册与认证辅助图片为本地材料，不进入源码提交。
+work/微信小程序注册材料/
+
 # 2026-05-31: 小程序开发者工具本地状态与构建产物不进入源码提交。
 miniapp/.mini-ide/
 miniapp/dist/
 miniapp/mini.project.private.json
+miniapp-wechat/project.private.config.json
