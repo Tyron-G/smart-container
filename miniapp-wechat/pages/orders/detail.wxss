@@ -1,6 +1,67 @@
+.detail-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 32rpx;
+  background: #18352c;
+  color: #ffffff;
+}
+
+.detail-title {
+  margin-top: 8rpx;
+  font-size: 46rpx;
+  font-weight: 900;
+}
+
+.detail-no {
+  max-width: 470rpx;
+  margin-top: 10rpx;
+  color: #cfe0d8;
+  font-size: 24rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.detail-status {
+  flex: 0 0 auto;
+  padding: 10rpx 18rpx;
+  border-radius: 999rpx;
+  background: #d9f5e8;
+  color: #087443;
+  font-size: 22rpx;
+  font-weight: 900;
+}
+
+.amount-card {
+  margin-top: 20rpx;
+  padding: 30rpx;
+  background: #fff9e8;
+  border-color: #e7dec2;
+}
+
+.amount-label {
+  color: #7f7046;
+  font-size: 24rpx;
+  font-weight: 900;
+}
+
+.amount-value {
+  margin-top: 8rpx;
+  color: #a13c24;
+  font-size: 54rpx;
+  font-weight: 900;
+}
+
+.amount-desc {
+  margin-top: 8rpx;
+  color: #7f7046;
+  font-size: 24rpx;
+}
+
 .detail-card {
   padding: 30rpx;
-  margin-bottom: 20rpx;
+  margin-top: 20rpx;
 }
 
 .detail-row {
@@ -8,16 +69,31 @@
   justify-content: space-between;
   gap: 24rpx;
   padding: 24rpx 0;
-  border-bottom: 1rpx solid #edf2f7;
+  border-bottom: 1rpx solid #edf1ea;
 }
 
 .detail-row text:first-child {
-  color: #64748b;
+  flex: 0 0 auto;
+  color: #6b756f;
+  font-size: 25rpx;
+  font-weight: 800;
 }
 
 .detail-row text:last-child {
+  min-width: 0;
   text-align: right;
-  font-weight: 700;
+  color: #17211b;
+  font-weight: 900;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.empty-items {
+  padding: 34rpx 0 8rpx;
+  color: #6b756f;
+  text-align: center;
+  font-size: 25rpx;
 }
 
 .item-row {
@@ -25,15 +101,16 @@
   justify-content: space-between;
   gap: 24rpx;
   padding: 24rpx 0;
-  border-bottom: 1rpx solid #edf2f7;
+  border-bottom: 1rpx solid #edf1ea;
 }
 
 .item-name {
-  font-weight: 800;
+  color: #17211b;
+  font-weight: 900;
 }
 
 .item-price {
-  color: #0f172a;
-  font-weight: 800;
+  color: #a13c24;
+  font-weight: 900;
 }
 

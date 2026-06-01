@@ -1,49 +1,104 @@
-.profile-card {
+.profile-hero {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 24rpx;
-  padding: 30rpx;
+  padding: 32rpx;
+  background: #18352c;
+  color: #ffffff;
 }
 
 .avatar {
   width: 112rpx;
   height: 112rpx;
-  border-radius: 28rpx;
-  background: #0f172a;
-  color: #dbeafe;
+  border-radius: 32rpx;
+  background: #f1c35b;
+  color: #18352c;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 34rpx;
   font-weight: 900;
 }
 
 .profile-main {
   min-width: 0;
+  flex: 1;
 }
 
-.menu-card {
-  margin-top: 20rpx;
-  padding: 10rpx 30rpx;
-}
-
-.menu-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 24rpx;
-  padding: 28rpx 0;
-  border-bottom: 1rpx solid #edf2f7;
-}
-
-.menu-row text:first-child {
-  color: #64748b;
-}
-
-.menu-row text:last-child {
-  max-width: 420rpx;
-  text-align: right;
+.profile-name {
+  max-width: 320rpx;
+  margin-top: 8rpx;
+  font-size: 36rpx;
+  font-weight: 900;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.profile-mobile {
+  margin-top: 6rpx;
+  color: #cfe0d8;
+  font-size: 24rpx;
+}
+
+.bind-pill {
+  flex: 0 0 auto;
+  padding: 10rpx 18rpx;
+  border-radius: 999rpx;
+  background: #d9f5e8;
+  color: #087443;
+  font-size: 22rpx;
+  font-weight: 900;
+}
+
+.account-grid {
+  display: flex;
+  gap: 18rpx;
+  margin-top: 20rpx;
+}
+
+.account-card {
+  flex: 1;
+  min-width: 0;
+  padding: 26rpx;
+}
+
+.account-label,
+.openid-label {
+  color: #6b756f;
+  font-size: 23rpx;
+  font-weight: 900;
+}
+
+.account-value {
+  margin-top: 10rpx;
+  color: #17211b;
+  font-size: 28rpx;
+  font-weight: 900;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.openid-card {
+  margin-top: 20rpx;
+  padding: 30rpx;
+}
+
+.openid-label {
+  margin-top: 24rpx;
+}
+
+.openid-value {
+  margin-top: 10rpx;
+  padding: 20rpx;
+  border-radius: 16rpx;
+  background: #f8faf6;
+  color: #334239;
+  font-size: 24rpx;
+  line-height: 1.5;
+  word-break: break-all;
 }
 
 .logout-button {

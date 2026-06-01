@@ -1,21 +1,29 @@
 <view class="page">
-  <view class="card profile-card">
+  <view class="profile-hero card">
     <view class="avatar">{{avatarText}}</view>
     <view class="profile-main">
-      <view class="section-title">{{session.customerId || '未登录'}}</view>
-      <view class="muted">{{session.mobile || '暂无手机号'}}</view>
+      <view class="page-kicker">ACCOUNT</view>
+      <view class="profile-name">{{session.customerId || '未登录'}}</view>
+      <view class="profile-mobile">{{session.mobile || '暂无手机号'}}</view>
+    </view>
+    <view class="bind-pill">{{session.bindStatus ? '已绑定' : '未绑定'}}</view>
+  </view>
+
+  <view class="account-grid">
+    <view class="account-card card">
+      <view class="account-label">客户编号</view>
+      <view class="account-value">{{session.customerId || '-'}}</view>
+    </view>
+    <view class="account-card card">
+      <view class="account-label">手机号</view>
+      <view class="account-value">{{session.mobile || '-'}}</view>
     </view>
   </view>
 
-  <view class="card menu-card">
-    <view class="menu-row">
-      <text>绑定状态</text>
-      <text>{{session.bindStatus ? '已绑定' : '未绑定'}}</text>
-    </view>
-    <view class="menu-row">
-      <text>OpenID</text>
-      <text>{{session.openId || '-'}}</text>
-    </view>
+  <view class="card openid-card">
+    <view class="section-title">微信绑定</view>
+    <view class="openid-label">OpenID</view>
+    <view class="openid-value">{{session.openId || '-'}}</view>
   </view>
 
   <button class="secondary-button logout-button" bindtap="logout">退出登录</button>

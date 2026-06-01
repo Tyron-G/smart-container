@@ -1,6 +1,24 @@
 <view class="page">
+  <view class="page-heading">
+    <view class="page-kicker">OPEN CABINET</view>
+    <view class="page-title">扫码开柜</view>
+    <view class="page-subtitle">扫描设备二维码后确认仓门，系统会为当前客户创建订单。</view>
+  </view>
+
+  <view class="scan-visual card" bindtap="scanCode">
+    <view class="scan-frame">
+      <view class="corner left-top"></view>
+      <view class="corner right-top"></view>
+      <view class="corner left-bottom"></view>
+      <view class="corner right-bottom"></view>
+      <view class="scan-line"></view>
+    </view>
+    <view class="scan-visual-title">扫码识别设备</view>
+    <view class="scan-visual-desc">自动带出设备和仓门信息</view>
+  </view>
+
   <view class="card scan-card">
-    <view class="section-title">设备信息</view>
+    <view class="section-title">确认信息</view>
     <view class="field">
       <view class="label">设备 ID</view>
       <input class="input" value="{{deviceId}}" placeholder="如 DEV-002" bindinput="handleDeviceInput" />
@@ -10,15 +28,18 @@
       <input class="input" value="{{gateId}}" placeholder="如 GATE-002-01" bindinput="handleGateInput" />
     </view>
     <view class="action-row">
-      <button class="secondary-button" bindtap="scanCode">扫码识别</button>
+      <button class="secondary-button" bindtap="scanCode">重新扫码</button>
       <button class="primary-button" loading="{{creating}}" bindtap="createOrder">确认开柜</button>
     </view>
   </view>
 
   <view wx:if="{{orderNo}}" class="card result-card">
-    <view class="section-title">订单已创建</view>
-    <view class="order-no">{{orderNo}}</view>
-    <button class="secondary-button" bindtap="goDetail">查看订单</button>
+    <view class="success-mark">成</view>
+    <view class="result-main">
+      <view class="section-title">订单已创建</view>
+      <view class="order-no">{{orderNo}}</view>
+    </view>
+    <button class="secondary-button result-button" bindtap="goDetail">查看订单</button>
   </view>
 </view>
 

@@ -1,51 +1,100 @@
 .login-page {
-  padding-top: 72rpx;
+  padding-top: 34rpx;
 }
 
 .login-hero {
-  margin-bottom: 42rpx;
+  position: relative;
+  min-height: 286rpx;
+  padding: 34rpx;
+  overflow: hidden;
+  background: #18352c;
+  color: #ffffff;
+  box-sizing: border-box;
 }
 
-.brand-mark {
-  width: 96rpx;
-  height: 96rpx;
-  border-radius: 24rpx;
-  background: #0f172a;
-  color: #dbeafe;
-  font-weight: 900;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  letter-spacing: 2rpx;
+.hero-copy {
+  position: relative;
+  z-index: 2;
+  width: 430rpx;
 }
 
 .login-title {
-  margin-top: 28rpx;
-  font-size: 48rpx;
+  margin-top: 12rpx;
+  font-size: 56rpx;
   font-weight: 900;
+  letter-spacing: 0;
 }
 
 .login-subtitle {
-  margin-top: 10rpx;
-  color: #64748b;
+  margin-top: 14rpx;
+  color: #cfe0d8;
+  font-size: 25rpx;
+  line-height: 1.55;
+}
+
+.brand-mark {
+  position: absolute;
+  right: 34rpx;
+  bottom: 28rpx;
+  display: flex;
+  width: 150rpx;
+  height: 172rpx;
+  padding: 12rpx;
+  border-radius: 22rpx;
+  background: #eef3ef;
+  box-sizing: border-box;
+}
+
+.brand-door {
+  width: 78rpx;
+  border: 2rpx solid #c2cbc4;
+  border-radius: 14rpx;
+  background: #ffffff;
+}
+
+.brand-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+  width: 42rpx;
+  margin-left: 8rpx;
+}
+
+.brand-lines view {
+  flex: 1;
+  border: 2rpx solid #c2cbc4;
+  border-radius: 12rpx;
+  background: #ffffff;
+}
+
+.brand-lines .active {
+  background: #f1c35b;
+  border-color: #e0b53f;
 }
 
 .login-card {
+  margin-top: 22rpx;
   padding: 30rpx;
 }
 
+.form-field {
+  margin-top: 24rpx;
+}
+
 .form-label {
-  margin: 22rpx 0 12rpx;
-  color: #334155;
-  font-weight: 700;
+  margin-bottom: 12rpx;
+  color: #334239;
+  font-size: 25rpx;
+  font-weight: 900;
 }
 
 .input {
   height: 86rpx;
   padding: 0 24rpx;
-  border: 1rpx solid #dbe3ef;
-  border-radius: 12rpx;
-  background: #f8fafc;
+  border: 1rpx solid #dbe4dc;
+  border-radius: 14rpx;
+  background: #f8faf6;
+  box-sizing: border-box;
 }
 
 .form-actions {

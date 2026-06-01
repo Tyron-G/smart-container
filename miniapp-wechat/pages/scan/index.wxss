@@ -1,6 +1,85 @@
+.scan-visual {
+  padding: 34rpx;
+  background: #18352c;
+  color: #ffffff;
+}
+
+.scan-frame {
+  position: relative;
+  width: 208rpx;
+  height: 208rpx;
+  margin: 0 auto;
+  border-radius: 26rpx;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.corner {
+  position: absolute;
+  width: 46rpx;
+  height: 46rpx;
+  border-color: #f1c35b;
+  border-style: solid;
+}
+
+.left-top {
+  left: 18rpx;
+  top: 18rpx;
+  border-width: 6rpx 0 0 6rpx;
+  border-radius: 12rpx 0 0 0;
+}
+
+.right-top {
+  right: 18rpx;
+  top: 18rpx;
+  border-width: 6rpx 6rpx 0 0;
+  border-radius: 0 12rpx 0 0;
+}
+
+.left-bottom {
+  left: 18rpx;
+  bottom: 18rpx;
+  border-width: 0 0 6rpx 6rpx;
+  border-radius: 0 0 0 12rpx;
+}
+
+.right-bottom {
+  right: 18rpx;
+  bottom: 18rpx;
+  border-width: 0 6rpx 6rpx 0;
+  border-radius: 0 0 12rpx 0;
+}
+
+.scan-line {
+  position: absolute;
+  left: 42rpx;
+  right: 42rpx;
+  top: 102rpx;
+  height: 4rpx;
+  border-radius: 4rpx;
+  background: #f1c35b;
+}
+
+.scan-visual-title {
+  margin-top: 28rpx;
+  text-align: center;
+  font-size: 34rpx;
+  font-weight: 900;
+}
+
+.scan-visual-desc {
+  margin-top: 8rpx;
+  text-align: center;
+  color: #cfe0d8;
+  font-size: 24rpx;
+}
+
 .scan-card,
 .result-card {
   padding: 30rpx;
+}
+
+.scan-card {
+  margin-top: 22rpx;
 }
 
 .field {
@@ -9,16 +88,18 @@
 
 .label {
   margin-bottom: 12rpx;
-  color: #334155;
-  font-weight: 700;
+  color: #334239;
+  font-size: 25rpx;
+  font-weight: 900;
 }
 
 .input {
   height: 86rpx;
   padding: 0 24rpx;
-  border: 1rpx solid #dbe3ef;
-  border-radius: 12rpx;
-  background: #f8fafc;
+  border: 1rpx solid #dbe4dc;
+  border-radius: 14rpx;
+  background: #f8faf6;
+  box-sizing: border-box;
 }
 
 .action-row {
@@ -29,13 +110,45 @@
 }
 
 .result-card {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
   margin-top: 24rpx;
+  background: #fff9e8;
+  border-color: #e7dec2;
+}
+
+.success-mark {
+  flex: 0 0 auto;
+  width: 62rpx;
+  height: 62rpx;
+  border-radius: 18rpx;
+  background: #d9f5e8;
+  color: #087443;
+  text-align: center;
+  line-height: 62rpx;
+  font-size: 24rpx;
+  font-weight: 900;
+}
+
+.result-main {
+  min-width: 0;
+  flex: 1;
 }
 
 .order-no {
-  margin: 20rpx 0;
-  color: #2563eb;
-  font-size: 34rpx;
-  font-weight: 800;
+  margin-top: 8rpx;
+  color: #7c4f00;
+  font-size: 24rpx;
+  font-weight: 900;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.result-button {
+  flex: 0 0 auto;
+  width: 168rpx;
+  margin: 0;
 }
 
