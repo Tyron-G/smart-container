@@ -146,8 +146,28 @@
   white-space: nowrap;
 }
 
-.result-button {
+.status-line {
+  margin-top: 8rpx;
+  color: #667085;
+  font-size: 24rpx;
+  font-weight: 800;
+}
+
+.result-actions {
   flex: 0 0 auto;
-  width: 168rpx;
+  display: grid;
+  gap: 10rpx;
+}
+
+.result-button {
+  width: 146rpx;
+  height: 64rpx;
   margin: 0;
+  border-radius: 12rpx;
+  font-size: 24rpx;
+  line-height: 64rpx;
+}
+
+.result-button.primary-button {
+  box-shadow: none;
 }

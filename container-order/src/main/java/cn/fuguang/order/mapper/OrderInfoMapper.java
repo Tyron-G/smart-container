@@ -28,5 +28,8 @@ public interface OrderInfoMapper {
     Map<String, Object> queryCustomerOrderDetail(@Param("customerId") String customerId,
                                                  @Param("orderNo") String orderNo);
 
+    Map<String, Object> queryCustomerOrderStatus(@Param("customerId") String customerId,
+                                                 @Param("orderNo") String orderNo);
+
     List<Map<String, Object>> queryOrderItems(@Param("orderNo") String orderNo);
 }

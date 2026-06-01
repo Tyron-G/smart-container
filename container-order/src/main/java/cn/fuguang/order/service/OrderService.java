@@ -45,5 +45,7 @@ public interface OrderService {
 
     Map<String, Object> queryCustomerOrderDetail(String customerId, String orderNo);
 
+    Map<String, Object> queryCustomerOrderStatus(String customerId, String orderNo);
+
     List<Map<String, Object>> queryOrderItems(String orderNo);
 }

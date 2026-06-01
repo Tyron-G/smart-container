@@ -118,6 +118,11 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    public Map<String, Object> queryCustomerOrderStatus(String customerId, String orderNo) {
+        return orderInfoMapper.queryCustomerOrderStatus(customerId, orderNo);
+    }
+
+    @Override
     public List<Map<String, Object>> queryOrderItems(String orderNo) {
         return orderInfoMapper.queryOrderItems(orderNo);
     }

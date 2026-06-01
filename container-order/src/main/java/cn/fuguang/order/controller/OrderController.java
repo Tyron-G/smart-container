@@ -72,4 +72,18 @@ public class OrderController {
         }
     }
 
+    @GetMapping("/customer/status")
+    public BaseResult<Map<String, Object>> queryCustomerOrderStatus(@RequestParam("customerId") String customerId,
+                                                                    @RequestParam("orderNo") String orderNo) {
+        if (customerId == null || customerId.trim().length() == 0 || orderNo == null || orderNo.trim().length() == 0) {
+            return BaseResult.fail("customerId/orderNo 不能为空");
+        }
+        try {
+            return BaseResult.success(orderBiz.queryCustomerOrderStatus(customerId.trim(), orderNo.trim()));
+        } catch (Exception e) {
+            log.error("查询用户订单状态异常 customerId:{}, orderNo:{}", customerId, orderNo, e);
+            return BaseResult.fail("订单不存在");
+        }
+    }
+
 }

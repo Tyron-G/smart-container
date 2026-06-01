@@ -20,4 +20,6 @@ public interface OrderBiz {
     Map<String, Object> queryCustomerOrders(String customerId, Integer pageNum, Integer pageSize);
 
     Map<String, Object> queryCustomerOrderDetail(String customerId, String orderNo);
+
+    Map<String, Object> queryCustomerOrderStatus(String customerId, String orderNo);
 }

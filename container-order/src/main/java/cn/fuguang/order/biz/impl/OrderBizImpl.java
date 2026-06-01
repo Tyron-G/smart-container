@@ -185,6 +185,15 @@ public class OrderBizImpl implements OrderBiz {
         return data;
     }
 
+    @Override
+    public Map<String, Object> queryCustomerOrderStatus(String customerId, String orderNo) {
+        Map<String, Object> orderStatus = orderService.queryCustomerOrderStatus(customerId, orderNo);
+        if (orderStatus == null || orderStatus.isEmpty()) {
+            throw ContainerException.DATE_NOT_EXIST_ERROR.newInstance("订单不存在 orderNo:" + orderNo);
+        }
+        return orderStatus;
+    }
+
     private void sendDelayMessage(String orderNo) {
         int retryTimes = 0;
         boolean sendSuccess = false;

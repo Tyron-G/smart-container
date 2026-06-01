@@ -28,6 +28,14 @@ function queryOrderDetail(orderNo, customerId) {
   })
 }
 
+function queryOrderStatus(orderNo, customerId) {
+  return request({
+    url: '/order/customer/status',
+    method: 'GET',
+    data: { orderNo, customerId }
+  })
+}
+
 function wechatLogin(payload) {
   return request({
     url: '/customer/wechatLogin',
@@ -40,6 +48,7 @@ module.exports = {
   scanCreateOrder,
   queryOrders,
   queryOrderDetail,
+  queryOrderStatus,
   wechatLogin
 }
 

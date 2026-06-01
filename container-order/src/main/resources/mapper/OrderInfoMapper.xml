@@ -74,6 +74,14 @@
         LIMIT 1
     </select>
 
+    <select id="queryCustomerOrderStatus" resultType="map">
+        SELECT order_no, customer_id, order_status, procedure_type, create_time, update_time, pay_time
+        FROM order_info
+        WHERE customer_id = #{customerId,jdbcType=VARCHAR}
+          AND order_no = #{orderNo,jdbcType=VARCHAR}
+        LIMIT 1
+    </select>
+
     <select id="queryOrderItems" resultType="map">
         SELECT id, order_no, product_id, product_name, sku_code, quantity, unit_price, total_amount, create_time
         FROM order_item

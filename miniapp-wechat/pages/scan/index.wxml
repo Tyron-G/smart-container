@@ -38,8 +38,12 @@
     <view class="result-main">
       <view class="section-title">订单已创建</view>
       <view class="order-no">{{orderNo}}</view>
+      <view class="status-line">当前状态：{{orderStatusText || '-'}}</view>
     </view>
-    <button class="secondary-button result-button" bindtap="goDetail">查看订单</button>
+    <view class="result-actions">
+      <button class="secondary-button result-button" loading="{{statusLoading}}" bindtap="manualRefreshOrderStatus">刷新</button>
+      <button class="primary-button result-button" bindtap="goDetail">详情</button>
+    </view>
   </view>
 </view>
 
