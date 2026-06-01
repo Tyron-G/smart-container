@@ -9,7 +9,7 @@
     "es6": true,
     "enhance": true,
     "postcss": true,
-    "minified": false,
+    "minified": true,
     "coverView": true,
     "lazyloadPlaceholderEnable": false,
     "preloadBackgroundData": false,
@@ -21,7 +21,7 @@
     "packNpmManually": false,
     "packNpmRelationList": [],
     "minifyWXSS": true,
-    "useStaticServer": true,
+    "useStaticServer": false,
     "showES6CompileOption": false,
     "checkInvalidKey": true,
     "babelSetting": {
