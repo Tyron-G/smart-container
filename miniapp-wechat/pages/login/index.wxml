@@ -2,8 +2,8 @@
   <view class="login-hero card">
     <view class="hero-copy">
       <view class="page-kicker">WECHAT MINIAPP</view>
-      <view class="login-title">智柜云购</view>
-      <view class="login-subtitle">登录后即可扫码开柜、查看订单和账户绑定状态。</view>
+      <view class="login-title">智柜体验助手</view>
+      <view class="login-subtitle">登录后可体验扫码识别、记录查看和账户绑定状态。</view>
     </view>
     <view class="brand-mark">
       <view class="brand-door"></view>
@@ -18,8 +18,8 @@
   <view class="login-card card">
     <view class="section-title">登录信息</view>
     <view class="form-field">
-      <view class="form-label">客户 ID</view>
-      <input class="input" value="{{customerId}}" placeholder="请输入客户 ID" bindinput="handleCustomerIdInput" />
+      <view class="form-label">体验用户 ID</view>
+      <input class="input" value="{{customerId}}" placeholder="请输入体验用户 ID" bindinput="handleCustomerIdInput" />
     </view>
 
     <view class="form-field">

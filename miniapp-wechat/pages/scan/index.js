@@ -72,10 +72,10 @@ Page({
         orderStatusText: statusText('INIT'),
         pollTimes: 0
       })
-      wx.showToast({ title: '订单已创建', icon: 'success' })
+      wx.showToast({ title: '记录已生成', icon: 'success' })
       this.refreshOrderStatus(true)
     } catch (error) {
-      wx.showToast({ title: error.message || '创建订单失败', icon: 'none' })
+      wx.showToast({ title: error.message || '生成记录失败', icon: 'none' })
     } finally {
       this.setData({ creating: false })
     }
@@ -149,8 +149,8 @@ function stopStatusPolling() {
 function statusText(status) {
   const map = {
     INIT: '待确认',
-    PRE_AUTH_CREATE_SUCCESS: '预授权中',
-    PRE_AUTH_SUCCESS: '已开柜',
+    PRE_AUTH_CREATE_SUCCESS: '确认中',
+    PRE_AUTH_SUCCESS: '已确认',
     FULLY_PAY: '已完成',
     CANCEL: '已取消',
     EXCEPTION: '异常'

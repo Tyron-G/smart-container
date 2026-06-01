@@ -57,8 +57,8 @@ function mapDetail(row) {
 function statusText(status) {
   const map = {
     INIT: '待确认',
-    PRE_AUTH_CREATE_SUCCESS: '预授权中',
-    PRE_AUTH_SUCCESS: '已开柜',
+    PRE_AUTH_CREATE_SUCCESS: '确认中',
+    PRE_AUTH_SUCCESS: '已确认',
     FULLY_PAY: '已完成',
     CANCEL: '已取消',
     EXCEPTION: '异常'

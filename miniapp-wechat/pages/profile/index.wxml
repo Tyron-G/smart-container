@@ -11,7 +11,7 @@
 
   <view class="account-grid">
     <view class="account-card card">
-      <view class="account-label">客户编号</view>
+      <view class="account-label">体验用户编号</view>
       <view class="account-value">{{session.customerId || '-'}}</view>
     </view>
     <view class="account-card card">

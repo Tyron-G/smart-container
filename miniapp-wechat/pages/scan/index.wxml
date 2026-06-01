@@ -1,8 +1,8 @@
 <view class="page">
   <view class="page-heading">
-    <view class="page-kicker">OPEN CABINET</view>
-    <view class="page-title">扫码开柜</view>
-    <view class="page-subtitle">扫描设备二维码后确认仓门，系统会为当前客户创建订单。</view>
+    <view class="page-kicker">SCAN DEMO</view>
+    <view class="page-title">扫码识别</view>
+    <view class="page-subtitle">扫描设备二维码后确认仓门信息，生成一条本地体验记录。</view>
   </view>
 
   <view class="scan-visual card" bindtap="scanCode">
@@ -29,14 +29,14 @@
     </view>
     <view class="action-row">
       <button class="secondary-button" bindtap="scanCode">重新扫码</button>
-      <button class="primary-button" loading="{{creating}}" bindtap="createOrder">确认开柜</button>
+      <button class="primary-button" loading="{{creating}}" bindtap="createOrder">确认体验</button>
     </view>
   </view>
 
   <view wx:if="{{orderNo}}" class="card result-card">
     <view class="success-mark">成</view>
     <view class="result-main">
-      <view class="section-title">订单已创建</view>
+      <view class="section-title">记录已生成</view>
       <view class="order-no">{{orderNo}}</view>
       <view class="status-line">当前状态：{{orderStatusText || '-'}}</view>
     </view>

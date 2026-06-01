@@ -1,21 +1,21 @@
 <view class="page">
   <view class="detail-hero card">
     <view>
-      <view class="page-kicker">ORDER DETAIL</view>
-      <view class="detail-title">订单详情</view>
+      <view class="page-kicker">RECORD DETAIL</view>
+      <view class="detail-title">记录详情</view>
       <view class="detail-no">{{detail.orderNo || '-'}}</view>
     </view>
     <view class="detail-status">{{detail.orderStatusText || '-'}}</view>
   </view>
 
   <view class="amount-card card">
-    <view class="amount-label">支付金额</view>
-    <view class="amount-value">¥{{detail.payAmount || detail.orderAmount || '0.00'}}</view>
-    <view class="amount-desc">{{detail.payTime || detail.createTime || '等待结算时间'}}</view>
+    <view class="amount-label">展示值</view>
+    <view class="amount-value">{{detail.payAmount || detail.orderAmount || '0.00'}}</view>
+    <view class="amount-desc">{{detail.payTime || detail.createTime || '等待状态更新时间'}}</view>
   </view>
 
   <view class="card detail-card">
-    <view class="section-title">取货信息</view>
+    <view class="section-title">设备信息</view>
     <view class="detail-row">
       <text>设备</text>
       <text>{{detail.deviceName || detail.deviceId || '-'}}</text>
@@ -31,14 +31,14 @@
   </view>
 
   <view class="card detail-card">
-    <view class="section-title">商品明细</view>
-    <view wx:if="{{items.length === 0}}" class="empty-items">暂无商品明细</view>
+    <view class="section-title">明细信息</view>
+    <view wx:if="{{items.length === 0}}" class="empty-items">暂无明细信息</view>
     <view wx:for="{{items}}" wx:key="id" class="item-row">
       <view>
         <view class="item-name">{{item.product_name || item.productName}}</view>
         <view class="muted">{{item.sku_code || item.skuCode}}</view>
       </view>
-      <view class="item-price">x{{item.quantity}} ¥{{item.total_amount || item.totalAmount}}</view>
+      <view class="item-price">x{{item.quantity}} · {{item.total_amount || item.totalAmount}}</view>
     </view>
   </view>
 </view>

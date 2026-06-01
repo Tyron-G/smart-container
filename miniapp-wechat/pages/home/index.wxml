@@ -1,8 +1,8 @@
 <view class="home-page">
   <view class="home-topbar">
     <view>
-      <view class="brand-name">智柜云购</view>
-      <view class="customer-line">客户 {{customerIdText}}</view>
+      <view class="brand-name">智柜体验助手</view>
+      <view class="customer-line">体验用户 {{customerIdText}}</view>
     </view>
     <view class="state-pill {{loggedIn ? 'state-ready' : 'state-wait'}}">{{loggedIn ? '已登录' : '待登录'}}</view>
   </view>
@@ -10,9 +10,9 @@
   <view class="hero-panel">
     <view class="hero-copy">
       <view class="hero-kicker">SMART CABINET</view>
-      <view class="hero-title">扫码开柜</view>
-      <view class="hero-desc">确认设备与仓门后创建订单，取货流程在手机端完成。</view>
-      <button class="hero-button" bindtap="goScan">开始扫码</button>
+      <view class="hero-title">扫码识别</view>
+      <view class="hero-desc">识别设备与仓门信息，展示体验流程和状态变化。</view>
+      <button class="hero-button" bindtap="goScan">开始识别</button>
     </view>
     <view class="cabinet-visual" aria-hidden="true">
       <view class="cabinet-top"></view>
@@ -38,8 +38,8 @@
 
   <view class="quick-grid">
     <view class="quick-card order-card" bindtap="goOrders">
-      <view class="quick-icon">单</view>
-      <view class="quick-title">我的订单</view>
+      <view class="quick-icon">记</view>
+      <view class="quick-title">体验记录</view>
       <view class="quick-desc">查看状态</view>
     </view>
     <view class="quick-card profile-card" bindtap="goProfile">
@@ -57,12 +57,12 @@
     <view class="process-line"></view>
     <view class="process-item">
       <view class="process-dot accent-amber"></view>
-      <view>开柜</view>
+      <view>确认</view>
     </view>
     <view class="process-line"></view>
     <view class="process-item">
       <view class="process-dot accent-coral"></view>
-      <view>结算</view>
+      <view>状态</view>
     </view>
   </view>
 </view>
