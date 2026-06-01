@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @Slf4j
@@ -99,5 +100,25 @@ public class OrderServiceImpl implements OrderService {
             throw ContainerException.DATE_NOT_EXIST_ERROR.newInstance("订单不存在 orderNo:" + orderNo);
         }
         return orderInfo;
+    }
+
+    @Override
+    public long countCustomerOrders(String customerId) {
+        return orderInfoMapper.countCustomerOrders(customerId);
+    }
+
+    @Override
+    public List<Map<String, Object>> queryCustomerOrders(String customerId, Integer offset, Integer pageSize) {
+        return orderInfoMapper.queryCustomerOrders(customerId, offset, pageSize);
+    }
+
+    @Override
+    public Map<String, Object> queryCustomerOrderDetail(String customerId, String orderNo) {
+        return orderInfoMapper.queryCustomerOrderDetail(customerId, orderNo);
+    }
+
+    @Override
+    public List<Map<String, Object>> queryOrderItems(String orderNo) {
+        return orderInfoMapper.queryOrderItems(orderNo);
     }
 }

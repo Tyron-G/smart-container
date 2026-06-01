@@ -47,7 +47,7 @@ Page({
     this.setData({ creating: true })
     try {
       const data = await scanCreateOrder({
-        sourceType: 'ALI',
+        sourceType: 'WECHAT',
         customerId: session.customerId,
         deviceId: this.data.deviceId,
         gateId: this.data.gateId

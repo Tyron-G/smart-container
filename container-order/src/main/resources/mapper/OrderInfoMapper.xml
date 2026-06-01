@@ -48,4 +48,36 @@
             update_time = now()
         where order_no = #{orderNo} and order_status = #{oldOrderStatus}
     </update>
+
+    <select id="countCustomerOrders" resultType="long">
+        SELECT COUNT(1)
+        FROM order_info
+        WHERE customer_id = #{customerId,jdbcType=VARCHAR}
+    </select>
+
+    <select id="queryCustomerOrders" resultType="map">
+        SELECT order_no, customer_id, device_id, gate_id, order_amount, pay_amount, coupon_amount,
+               trx_time, pay_time, order_status, procedure_type, create_time, update_time, remarks
+        FROM order_info
+        WHERE customer_id = #{customerId,jdbcType=VARCHAR}
+        ORDER BY create_time DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <select id="queryCustomerOrderDetail" resultType="map">
+        SELECT o.*, d.device_sn, d.device_name, g.gate_name, g.gate_code
+        FROM order_info o
+        LEFT JOIN device_info d ON o.device_id = d.device_id
+        LEFT JOIN gate_info g ON o.gate_id = g.gate_id
+        WHERE o.customer_id = #{customerId,jdbcType=VARCHAR}
+          AND o.order_no = #{orderNo,jdbcType=VARCHAR}
+        LIMIT 1
+    </select>
+
+    <select id="queryOrderItems" resultType="map">
+        SELECT id, order_no, product_id, product_name, sku_code, quantity, unit_price, total_amount, create_time
+        FROM order_item
+        WHERE order_no = #{orderNo,jdbcType=VARCHAR}
+        ORDER BY id ASC
+    </select>
 </mapper>

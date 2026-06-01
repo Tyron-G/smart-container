@@ -20,7 +20,11 @@ Page({
     }
     wx.showLoading({ title: '加载中' })
     try {
-      const data = await queryOrderDetail(this.data.orderNo)
+      const session = ensureSession()
+      if (!session) {
+        return
+      }
+      const data = await queryOrderDetail(this.data.orderNo, session.customerId)
       this.setData({
         detail: mapDetail(data.order || {}),
         items: data.items || []

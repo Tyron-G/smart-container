@@ -10,29 +10,21 @@ function scanCreateOrder(payload) {
 
 function queryOrders(customerId) {
   return request({
-    url: '/api/manager/customer/orders',
+    url: '/order/customer/list',
     method: 'GET',
     data: {
       customerId,
       pageNum: 1,
       pageSize: 20
-    },
-    header: {
-      // 2026-05-31: 本地演示复用管理端只读订单历史接口，后续替换为小程序用户端接口。
-      Authorization: 'Bearer local-token-admin'
     }
   })
 }
 
-function queryOrderDetail(orderNo) {
+function queryOrderDetail(orderNo, customerId) {
   return request({
-    url: '/api/manager/order/detail',
+    url: '/order/customer/detail',
     method: 'GET',
-    data: { orderNo },
-    header: {
-      // 2026-05-31: 本地演示复用管理端订单详情接口，后续替换为用户端订单详情接口。
-      Authorization: 'Bearer local-token-admin'
-    }
+    data: { orderNo, customerId }
   })
 }
 

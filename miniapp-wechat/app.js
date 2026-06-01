@@ -2,7 +2,7 @@ const { getSession } = require('./utils/session')
 
 App({
   globalData: {
-    apiBaseUrl: 'http://localhost:9965/manager'
+    apiBaseUrl: 'http://localhost:9960/order'
   },
   onLaunch() {
     const session = getSession()

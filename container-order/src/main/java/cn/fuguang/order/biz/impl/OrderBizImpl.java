@@ -34,7 +34,9 @@ import org.redisson.api.RedissonClient;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -154,6 +156,33 @@ public class OrderBizImpl implements OrderBiz {
                 log.error(MonitorConstants.REDISSON_UN_LOCK_ERROR + "释放仓门分布式锁异常 redisLockKey:{}", redisLockKey);
             }
         }
+    }
+
+    @Override
+    public Map<String, Object> queryCustomerOrders(String customerId, Integer pageNum, Integer pageSize) {
+        int currentPage = pageNum == null || pageNum < 1 ? 1 : pageNum;
+        int currentSize = pageSize == null || pageSize < 1 ? 20 : pageSize;
+        if (currentSize > 100) {
+            currentSize = 100;
+        }
+        Map<String, Object> data = new LinkedHashMap<String, Object>();
+        data.put("records", orderService.queryCustomerOrders(customerId, (currentPage - 1) * currentSize, currentSize));
+        data.put("total", orderService.countCustomerOrders(customerId));
+        data.put("pageNum", currentPage);
+        data.put("pageSize", currentSize);
+        return data;
+    }
+
+    @Override
+    public Map<String, Object> queryCustomerOrderDetail(String customerId, String orderNo) {
+        Map<String, Object> order = orderService.queryCustomerOrderDetail(customerId, orderNo);
+        if (order == null || order.isEmpty()) {
+            throw ContainerException.DATE_NOT_EXIST_ERROR.newInstance("订单不存在 orderNo:" + orderNo);
+        }
+        Map<String, Object> data = new LinkedHashMap<String, Object>();
+        data.put("order", order);
+        data.put("items", orderService.queryOrderItems(orderNo));
+        return data;
     }
 
     private void sendDelayMessage(String orderNo) {

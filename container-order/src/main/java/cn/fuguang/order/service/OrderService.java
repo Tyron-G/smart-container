@@ -4,6 +4,9 @@ import cn.fuguang.entity.OrderInfoEntity;
 import cn.fuguang.enums.OrderTypeEnum;
 import cn.fuguang.order.pojo.vo.req.ScanCreateOrderReq;
 
+import java.util.List;
+import java.util.Map;
+
 public interface OrderService {
 
     /**
@@ -35,4 +38,12 @@ public interface OrderService {
      * 根据订单号查询订单实体
      */
     OrderInfoEntity queryByOrderNo(String orderNo);
+
+    long countCustomerOrders(String customerId);
+
+    List<Map<String, Object>> queryCustomerOrders(String customerId, Integer offset, Integer pageSize);
+
+    Map<String, Object> queryCustomerOrderDetail(String customerId, String orderNo);
+
+    List<Map<String, Object>> queryOrderItems(String orderNo);
 }
