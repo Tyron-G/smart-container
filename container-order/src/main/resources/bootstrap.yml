@@ -26,3 +26,11 @@ logging:
   level:
     root: info
 
+miniapp:
+  wechat:
+    enabled: ${MINIAPP_WECHAT_ENABLED:false}
+    local-test-mode: ${MINIAPP_WECHAT_LOCAL_TEST_MODE:true}
+    app-id: ${MINIAPP_WECHAT_APP_ID:wx0650c1e3a558ae28}
+    app-secret: ${MINIAPP_WECHAT_APP_SECRET:}
+    jscode2-session-url: ${MINIAPP_WECHAT_JSCODE2_SESSION_URL:https://api.weixin.qq.com/sns/jscode2session}
+

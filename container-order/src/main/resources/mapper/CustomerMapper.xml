@@ -26,4 +26,17 @@
         where ali_open_id = #{openId,jdbcType=VARCHAR}
     </select>
 
+    <select id="queryCustomerByWechatOpenId" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select *
+        from customer
+        where wechat_open_id = #{openId,jdbcType=VARCHAR}
+    </select>
+
+    <update id="updateWechatOpenId">
+        update customer
+        set wechat_open_id = #{openId,jdbcType=VARCHAR},
+            update_time = now()
+        where customer_id = #{customerId,jdbcType=VARCHAR}
+    </update>
+
 </mapper>

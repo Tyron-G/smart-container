@@ -38,4 +38,22 @@ public class CustomerServiceImpl implements CustomerService {
         }
         return customerEntity;
     }
+
+    @Override
+    public CustomerEntity queryCustomerByWechatOpenId(String openId) {
+        CustomerEntity customerEntity = customerMapper.queryCustomerByWechatOpenId(openId);
+
+        if (customerEntity == null){
+            throw ContainerException.DATE_NOT_EXIST_ERROR.newInstance("客户不存在 openId:" + openId);
+        }
+        return customerEntity;
+    }
+
+    @Override
+    public void bindWechatOpenId(String customerId, String openId) {
+        int updated = customerMapper.updateWechatOpenId(customerId, openId);
+        if (updated == 0) {
+            throw ContainerException.DATE_NOT_EXIST_ERROR.newInstance("客户不存在 id:" + customerId);
+        }
+    }
 }

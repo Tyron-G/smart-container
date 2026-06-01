@@ -1,3 +1,4 @@
+const { wechatLogin } = require('../../services/api')
 const { setSession } = require('../../utils/session')
 
 Page({
@@ -31,12 +32,21 @@ Page({
     wx.login({
       success: async (res) => {
         try {
-          const session = {
+          const data = await wechatLogin({
+            code: res.code || 'local-preview-code',
             customerId: this.data.customerId || 'CUST-10001',
-            mobile: this.data.mobile || '13800010001',
-            openId: `wechat-preview-${res.code || 'local'}`,
-            bindStatus: true,
-            accessToken: 'local-wechat-preview-token'
+            mobile: this.data.mobile || '13800010001'
+          })
+          if (!data.bindStatus) {
+            wx.showToast({ title: '用户未绑定', icon: 'none' })
+            return
+          }
+          const session = {
+            customerId: data.customerId || this.data.customerId || 'CUST-10001',
+            mobile: data.mobile || this.data.mobile || '13800010001',
+            openId: data.openId,
+            bindStatus: data.bindStatus,
+            accessToken: data.accessToken
           }
           setSession(session)
           wx.redirectTo({ url: '/pages/home/index' })

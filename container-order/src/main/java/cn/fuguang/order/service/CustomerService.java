@@ -19,4 +19,8 @@ public interface CustomerService {
      * 通过支付宝openId查询用户信息
      */
     CustomerEntity queryCustomerByAliOpenId(String openId);
+
+    CustomerEntity queryCustomerByWechatOpenId(String openId);
+
+    void bindWechatOpenId(String customerId, String openId);
 }

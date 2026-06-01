@@ -28,9 +28,18 @@ function queryOrderDetail(orderNo, customerId) {
   })
 }
 
+function wechatLogin(payload) {
+  return request({
+    url: '/customer/wechatLogin',
+    method: 'POST',
+    data: payload
+  })
+}
+
 module.exports = {
   scanCreateOrder,
   queryOrders,
-  queryOrderDetail
+  queryOrderDetail,
+  wechatLogin
 }
 

@@ -4,7 +4,7 @@
 
 ## 功能范围
 
-- 登录页：支持演示用户登录和微信开发者工具内的 `wx.login` 预览绑定。
+- 登录页：支持演示用户登录，并通过后端 `/customer/wechatLogin` 处理微信 `wx.login`。
 - 首页：展示扫码开柜入口、订单入口和账户入口。
 - 扫码开柜：支持扫码解析 `deviceId`、`gateId`，并调用后端创建订单。
 - 我的订单：调用 `container-order` 用户端接口展示订单列表。
@@ -31,7 +31,16 @@ apiBaseUrl: 'http://localhost:9960/order'
 
 ## 当前边界
 
-- 2026-05-31：微信授权绑定当前仅完成开发者工具预览，后续需要后端新增微信登录换取 openId 的正式接口。
+- 2026-06-01：微信授权绑定已接入后端接口；真实换取 openId 需要后端通过环境变量配置 AppSecret。
 - 2026-06-01：已提交真实微信小程序 AppID；未提交 AppSecret、商户号、密钥或证书。
 - 2026-06-01：扫码创建订单来源为 `WECHAT`，但真实微信支付商户资金通道仍需商户配置后启用。
+
+## 微信登录环境变量
+
+```text
+MINIAPP_WECHAT_ENABLED=false
+MINIAPP_WECHAT_LOCAL_TEST_MODE=true
+MINIAPP_WECHAT_APP_ID=wx0650c1e3a558ae28
+MINIAPP_WECHAT_APP_SECRET=
+```
 

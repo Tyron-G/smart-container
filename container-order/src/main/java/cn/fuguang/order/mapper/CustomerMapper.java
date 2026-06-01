@@ -14,4 +14,8 @@ public interface CustomerMapper {
      * 根据aliOpenId查询客户信息
      */
     CustomerEntity queryCustomerByAliOpenId(@Param("openId") String openId);
+
+    CustomerEntity queryCustomerByWechatOpenId(@Param("openId") String openId);
+
+    int updateWechatOpenId(@Param("customerId") String customerId, @Param("openId") String openId);
 }
